@@ -1,19 +1,19 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
+  args: ['install']
 - name: 'gcr.io/cloud-builders/npm'
-    args: ["run", "create-env"]
-    env:
+  args: ["run", "create-env"]
+  env:
     - 'MY_ENV_VAR=${_MY_ENV_VAR}'
     - 'REACT_APP_AUTH0_CLIENT_ID=${_REACT_APP_AUTH0_CLIENT_ID}'
     - 'REACT_APP_AUTH0_DOMAIN=${_REACT_APP_AUTH0_DOMAIN}'
     - 'REACT_APP_CLOUDINARY_UPLOAD_PRESET=${_REACT_APP_CLOUDINARY_UPLOAD_PRESET}'
     - 'REACT_APP_CLOUDINARY_UPLOAD_URL=${_REACT_APP_CLOUDINARY_UPLOAD_URL}'
 - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']
+  args: ['run', 'build']
 - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy", "client.yaml", "-v", "$_GAE_VERSION"]
+  args: ["app", "deploy", "client.yaml", "-v", "$_GAE_VERSION"]
 - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "services", "--project", "$PROJECT_ID", "set-traffic", "--splits", "$_GAE_TRAFFIC"]
+  args: ["app", "services", "--project", "$PROJECT_ID", "set-traffic", "--splits", "$_GAE_TRAFFIC"]
 timeout: "1600s"
     
