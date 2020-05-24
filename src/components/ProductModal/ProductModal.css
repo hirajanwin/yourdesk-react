@@ -1,0 +1,27 @@
+.ProductImageContainer {
+    max-width:50%;
+    height:auto;
+    margin: 0 auto;
+}
+
+.CustomDialogue {
+    left: 20%;
+    /* top: 3.5%; */
+  }
+  
+
+.ProductImage {
+    width: 100px;
+}
+
+.ProductDropDown {
+    width: 100%;
+    position: absolute;
+}
+
+.ProductDropDownItem {
+    margin-right: 30px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    cursor: pointer;
+}

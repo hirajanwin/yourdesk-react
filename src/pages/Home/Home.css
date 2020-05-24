@@ -1,0 +1,40 @@
+.DeskImage {
+    padding-top: 5vh;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.Home {
+    align-items: center;
+    text-align: center;
+}
+
+.HomeTitle {
+    /* font-family: 'Recoleta Black'; */
+    font-weight: 900;
+    font-size: 300%;
+}
+
+.HomeSubtitle {
+    padding-top: 90px;
+    padding-bottom: 10px;
+    /* font-family: 'Recoleta Black'; */
+    font-weight: 900;
+    font-size: 200%;
+}
+
+.FeaturedList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Splash {
+    display: flex;
+    flex-direction: row;
+}
+
+.SplashText {
+    padding-top: 30px;
+}

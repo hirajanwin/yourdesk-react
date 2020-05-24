@@ -1,0 +1,41 @@
+.Dropzone {
+    margin-top: 90px;
+    border-style: dashed;
+    border-color: grey;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+p.DropzonePrompt {
+    top: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+.Canvas {
+    width: 70vh;
+    z-index: 1050;
+    flex: 0;
+    transition: flex 250ms linear;
+}
+
+.ProductList {
+    width: 50vh;
+    padding: 20px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.MainForm {
+    width: 30vh;
+}
+
+.konvajs-content {
+    z-index: 1050;
+}

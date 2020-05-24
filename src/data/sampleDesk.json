@@ -1,0 +1,56 @@
+{
+  "allIds": [
+    3,
+    4
+  ],
+  "byIds": {
+    "3": {
+      "deskProduct": {
+        "coords": {
+          "x": 322,
+          "y": 159
+        },
+        "saved": true,
+        "id": 3,
+        "pros": "",
+        "cons": "",
+        "product": {
+          "_id": "5ec4e5cc2ea68e989e22b8ed",
+          "brand": "HP",
+          "model": "27f",
+          "category": "Monitor",
+          "img": "https://images-na.ssl-images-amazon.com/images/I/71V2rgkb2rL._AC_SL1500_.jpg",
+          "url": "https://www.amazon.com/HP-Display-Ultra-Slim-Backlit-Micro-Edge/dp/B07CPCHSV5",
+          "price": 1199.99,
+          "__v": 0
+        }
+      },
+      "saved": true,
+      "selected": false
+    },
+    "4": {
+      "deskProduct": {
+        "coords": {
+          "x": 478,
+          "y": 187
+        },
+        "saved": true,
+        "id": 4,
+        "pros": "",
+        "cons": "",
+        "product": {
+          "_id": "5ec4e45fe1e4cb977b5a888e",
+          "brand": "Apple",
+          "model": "Macbook Pro",
+          "category": "Computer",
+          "img": "https://images-na.ssl-images-amazon.com/images/I/71HI3U9ZwZL._AC_SL1500_.jpg",
+          "url": "https://www.amazon.com/Apple-MacBook-13-inch-Storage-Keyboard/dp/B0882KD98F/ref=sr_1_1_sspa",
+          "price": 1199.99,
+          "__v": 0
+        }
+      },
+      "saved": true,
+      "selected": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+[{
+    "brand": "Apple",
+    "model": "Macbook Pro",
+    "category": "Computer",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/71HI3U9ZwZL._AC_SL1500_.jpg",
+    "url": "https://www.amazon.com/Apple-MacBook-13-inch-Storage-Keyboard/dp/B0882KD98F/ref=sr_1_1_sspa",
+    "price": 1199.99
+},{
+    "brand": "HP",
+    "model": "27f",
+    "category": "Monitor",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/71V2rgkb2rL._AC_SL1500_.jpg",
+    "url": "https://www.amazon.com/HP-Display-Ultra-Slim-Backlit-Micro-Edge/dp/B07CPCHSV5",
+    "price": 1199.99
+}]

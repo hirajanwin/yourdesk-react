@@ -1,0 +1,17 @@
+.Header {
+    border-bottom: 1px solid #ededed;
+    /* padding-left:100px; */
+    /* padding-right:100px; */
+}
+
+.HeaderNav {
+    border-left: 1px solid #ededed;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.vl {
+    border-left: 1px solid #ededed;
+    height: 100%;
+}
+  

@@ -1,0 +1,11 @@
+.FourBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.FourText {
+    font-family: 'Recoleta';
+    font-weight: 900;
+    font-size: 1000%;
+}

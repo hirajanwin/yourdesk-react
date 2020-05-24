@@ -1,0 +1,10 @@
+.DeskGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.SearchBar {
+    display: flex;
+    flex-direction: row;
+}

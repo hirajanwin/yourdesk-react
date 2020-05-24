@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.91089925.chunk.css",
+    "main.js": "/static/js/main.1ef5f344.chunk.js",
+    "main.js.map": "/static/js/main.1ef5f344.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ea800b5d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ea800b5d.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.8d8fb4eb.chunk.js": "/static/js/2.8d8fb4eb.chunk.js",
+    "static/js/2.8d8fb4eb.chunk.js.map": "/static/js/2.8d8fb4eb.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.ed9a05878f8cefe447c74873d914dac7.js": "/precache-manifest.ed9a05878f8cefe447c74873d914dac7.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.91089925.chunk.css.map": "/static/css/main.91089925.chunk.css.map",
+    "static/js/2.8d8fb4eb.chunk.js.LICENSE.txt": "/static/js/2.8d8fb4eb.chunk.js.LICENSE.txt",
+    "static/media/Recoleta-Black.ttf": "/static/media/Recoleta-Black.94bcced9.ttf",
+    "static/media/desk2.png": "/static/media/desk2.6ca77276.png",
+    "static/media/lost-tourist.png": "/static/media/lost-tourist.7164c20b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ea800b5d.js",
+    "static/css/2.af3c1da9.chunk.css",
+    "static/js/2.8d8fb4eb.chunk.js",
+    "static/css/main.91089925.chunk.css",
+    "static/js/main.1ef5f344.chunk.js"
+  ]
+}
