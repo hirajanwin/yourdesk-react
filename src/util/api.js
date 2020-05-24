@@ -2,7 +2,7 @@ import axios from "axios";
 import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from './config.js';
 import gql from 'graphql-tag';
 
-export const URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : 'https://api-dot-yourdesk.wl.r.appspot.com/';
+export const URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/graphql' : 'https://api-dot-yourdesk.wl.r.appspot.com/graphql';
 
 export const GET_DESKS = gql`
 {
