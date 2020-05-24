@@ -5,11 +5,11 @@ import { useAuth0 } from "../../react-auth0-spa";
 import './Header.css';
 
 function Header() {
-    const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+    const { isAuthenticated, loginWithPopup, logout, user } = useAuth0();
     let light = true;
 
     const handleSignIn = () => {
-        loginWithRedirect();
+        loginWithPopup();
     }
     const handleSignOut = () => {
         logout();
@@ -22,7 +22,7 @@ function Header() {
             <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
             <div className="vl"/>
             &nbsp;
-            { (user && user.picture) && <Image style={{paddingLeft: 10}} style={{width: "10%"}} src={user.picture} alt="" roundedCircle/>}
+            { <Image style={{paddingLeft: 10}} style={{width: "40px", height: "40px"}} src={(user && user.picture) ? user.picture : ""} alt="" roundedCircle/>}
         </div>);
     const SignedOut = (!isAuthenticated && <Nav.Link onClick={handleSignIn}>Sign In</Nav.Link>);
     

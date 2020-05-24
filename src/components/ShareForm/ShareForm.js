@@ -5,10 +5,9 @@ import { clearAllDeskProducts } from '../../redux/actions';
 import { uploadImage, CREATE_DESK_PRODUCTS, CREATE_DESK } from '../../util/api';
 import { useAuth0 } from "../../react-auth0-spa";
 import { useMutation } from '@apollo/react-hooks';
-import { URI } from '../../util/api';
 
 export default function ShareForm(props) {
-    const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+    const { isAuthenticated, loginWithPopup, user } = useAuth0();
     const deskProducts = useSelector(store => store.deskProducts);
     const dispatch = useDispatch();
     const { onSuccessfulUpload } = props; 
@@ -22,7 +21,7 @@ export default function ShareForm(props) {
 
         // Can't create desk unless authenticated
         if (!isAuthenticated) {
-            loginWithRedirect({ redirect_uri: URI + "share"});
+            loginWithPopup();
             return;
         }
         setLoading(true);
@@ -105,17 +104,17 @@ export default function ShareForm(props) {
         <Form className={props.show ? "MainForm" : "hidden"} onSubmit={handleSubmit}>
             <Form.Group controlId="name">
                 <Form.Label>Give this desk a name!</Form.Label>
-                <Form.Control type="text" defaultValue="Big Bertha"/>
+                <Form.Control type="text" placeholder="Big Bertha"/>
             </Form.Group>
             
             <Form.Group controlId="use">
                 <Form.Label>What do you use this desk for?</Form.Label>
-                <Form.Control as="textarea" rows="3" defaultValue="WFH, Gaming, Programming..."/>
+                <Form.Control as="textarea" rows="3" placeholder="WFH, Gaming, Programming..."/>
             </Form.Group>
             
             <Form.Group controlId="favorite">
                 <Form.Label>Which is your favorite product?</Form.Label>
-                <Form.Control as="textarea" rows="3" defaultValue="My Macbook!"/>
+                <Form.Control as="textarea" rows="3" placeholder="My Macbook!"/>
             </Form.Group>
 
             <Button loading={isLoading.toString()} variant="primary" type="submit" disabled={isLoading || !props.image}> 
