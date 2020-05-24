@@ -16,8 +16,6 @@ const client = new ApolloClient({
   uri: URI,
 });
 
-console.log(URI);
-
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = appState => {
