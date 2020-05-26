@@ -22,7 +22,7 @@ export default function DeskCard(props) {
             <Card.Body>
                 <Card.Title>{desk.name}</Card.Title>
                 <Row style={{margin: '0 auto', justifyContent: 'center'}}>
-                    {(desk && desk.user && desk.user.picture) && <Image src={desk.user.picture} style={{width: "10%"}} alt="" roundedCircle/>}
+                    {(desk && desk.user && desk.user.picture) && <Image src={desk.user.picture} style={{width: "30px", height: "30px"}} alt="" roundedCircle/>}
                     &nbsp;
                     <Card.Text>{(desk && desk.user && desk.user.picture) && desk.user.name}</Card.Text>
                 </Row>

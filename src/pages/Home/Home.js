@@ -13,7 +13,7 @@ export default function Home() {
     const { data: dataDesks } = useQuery(GET_DESKS);
     const { data } = useQuery(GET_PRODUCTS);
     let featuredDesks = dataDesks ? dataDesks.deskMany.slice(0, 4) : [];
-    let featuredProducts = data ? data.productMany.slice(0, 4) : [];
+    let featuredProducts = data ? data.productMany.slice(0, 3) : [];
     const [showAlert, setShowAlert] = useState(true);
 
     return (
@@ -21,10 +21,10 @@ export default function Home() {
                 {<Fade in={showAlert} component={<Alert onClick={() => setShowAlert(false)} variant={'warning'} dismissible>Warning, this site is still under heavy construction <span role="img">🚧👷‍♂️🚧</span></Alert>} />}
             <div className="Home">
                 <div className="SplashText">
-                    <h1 className="HomeTitle">If you spend a lot of time on your desk, make sure that you love it!</h1>
+                    <h1 className="HomeTitle">If you spend a lot of time on your desk, make sure you love it!</h1>
                 </div>
                 <img className="DeskImage" alt="" src={deskImg}/>
-                <h3 className="HomeSubtitle">Check out the desks other people work/game/study on.</h3>
+                <h3 className="HomeSubtitle">Check out the desks other people work, game, and study on.</h3>
                 <div className="FeaturedList">
                     {featuredDesks.map((desk, i) => <DeskCard key={i} desk={desk}/>)}
                 </div>
