@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-
 import About from './pages/About/About';
 import Home from './pages/Home/Home';
 import Share from './pages/Share/Share';
@@ -13,23 +11,12 @@ import FourOhFour from './pages/FourOhFour/FourOhFour';
 import Charts from './pages/Charts/Charts';
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Loading from "./components/Loading/Loading";
-
-import { useAuth0 } from "./react-auth0-spa";
 
 import './style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-// kill -9 $(lsof -ti tcp:5000) 
-
 function App() {
-  const { loading } = useAuth0();
-
-  // if (loading) {
-  //   return <Loading/>;
-  // }
-
   return (
     <div className="App">
       <Router>

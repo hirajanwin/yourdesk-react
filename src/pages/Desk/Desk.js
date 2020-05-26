@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_DESK } from '../../util/api';
 import DeskComponent from '../../components/DeskComponent/DeskComponent';

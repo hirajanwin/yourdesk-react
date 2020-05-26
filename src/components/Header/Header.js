@@ -15,15 +15,17 @@ function Header() {
         logout();
     }
 
+    let user_img = (user && user.picture) ? user.picture : "";
+
     const SignedIn = (isAuthenticated && 
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
             <Nav.Link href="/profile">Profile</Nav.Link>
-            <div className="vl"/>
             <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
-            <div className="vl"/>
             &nbsp;
-            { <Image style={{paddingLeft: 10}} style={{width: "40px", height: "40px"}} src={(user && user.picture) ? user.picture : ""} alt="" roundedCircle/>}
-        </div>);
+            { <Image style={{paddingLeft: 10}} style={{width: "40px", height: "40px"}} src={user_img} alt="" roundedCircle/>}
+        </div>
+        
+        );
     const SignedOut = (!isAuthenticated && <Nav.Link onClick={handleSignIn}>Sign In</Nav.Link>);
     
     return (

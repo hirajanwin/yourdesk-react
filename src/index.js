@@ -16,8 +16,6 @@ const client = new ApolloClient({
   uri: URI,
 });
 
-console.log(URI);
-
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = appState => {
@@ -27,6 +25,8 @@ const onRedirectCallback = appState => {
       : window.location.pathname
   );
 };
+
+console.log(process.env.REACT_APP_AUTH0_CLIENT_ID);
 
 const config = {
   domain: process.env.REACT_APP_AUTH0_DOMAIN,

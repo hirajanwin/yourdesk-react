@@ -10,21 +10,21 @@ export default function DeskCard(props) {
     const handleClick = () => {
         history.push("/desk/" + desk.user.user_id + "/"+ desk._id);
     }
-
+    
     return (
         <div>
-            { (desk && desk.user) && <Button 
+            { <Button 
             variant="light" 
-            href={"/desk/" + desk.user.user_id + "/"+ desk._id}  as={Card} 
+            href={(desk && desk.user && desk.user.user_id) && "/desk/" + desk.user.user_id + "/"+ desk._id}  as={Card} 
             style={{ width: '18rem', margin: '10px', cursor:'pointer' }} 
             onClick={handleClick}>
-            <Card.Img variant="top" src={desk.img} thumbnail="true" height="200px" rounded/>
+            <Card.Img variant="top" src={desk.img} thumbnail="true" height="200px"/>
             <Card.Body>
                 <Card.Title>{desk.name}</Card.Title>
                 <Row style={{margin: '0 auto', justifyContent: 'center'}}>
-                    {(desk.user && desk.user.picture) && <Image src={desk.user.picture} style={{width: "10%"}} alt="" roundedCircle/>}
+                    {(desk && desk.user && desk.user.picture) && <Image src={desk.user.picture} style={{width: "10%"}} alt="" roundedCircle/>}
                     &nbsp;
-                    <Card.Text>{desk.user.name}</Card.Text>
+                    <Card.Text>{(desk && desk.user && desk.user.picture) && desk.user.name}</Card.Text>
                 </Row>
             </Card.Body>
             <Card.Footer>

@@ -52,8 +52,8 @@ export default function Share() {
                 { (!show) && <Fade in={!show} component={DrozoneComponent} />} 
                 {<Fade in={show} component={<Canvas show={show} share image={image ? image.blob : null}/>} />}
                 {<Fade in={show} component={<ProductList show={show} share/>} />}
-                {<Fade in={show} component={<ShareForm onSuccessfulUpload={onSuccessfulUpload} show={show} image={image} share/>} />}
             </div>      
+            {<Fade in={show} component={<ShareForm onSuccessfulUpload={onSuccessfulUpload} show={show} image={image} share/>} />}
         </div>
     );
 }

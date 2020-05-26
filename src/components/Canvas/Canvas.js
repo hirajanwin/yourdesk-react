@@ -43,7 +43,7 @@ export default function Canvas(props) {
     
     return (
     <div className={props.show ? "Canvas" : "hidden"} style={{zIndex: 1050}}>
-        <Stage width={600} height={600} onMouseOver={handleHover}>
+        <Stage width={600} height={500} onMouseOver={handleHover}>
             <Layer onClick={layerHandleClick} >
             <Image x={0} y={0} image={image} />
             

@@ -13,12 +13,12 @@ export default function Home() {
     const { data: dataDesks } = useQuery(GET_DESKS);
     const { data } = useQuery(GET_PRODUCTS);
     let featuredDesks = dataDesks ? dataDesks.deskMany.slice(0, 4) : [];
-    let featuredProducts = data ? data.productMany.slice(0, 5) : [];
+    let featuredProducts = data ? data.productMany.slice(0, 4) : [];
     const [showAlert, setShowAlert] = useState(true);
 
     return (
         <div className="body">
-                {<Fade in={showAlert} component={<Alert onClick={() => setShowAlert(false)} variant={'warning'} dismissible>Warning, this site is still under construction <span role="img">🚧👷‍♂️🚧</span></Alert>} />}
+                {<Fade in={showAlert} component={<Alert onClick={() => setShowAlert(false)} variant={'warning'} dismissible>Warning, this site is still under heavy construction <span role="img">🚧👷‍♂️🚧</span></Alert>} />}
             <div className="Home">
                 <div className="SplashText">
                     <h1 className="HomeTitle">If you spend a lot of time on your desk, make sure that you love it!</h1>
@@ -28,7 +28,7 @@ export default function Home() {
                 <div className="FeaturedList">
                     {featuredDesks.map((desk, i) => <DeskCard key={i} desk={desk}/>)}
                 </div>
-                <h3 className="HomeSubtitle">Get their take on the products that they love.</h3>
+                <h3 className="HomeSubtitle">Get their honest opinion on the products that they love.</h3>
                 <div className="FeaturedList">
                     {featuredProducts.map((product, i) => <ProductCard key={i} product={product}/>)}
                 </div>

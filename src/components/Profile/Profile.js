@@ -12,10 +12,10 @@ const Profile = () => {
 
   return (
     <div className="body">
-        <Image src={user.picture} alt="Profile"/>
+        <Image src={user.picture} style={{width: "200px", height: "200px"}} alt="Profile"/>
         <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <p>{JSON.stringify(user, null, 2)}</p>
+        <p>For transparency, this is all the information stored by Auth0 <strong>(other users cannot view this)</strong>:</p>
+        {Object.keys(user).map((k, i) => <p key={i}>{k + ": " + user[k]}</p>)}
     </div>
   );
 };

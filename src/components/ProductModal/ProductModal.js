@@ -20,9 +20,8 @@ export default function ProductModal() {
   const [selectedProduct, setSelectedProduct] = useState(emptyProduct);
   const [selectedCategory, setSelectedCategory] = useState(productTypes[0]);
 
-  const [queriedProducts, setQueriedProducts] = useState([]);
   const [query, setQuery] = useState([]);
-  const [showProductList, setShowProductList] = useState(true);
+  const [showProductList, setShowProductList] = useState(false);
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -30,16 +29,6 @@ export default function ProductModal() {
         setSelectedProduct(currentDeskProduct.product);
     }
   }, [currentDeskProduct]);
-
-  useEffect(() => {
-    if (!query) {
-      setQueriedProducts([]);
-    } else {
-      setQueriedProducts(products.filter(
-        product => product.category === selectedCategory
-      ));
-    }
-  }, [query])
 
   const handleCancelClose = () => {
     if (!currentDeskProduct.saved) {
@@ -67,6 +56,11 @@ export default function ProductModal() {
   const handleSearch = (e) => {
     setShowProductList(true);
     let query = e.target.value;
+
+    if (query === "") {
+      setShowProductList(false);
+    }
+
     setQuery(query);
   }
   let disabled = selectedProduct.brand;
@@ -78,10 +72,11 @@ export default function ProductModal() {
     </Modal.Header>
     <Modal.Body>
         <Form onSubmit={handleFormSubmit}>
+        <Form.Label>Sorry, only four sample products available right now! I need to work on product search!</Form.Label>
 
         <Form.Group controlId="product">
             <InputGroup className="mb-3">
-              <DropdownButton
+              {/* <DropdownButton
                 as={InputGroup.Prepend}
                 variant="outline-primary"
                 title={selectedCategory}
@@ -92,10 +87,10 @@ export default function ProductModal() {
                     setSelectedCategory(type)
                   }} key={i}>{type}</Dropdown.Item>
                 ))}
-              </DropdownButton>
+              </DropdownButton> */}
               <Col>
                 <Form.Control placeholder="Search for the product" onChange={handleSearch} value={query}/>
-                <ListGroup className="ProductDropDown" style={showProductList ? {} : {display: "none"}}>
+                <ListGroup className="ProductDropDown" style={showProductList ? {zIndex: 1050} : {display: "none"}}>
                     {products.map((product, i) => 
                       <ListGroup.Item key={i} onClick={() => {
                         setShowProductList(false);
@@ -106,7 +101,7 @@ export default function ProductModal() {
                       </ListGroup.Item>)}
                 </ListGroup>
               </Col>
-              <Button variant="primary" onClick={() => setShowProductList(true)}>Search</Button>
+              <Button variant="primary" onClick={() => setShowProductList(state => !state)}>Search</Button>
             </InputGroup>
           </Form.Group>
 
