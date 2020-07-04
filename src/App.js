@@ -12,6 +12,7 @@ import Charts from './pages/Charts/Charts';
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
+
 import './style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

@@ -9,12 +9,16 @@ export default function DeskDetails(props) {
             {
             desk &&
             <div>
-                <p>{desk.name}</p>
-                <p>{desk.user.name}</p>
-                <p>Date: {date}</p>
-                <p>What do you use this desk for?</p>
+                <p>
+                    <b>{desk.name}</b>
+                </p>
+                <p>
+                    <i>{desk.user.name}</i>
+                </p>
+                <p><b>Date:</b> {date}</p>
+                <b>What do you use this desk for?</b>
                 <p>{desk.use}</p>
-                <p>Which is your favorite product?</p>
+                <b>Which is your favorite product?</b>
                 <p>{desk.favorite}</p>
             </div>
             }   

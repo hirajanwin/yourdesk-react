@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from "react-redux";
 import { clearAllDeskProducts } from '../../redux/actions';
 import { uploadImage, CREATE_DESK_PRODUCTS, CREATE_DESK } from '../../util/api';
-import { useAuth0 } from "../../react-auth0-spa";
+import { useAuth0 } from "../../util/react-auth0-spa";
 import { useMutation } from '@apollo/react-hooks';
 
 export default function ShareForm(props) {
@@ -52,7 +52,6 @@ export default function ShareForm(props) {
         // Upload the image first
         uploadImage(props.image.file).then((resp) => {
             let url = resp.data.url;
-
             // Then create desk products
             createDeskProducts({
                 variables: {
@@ -71,7 +70,7 @@ export default function ShareForm(props) {
                             img: url,
                             date_created: new Date(),
                         }
-                        
+                        console.log(desk);
                         // Finally create the desk object
                         createDesk({
                             variables: {
@@ -104,17 +103,17 @@ export default function ShareForm(props) {
         <Form className={props.show ? "MainForm" : "hidden"} onSubmit={handleSubmit}>
             <Form.Group controlId="name">
                 <Form.Label>Give this desk a name!</Form.Label>
-                <Form.Control type="text" placeholder="Big Bertha"/>
+                <Form.Control type="text" defaultValue="Testing"/>
             </Form.Group>
             
             <Form.Group controlId="use">
                 <Form.Label>What do you use this desk for?</Form.Label>
-                <Form.Control as="textarea" rows="3" placeholder="WFH, Gaming, Programming..."/>
+                <Form.Control as="textarea" rows="3" defaultValue="WFH, Gaming, Programming..."/>
             </Form.Group>
             
             <Form.Group controlId="favorite">
                 <Form.Label>Which is your favorite product?</Form.Label>
-                <Form.Control as="textarea" rows="3" placeholder="My Macbook!"/>
+                <Form.Control as="textarea" rows="3" defaultValue="My test product!"/>
             </Form.Group>
 
             <Button loading={isLoading.toString()} variant="primary" type="submit" disabled={isLoading || !props.image}> 

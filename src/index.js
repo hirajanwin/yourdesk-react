@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { Auth0Provider } from "./react-auth0-spa";
+import { Auth0Provider } from "./util/react-auth0-spa";
 import history from "./util/history";
 import { Provider } from 'react-redux'
 import store from './redux/store'

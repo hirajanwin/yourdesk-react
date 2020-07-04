@@ -40,10 +40,13 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
       coordX
       coordY
 			product {
-				brand
-        model
-        img
-        price
+				title
+        image
+        prices {
+          raw
+          currency
+          value
+        }
       }
     }
   }
@@ -95,16 +98,16 @@ mutation CreateDesk($newDesk: CreateOneDeskInput!) {
 // --------------- IMAGE ---------------
 
 export function uploadImage(file) {
-    var bodyFormData = new FormData();
-    bodyFormData.set('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-    bodyFormData.append('file', file);
+  var bodyFormData = new FormData();
+  bodyFormData.set('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  bodyFormData.append('file', file);
 
-    return axios({
-        method: 'post',
-        url: CLOUDINARY_UPLOAD_URL,
-        data: bodyFormData,
-        headers: { 'Content-Type': 'multipart/form-data' }
-    });
+  return axios({
+    method: 'post',
+    url: CLOUDINARY_UPLOAD_URL,
+    data: bodyFormData,
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
 }
 
 // --------------- PRODUCT ---------------
@@ -118,7 +121,7 @@ export function productSearch(search_term) {
     amazon_domain: "amazon.com",
     search_term: search_term
   }
-  
+
   // make the http GET request to Rainforest API
   return axios.get('https://api.rainforestapi.com/request', { params })
 }

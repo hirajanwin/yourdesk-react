@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux";
 import { deleteDeskProduct, addDeskProductProperties, hideProductModal, deselectAllDeskProducts } from '../../redux/actions';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import './ProductModal.css';
 import { GET_PRODUCTS, productSearch, CREATE_PRODUCT } from '../../util/api';
-
 import { similaritySearch } from '../../util/search';
+import './ProductModal.css';
+
 
 const emptyProduct = { brand: "", model: "", category: "", url: "", img: "", price: "" }
 
@@ -15,16 +15,22 @@ export default function ProductModal() {
   const { currentDeskProduct } = useSelector(store => store.currentDeskProduct);
   const showModal = useSelector(store => store.currentDeskProduct.show);
 
-  const { data } = useQuery(GET_PRODUCTS);
-  const products = data ? data.productMany : [];
+  const { data, refetch } = useQuery(GET_PRODUCTS);
+  const [products, setProducts] = useState([]);
 
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [searchDisabled, setSearchDisabled] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(emptyProduct);
 
   const [query, setQuery] = useState([]);
   const dispatch = useDispatch();
-
   const [createProduct] = useMutation(CREATE_PRODUCT);
+
+  useEffect(() => {
+    if (data) {
+      setProducts(data.productMany)
+    }
+  }, [data]);
 
   useEffect(() => {
     if (currentDeskProduct.saved) {
@@ -62,22 +68,31 @@ export default function ProductModal() {
   }
 
   function handleSearchButton(e) {
-    // productSearch(query).then(response => {
-    //   let newProduct;
-    //   console.log(response);
-    //   let numProducts = response.data.search_results.length;
-    //   for (let i = 0; i < numProducts; i++) {
-    //     newProduct = response.data.search_results[i];
-    //     createProduct({
-    //       variables: {
-    //         newProduct: newProduct
-    //       }
-    //     }
-    //     );
-    //   }
-    // }).catch(error => {
-    //   console.log(error);
-    // })
+    setShowSearchResults(false);
+    setSearchDisabled(true);
+    console.log("Start polling")
+    productSearch(query).then(response => {
+      let newProduct;
+      let numProducts = response.data.search_results.length;
+      
+      // Have apollo start polling for new products
+      
+      for (let i = 0; i < numProducts; i++) {
+        newProduct = response.data.search_results[i];
+        createProduct({
+          variables: {
+            newProduct: newProduct
+          }
+        }
+        );
+      }
+      setSearchDisabled(false);
+      setShowSearchResults(true);
+      console.log("Stop polling")
+      refetch();
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   let disabled = selectedProduct.title;
@@ -92,14 +107,16 @@ export default function ProductModal() {
       <Modal.Body>
         <Form onSubmit={handleFormSubmit}>
 
-        {/* Product selection/search */}
+          <Form.Label><i>Please don't query Amazon too much, I don't have many free API calls left :(</i></Form.Label>
+
+          {/* Product selection/search */}
           <Form.Group controlId="product">
             <InputGroup className="mb-3">
-              <Form.Control placeholder="Search for the product" onChange={handleSearchType} value={query} />
-              <Button disabled={true} variant="primary" onClick={handleSearchButton}>Search</Button>
+              <Form.Control disabled={searchDisabled} placeholder="Search for the product" onChange={handleSearchType} value={query} />
+              {/* <Button disabled={true} variant="primary" onClick={handleSearchButton}>Search</Button> */}
             </InputGroup>
 
-              {/* Product search results */}
+            {/* Product search results */}
             <ListGroup className="ProductDropDown" style={{ zIndex: 1050 }}>
               {showSearchResults && searchedProducts.map((product, i) =>
                 <ListGroup.Item key={i} onClick={() => {
@@ -109,10 +126,14 @@ export default function ProductModal() {
                 }} className="ProductDropDownItem">
                   {product.title}
                 </ListGroup.Item>)}
+
+                {(showSearchResults && query !== "") && <ListGroup.Item onClick={handleSearchButton} className="ProductDropDownItem">
+                  <i>If you can't find your product, click here to query Amazon.</i>
+                </ListGroup.Item>}
             </ListGroup>
 
           </Form.Group>
-          
+
 
           {/* Image of the selected product */}
           {selectedProduct.image &&

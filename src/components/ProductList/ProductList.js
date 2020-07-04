@@ -12,8 +12,8 @@ export default function ProductCard(props) {
     for (let i = 0; i < deskProducts.allIds.length; i++) {
         let deskProduct = deskProducts.byIds[deskProducts.allIds[i]].deskProduct;
         if (deskProduct.product) {
-            if (deskProduct.product.price) {
-                total += parseFloat(deskProduct.product.price);
+            if (deskProduct.product.prices) {
+                total += deskProduct.product.prices[0].value;
             }
         }
     }
@@ -46,11 +46,11 @@ export default function ProductCard(props) {
                         <Accordion.Toggle as={Card.Header} onMouseOver={() => handleMouse(selected, deskProduct)} onMouseOut={() => handleMouse(selected, deskProduct)} 
                             eventKey={i} style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
                             
-                            {deskProduct.product.title.slice(0, 40)}{deskProduct.product.title.length > 40 ? "..." : null} {"$" + (deskProduct.product.price ? deskProduct.product.price : "0")}
+                            {deskProduct.product.title.slice(0, 40)}{deskProduct.product.title.length > 40 ? "..." : null} {"$" + (deskProduct.product.prices[0].value)}
 
                             <div>
-                                {props.share && <Button variant="outline-primary" size="sm" onClick={() => handleEdit(deskProduct)}>Edit</Button>}
-                                &nbsp;
+                                {/* {props.share && <Button variant="outline-primary" size="sm" onClick={() => handleEdit(deskProduct)}>Edit</Button>} */}
+                                {/* &nbsp; */}
                                 {props.share && <Button variant="outline-danger" size="sm" onClick={() => handleDelete(deskProduct)}>Delete</Button>}
                             </div>
                         </Accordion.Toggle>

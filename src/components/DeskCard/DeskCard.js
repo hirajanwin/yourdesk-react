@@ -27,9 +27,6 @@ export default function DeskCard(props) {
                     <Card.Text>{(desk && desk.user && desk.user.picture) && desk.user.name}</Card.Text>
                 </Row>
             </Card.Body>
-            <Card.Footer>
-            <small className="text-muted">Created {date}</small>
-            </Card.Footer>
             </Button>}
         </div>
     );

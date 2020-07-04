@@ -17,11 +17,11 @@ export default function Explore() {
                 <Col xs={6}>
                     <Form.Group controlId="search">
                         <Form.Control type="email" placeholder="Search for desks, @users, products, #tags, brands"/>
-                        <Form.Text className="text-muted">This is some informative text.</Form.Text>
+                        <Form.Text className="text-muted">Search is not working yet.</Form.Text>
                     </Form.Group>
                 </Col>
                 <Col>
-                    <Button variant="primary" type="submit">
+                    <Button disabled={true} variant="primary" type="submit">
                         Search
                     </Button>
                 </Col>

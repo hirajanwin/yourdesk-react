@@ -3,6 +3,7 @@ import { Stage, Layer, Circle, Image } from "react-konva";
 import { useSelector, useDispatch } from "react-redux";
 import { addDeskProduct, showProductModal, deselectAllDeskProducts, selectDeskProduct, setCurrentDeskProduct } from '../../redux/actions';
 
+
 export default function Canvas(props) {
 
     const dispatch = useDispatch();
