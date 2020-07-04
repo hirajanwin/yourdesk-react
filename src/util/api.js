@@ -54,16 +54,17 @@ export const GET_PRODUCTS = gql`
 {
     productMany {
       _id
-      category
-      brand
-      model
-      price
-      img
+      title
+      prices {
+        symbol
+        value
+      }
+      image
     }
   }
 `
 
-export const CREATE_PRODUCT = gql`
+export const CREATE_PRODUCT_OLD = gql`
 mutation CreateProduct($newDeskProducts: CreateOneProductInput!) {
     productCreateOne(record: $newDeskProducts) {
       record {
@@ -105,3 +106,28 @@ export function uploadImage(file) {
         headers: { 'Content-Type': 'multipart/form-data' }
     });
 }
+
+// --------------- PRODUCT ---------------
+
+
+export function productSearch(search_term) {
+  // set up the request parameters
+  const params = {
+    api_key: process.env.REACT_APP_RAINFOREST_API_KEY,
+    type: "search",
+    amazon_domain: "amazon.com",
+    search_term: search_term
+  }
+  
+  // make the http GET request to Rainforest API
+  return axios.get('https://api.rainforestapi.com/request', { params })
+}
+
+export const CREATE_PRODUCT = gql`
+mutation CreateProduct($newProduct: CreateOneProductInput!) {
+    productCreateOne(record: $newProduct) {
+      recordId
+    }
+  }
+`
+

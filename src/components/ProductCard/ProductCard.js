@@ -6,7 +6,7 @@ export default function ProductCard(props) {
     let { product } = props;
     return (
         <div className="ProductCard">
-            <Image height="150px" src={product.img} />
+            <Image height="150px" src={product.image} />
         </div>
     )
 }

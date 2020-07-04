@@ -1,32 +1,34 @@
-import React, {useEffect, useState} from 'react';
-import { Form, Modal, Button, Image, InputGroup, Dropdown, ListGroup, DropdownButton, Col } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Form, Modal, Button, Image, InputGroup, ListGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux";
 import { deleteDeskProduct, addDeskProductProperties, hideProductModal, deselectAllDeskProducts } from '../../redux/actions';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import './ProductModal.css';
-import { GET_PRODUCTS } from '../../util/api';
+import { GET_PRODUCTS, productSearch, CREATE_PRODUCT } from '../../util/api';
 
-const productTypes = ["Computer", "Keyboard", "Mouse", "Monitor","Desk", "Chair", "Accessory", "Decoration", "Miscellaneous"];
-const emptyProduct = { brand: "", model: "", category: "", url: "", img: "", price: ""}
+import { similaritySearch } from '../../util/search';
+
+const emptyProduct = { brand: "", model: "", category: "", url: "", img: "", price: "" }
 
 export default function ProductModal() {
-  const {currentDeskProduct} = useSelector(store => store.currentDeskProduct);
+  const { currentDeskProduct } = useSelector(store => store.currentDeskProduct);
   const showModal = useSelector(store => store.currentDeskProduct.show);
 
   const { data } = useQuery(GET_PRODUCTS);
   const products = data ? data.productMany : [];
 
+  const [showSearchResults, setShowSearchResults] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(emptyProduct);
-  const [selectedCategory, setSelectedCategory] = useState(productTypes[0]);
 
   const [query, setQuery] = useState([]);
-  const [showProductList, setShowProductList] = useState(false);
   const dispatch = useDispatch();
-  
+
+  const [createProduct] = useMutation(CREATE_PRODUCT);
+
   useEffect(() => {
     if (currentDeskProduct.saved) {
-        setSelectedProduct(currentDeskProduct.product);
+      setSelectedProduct(currentDeskProduct.product);
     }
   }, [currentDeskProduct]);
 
@@ -53,82 +55,94 @@ export default function ProductModal() {
     setSelectedProduct(emptyProduct);
   }
 
-  const handleSearch = (e) => {
-    setShowProductList(true);
+  function handleSearchType(e) {
+    setShowSearchResults(true);
     let query = e.target.value;
-
-    if (query === "") {
-      setShowProductList(false);
-    }
-
     setQuery(query);
   }
-  let disabled = selectedProduct.brand;
+
+  function handleSearchButton(e) {
+    // productSearch(query).then(response => {
+    //   let newProduct;
+    //   console.log(response);
+    //   let numProducts = response.data.search_results.length;
+    //   for (let i = 0; i < numProducts; i++) {
+    //     newProduct = response.data.search_results[i];
+    //     createProduct({
+    //       variables: {
+    //         newProduct: newProduct
+    //       }
+    //     }
+    //     );
+    //   }
+    // }).catch(error => {
+    //   console.log(error);
+    // })
+  }
+
+  let disabled = selectedProduct.title;
+
+  const searchedProducts = similaritySearch(query, products);
 
   return (
     <Modal show={showModal} onHide={handleCancelClose} animation={true} backdrop={true} dialogClassName='CustomDialogue'>
-    <Modal.Header closeButton>
-      <Modal.Title>What is this product?</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
+      <Modal.Header closeButton>
+        <Modal.Title>What is this product?</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
         <Form onSubmit={handleFormSubmit}>
-        <Form.Label>Sorry, only four sample products available right now! I need to work on product search!</Form.Label>
 
-        <Form.Group controlId="product">
+        {/* Product selection/search */}
+          <Form.Group controlId="product">
             <InputGroup className="mb-3">
-              {/* <DropdownButton
-                as={InputGroup.Prepend}
-                variant="outline-primary"
-                title={selectedCategory}
-                id="input-group-dropdown-1">
-                {productTypes.map((type, i) => (
-                  <Dropdown.Item onClick={() => {
-                    setShowProductList(true);
-                    setSelectedCategory(type)
-                  }} key={i}>{type}</Dropdown.Item>
-                ))}
-              </DropdownButton> */}
-              <Col>
-                <Form.Control placeholder="Search for the product" onChange={handleSearch} value={query}/>
-                <ListGroup className="ProductDropDown" style={showProductList ? {zIndex: 1050} : {display: "none"}}>
-                    {products.map((product, i) => 
-                      <ListGroup.Item key={i} onClick={() => {
-                        setShowProductList(false);
-                        setSelectedProduct(product);
-                        setQuery(product.brand + " " + product.model);
-                        }} className="ProductDropDownItem">
-                        {product.brand + " " + product.model}
-                      </ListGroup.Item>)}
-                </ListGroup>
-              </Col>
-              <Button variant="primary" onClick={() => setShowProductList(state => !state)}>Search</Button>
+              <Form.Control placeholder="Search for the product" onChange={handleSearchType} value={query} />
+              <Button disabled={true} variant="primary" onClick={handleSearchButton}>Search</Button>
             </InputGroup>
+
+              {/* Product search results */}
+            <ListGroup className="ProductDropDown" style={{ zIndex: 1050 }}>
+              {showSearchResults && searchedProducts.map((product, i) =>
+                <ListGroup.Item key={i} onClick={() => {
+                  setShowSearchResults(false);
+                  setSelectedProduct(product);
+                  setQuery(product.title);
+                }} className="ProductDropDownItem">
+                  {product.title}
+                </ListGroup.Item>)}
+            </ListGroup>
+
           </Form.Group>
+          
 
-          {selectedProduct.img && 
-          <div className="ProductImageContainer">
-            <Image src={selectedProduct.img} rounded fluid className="ProductImage"/>
-          </div>}
+          {/* Image of the selected product */}
+          {selectedProduct.image &&
+            <div className="ProductImageContainer">
+              <Image src={selectedProduct.image} rounded fluid className="ProductImage" />
+            </div>}
 
+          {/* Pros */}
           <Form.Group controlId="pros">
             <Form.Label>Pros</Form.Label>
-            <Form.Control onChange={(e) => { console.log(e)}}as="textarea" rows="1" value={currentDeskProduct.pros}/>
+            <Form.Control onChange={(e) => { console.log(e) }} as="textarea" rows="1" value={currentDeskProduct.pros} />
           </Form.Group>
 
+          {/* Cons */}
           <Form.Group controlId="cons">
             <Form.Label>Cons</Form.Label>
             <Form.Control as="textarea" rows="1" value={currentDeskProduct.cons} />
           </Form.Group>
 
+
+          {/* Cancel/Save buttons */}
           <Button variant="secondary" onClick={handleCancelClose}>
             Cancel
           </Button> &nbsp;
-          <Button disabled={ !disabled } variant="primary" type="submit">
+          <Button disabled={!disabled} variant="primary" type="submit">
             Save
           </Button>
-        
+
         </Form>
-        </Modal.Body>
-  </Modal>
+      </Modal.Body>
+    </Modal>
   );
 }

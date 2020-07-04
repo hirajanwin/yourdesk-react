@@ -22,7 +22,7 @@ function Header() {
             <Nav.Link href="/profile">Profile</Nav.Link>
             <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
             &nbsp;
-            { <Image style={{paddingLeft: 10}} style={{width: "40px", height: "40px"}} src={user_img} alt="" roundedCircle/>}
+            { <Image style={{paddingLeft: 10, width: "40px", height: "40px"}} src={user_img} alt="" roundedCircle/>}
         </div>
         
         );

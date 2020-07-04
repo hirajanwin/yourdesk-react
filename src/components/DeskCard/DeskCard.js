@@ -13,10 +13,10 @@ export default function DeskCard(props) {
     
     return (
         <div>
-            { <Button 
+            {<Button 
             variant="light" 
             href={(desk && desk.user && desk.user.user_id) && "/desk/" + desk.user.user_id + "/"+ desk._id}  as={Card} 
-            style={{ width: '18rem', margin: '10px', cursor:'pointer' }} 
+            style={{ width: '18rem', margin: '10px', cursor:'pointer', padding: '0px'}} 
             onClick={handleClick}>
             <Card.Img variant="top" src={desk.img} thumbnail="true" height="200px"/>
             <Card.Body>
