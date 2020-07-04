@@ -9,6 +9,7 @@ steps:
     - 'REACT_APP_AUTH0_DOMAIN=${_REACT_APP_AUTH0_DOMAIN}'
     - 'REACT_APP_CLOUDINARY_UPLOAD_PRESET=${_REACT_APP_CLOUDINARY_UPLOAD_PRESET}'
     - 'REACT_APP_CLOUDINARY_UPLOAD_URL=${_REACT_APP_CLOUDINARY_UPLOAD_URL}'
+    - 'REACT_APP_RAINFOREST_API_KEY=${_REACT_APP_RAINFOREST_API_KEY}'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
 - name: "gcr.io/cloud-builders/gcloud"
