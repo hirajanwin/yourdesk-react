@@ -5,7 +5,9 @@
 }
 
 .NewBody {
-  justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
 }

@@ -48,8 +48,8 @@ export default function Share() {
         <div className="body">
             {<Fade in={showAlert} component={<Alert onClick={() => setShowAlert(false)} variant={'danger'} dismissible>Sorry, only image files please!</Alert>} />}
             <ProductModal/>
+            { (!show) && <Fade in={!show} component={DrozoneComponent} />} 
             <div className="NewBody">
-                { (!show) && <Fade in={!show} component={DrozoneComponent} />} 
                 {<Fade in={show} component={<Canvas show={show} share image={image ? image.blob : null}/>} />}
                 {<Fade in={show} component={<ProductList show={show} share/>} />}
             </div>      

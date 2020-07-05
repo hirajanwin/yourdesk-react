@@ -1,4 +1,6 @@
 .Dropzone {
+    width: 500px;
+    margin: 0 auto;
     margin-top: 90px;
     border-style: dashed;
     border-color: grey;
