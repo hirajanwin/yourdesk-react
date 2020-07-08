@@ -25,7 +25,7 @@ export default function Home() {
                     {featuredProducts.map((product, i) => <ProductCard key={i} product={product}/>)}
                 </div>
                 <h3 className="HomeSubtitle">Share your desk!</h3>
-                {/* <DeskComponent desk={singleDesk}/> */}
+                <br/>
             </div>
         </div>
     );
