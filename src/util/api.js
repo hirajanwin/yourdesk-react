@@ -57,6 +57,7 @@ export const GET_PRODUCTS = gql`
 {
     productMany {
       _id
+      link
       title
       prices {
         symbol
