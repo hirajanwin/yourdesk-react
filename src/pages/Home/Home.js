@@ -6,11 +6,26 @@ import { GET_DESKS, GET_PRODUCTS } from '../../util/api';
 import { useQuery } from '@apollo/react-hooks';
 import './Home.css'
 
+function getRandom(length) { return Math.floor(Math.random()*(length)); }
+
+function getRandomSample(array, size) {
+    var length = array.length;
+
+    for(var i = size; i--;) {
+        var index = getRandom(length);
+        var temp = array[index];
+        array[index] = array[i];
+        array[i] = temp;
+    }
+
+    return array.slice(0, size);
+}
+
 export default function Home() {
     const { data: dataDesks } = useQuery(GET_DESKS);
     const { data } = useQuery(GET_PRODUCTS);
-    let featuredDesks = dataDesks ? dataDesks.deskMany.slice(0, 4) : [];
-    let featuredProducts = data ? data.productMany.slice(0, 3) : [];
+    let featuredDesks = dataDesks ? getRandomSample(dataDesks.deskMany, 4) : [];
+    let featuredProducts = data ? getRandomSample(data.productMany, 5) : [];
 
     return (
         <div className="home-body">
