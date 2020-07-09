@@ -3,7 +3,7 @@ import './About.css'
 
 export default function About() {
     return (
-        <div className="body">
+        <div className="Body">
             <div className="About">
                 <p>As of July 2020, </p>
                 <p>85% of employees are now working from home,</p>

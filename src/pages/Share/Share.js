@@ -45,7 +45,7 @@ export default function Share() {
     }
 
     return (
-        <div className="body">
+        <div className="ShareBody">
             {<Fade in={showAlert} component={<Alert onClick={() => setShowAlert(false)} variant={'danger'} dismissible>Sorry, only image files please!</Alert>} />}
             <ProductModal/>
             { (!show) && <Fade in={!show} component={DrozoneComponent} />} 

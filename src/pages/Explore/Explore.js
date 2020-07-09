@@ -11,7 +11,7 @@ export default function Explore() {
     let desks = data ? data.deskMany : [];
 
     return (
-        <div className="body">
+        <div className="Body">
             <Form>
             <Row>
                 <Col xs={6}>

@@ -17,7 +17,7 @@ export default function DeskComponent(props) {
     }
 
     return (
-        <div className="body">
+        <div className="Body">
             {
                 desk &&
                 <div className="NewBody">

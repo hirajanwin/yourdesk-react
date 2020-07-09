@@ -11,7 +11,7 @@ export default function Charts() {
     let topProducts = data ? data.productMany : [];
 
     return (
-        <div className="body">
+        <div className="Body">
             <p>NOTE: none of the data is actually being ranked, but I imagine this could be a cool feature later...</p>
             <p>Top Desks</p>
             <DeskTable desks={topDesks}/>
