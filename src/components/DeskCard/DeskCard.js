@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 export default function DeskCard(props) {
     const { desk } = props;
-    let date = new Date(desk.date_created).toLocaleDateString("en-US");
     const history = useHistory();
 
     const handleClick = () => {
