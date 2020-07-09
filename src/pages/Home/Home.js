@@ -27,6 +27,8 @@ export default function Home() {
     let featuredDesks = dataDesks ? getRandomSample(dataDesks.deskMany, 4) : [];
     let featuredProducts = data ? getRandomSample(data.productMany, 5) : [];
 
+    featuredDesks = featuredDesks.filter(desk => desk !== undefined);
+
     return (
         <div className="home-body">
             <div className="Home">
