@@ -130,7 +130,7 @@ export default function ProductModal() {
                   setSelectedProduct(product);
                   setQuery(product.title);
                 }} className="ProductDropDownItem">
-                  {product.title}
+                  {product.title} <Image src={product.image} style={{width: 50}}rounded fluid className="ProductImage" />
                 </ListGroup.Item>)}
 
               {(showSearchResults && query !== "") && <ListGroup.Item onClick={handleSearchButton} className="ProductDropDownItem">
