@@ -23,7 +23,7 @@ export default function About() {
                 <br/>
                 <p>Any concerns/questions can be directed to me at caimjonathan(at)gmail.com :)</p>
                 <p>Code is at <a href="https://github.com/jonathancai11/yourdesk-graphql">https://github.com/jonathancai11/yourdesk-graphql</a> 
-                    &nbsp; and <a href="https://github.com/jonathancai11/yourdesk-react">https://github.com/jonathancai11/yourdesk-react</a> </p>
+                    &nbsp; and <a href="https://github.com/jonathancai11/yourdesk-react">https://github.com/jonathancai11/yourdesk-react</a>.</p>
             </div>
         </div>
     );

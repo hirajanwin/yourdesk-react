@@ -20,6 +20,9 @@ export default function Desk(props) {
 
     return (
         <div className="ShareBody">
+            <br/>
+            <br/>
+            <br/>
             <DeskComponent desk={desk}/>
         </div>
     )

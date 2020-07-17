@@ -27,6 +27,7 @@ export default function Charts() {
 
     return (
         <div className="Body">
+            <br/>
             <p>None of the data is actually being ranked (random selection), but I imagine this could be a cool feature later :)</p>
             <p>Top Desks</p>
             <DeskTable desks={topDesks}/>

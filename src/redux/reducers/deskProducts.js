@@ -9,7 +9,8 @@ export default function(state = initialState, action) {
   switch (action.type) {
 
     case ADD_DESK_PRODUCT: {
-      const { id, deskProduct, saved } = action.payload;
+      const { id, deskProduct, saved, selected } = action.payload;
+      console.log(selected);
       let newState = {
         ...state,
         allIds: [...state.allIds, id],
@@ -17,7 +18,7 @@ export default function(state = initialState, action) {
           ...state.byIds,
           [id]: {
             deskProduct,
-            selected: true,
+            selected: selected,
             saved: saved
           }
         }

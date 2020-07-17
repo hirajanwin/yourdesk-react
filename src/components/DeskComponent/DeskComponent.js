@@ -12,7 +12,7 @@ export default function DeskComponent(props) {
     if (desk) {
         dispatch(clearAllDeskProducts());
         desk.desk_products.forEach(dp => {
-            dispatch(addDeskProduct(dp, true));
+            dispatch(addDeskProduct(dp, true, false));
         });
     }
 

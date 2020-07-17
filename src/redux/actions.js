@@ -5,14 +5,15 @@ import { ADD_DESK_PRODUCT, CLEAR_ALL_DESK_PRODUCTS, DELETE_DESK_PRODUCT, ADD_DES
 
 let nextProductId = 0;
 
-export const addDeskProduct = (deskProduct, saved) => {
+export const addDeskProduct = (deskProduct, saved, selected) => {
   deskProduct.id =  ++nextProductId
   return ({
     type: ADD_DESK_PRODUCT,
     payload: {  
       id: deskProduct.id,
       deskProduct: deskProduct,
-      saved: saved
+      saved: saved,
+      selected: selected,
     }
   });
 }

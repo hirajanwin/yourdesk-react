@@ -29,7 +29,7 @@ export default function Canvas(props) {
                 saved: false
             };
             dispatch(setCurrentDeskProduct(newProduct));
-            dispatch(addDeskProduct(newProduct, false));
+            dispatch(addDeskProduct(newProduct, false, true));
             dispatch(showProductModal());
         }
     }

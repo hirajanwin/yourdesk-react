@@ -8,7 +8,7 @@ export default function ProductTable(props) {
         <thead>
             <tr>
             <th>#</th>
-            <th>Title</th>
+            <th>Name</th>
             <th>Image</th>
             <th>Price</th>
             <th></th>
