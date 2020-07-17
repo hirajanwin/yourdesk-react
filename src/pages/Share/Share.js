@@ -53,6 +53,9 @@ export default function Share() {
                 {<Fade in={show} component={<Canvas show={show} share image={image ? image.blob : null}/>} />}
                 {<Fade in={show} component={<ProductList show={show} share/>} />}
             </div>      
+            <br/>
+            <br/>
+            <br/>
             {<Fade in={show} component={<ShareForm onSuccessfulUpload={onSuccessfulUpload} show={show} image={image} share/>} />}
         </div>
     );

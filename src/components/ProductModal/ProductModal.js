@@ -22,7 +22,7 @@ export default function ProductModal() {
   const [searchDisabled, setSearchDisabled] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(emptyProduct);
 
-  const [query, setQuery] = useState([]);
+  const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const [createProduct] = useMutation(CREATE_PRODUCT);
 
@@ -44,6 +44,7 @@ export default function ProductModal() {
     }
     dispatch(hideProductModal());
     setSelectedProduct(emptyProduct);
+    setQuery("");
   };
 
   const handleFormSubmit = (event) => {
@@ -59,6 +60,7 @@ export default function ProductModal() {
     dispatch(deselectAllDeskProducts());
     dispatch(hideProductModal());
     setSelectedProduct(emptyProduct);
+    setQuery("");
   }
 
   function handleSearchType(e) {
@@ -74,11 +76,15 @@ export default function ProductModal() {
     productSearch(query).then(response => {
       let newProduct;
       let numProducts = response.data.search_results.length;
-      
       // Have apollo start polling for new products
-      
+
       for (let i = 0; i < numProducts; i++) {
         newProduct = response.data.search_results[i];
+        if (!newProduct.prices && newProduct.price) {
+          newProduct.prices = newProduct.price;
+        }
+        delete newProduct.price;
+
         createProduct({
           variables: {
             newProduct: newProduct
@@ -107,7 +113,7 @@ export default function ProductModal() {
       <Modal.Body>
         <Form onSubmit={handleFormSubmit}>
 
-          <Form.Label><i>Please don't query Amazon too much, I don't have many free API calls left :(</i></Form.Label>
+          <Form.Label><i>Please query Amazon sparingly, I haven't many API calls left :(</i></Form.Label>
 
           {/* Product selection/search */}
           <Form.Group controlId="product">
@@ -127,9 +133,9 @@ export default function ProductModal() {
                   {product.title}
                 </ListGroup.Item>)}
 
-                {(showSearchResults && query !== "") && <ListGroup.Item onClick={handleSearchButton} className="ProductDropDownItem">
-                  <i>If you can't find your product, click here to query Amazon.</i>
-                </ListGroup.Item>}
+              {(showSearchResults && query !== "") && <ListGroup.Item onClick={handleSearchButton} className="ProductDropDownItem">
+                <i>If you can't find your product, click here to query Amazon.</i>
+              </ListGroup.Item>}
             </ListGroup>
 
           </Form.Group>
@@ -144,13 +150,13 @@ export default function ProductModal() {
           {/* Pros */}
           <Form.Group controlId="pros">
             <Form.Label>Pros</Form.Label>
-            <Form.Control onChange={(e) => { console.log(e) }} as="textarea" rows="1" value={currentDeskProduct.pros} />
+            <Form.Control placeholder="What do you like about it?" onChange={(e) => { console.log(e) }} as="textarea" rows="1" value={currentDeskProduct.pros} />
           </Form.Group>
 
           {/* Cons */}
           <Form.Group controlId="cons">
             <Form.Label>Cons</Form.Label>
-            <Form.Control as="textarea" rows="1" value={currentDeskProduct.cons} />
+            <Form.Control placeholder="What do you not like about it?" as="textarea" rows="1" value={currentDeskProduct.cons} />
           </Form.Group>
 
 

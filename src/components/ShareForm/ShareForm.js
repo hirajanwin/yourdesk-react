@@ -103,21 +103,21 @@ export default function ShareForm(props) {
         <Form className={props.show ? "MainForm" : "hidden"} onSubmit={handleSubmit}>
             <Form.Group controlId="name">
                 <Form.Label>Give this desk a name!</Form.Label>
-                <Form.Control type="text" defaultValue="Testing"/>
+                <Form.Control type="text" placeholder="The name of my cool desk!"/>
             </Form.Group>
             
             <Form.Group controlId="use">
                 <Form.Label>What do you use this desk for?</Form.Label>
-                <Form.Control as="textarea" rows="3" defaultValue="WFH, Gaming, Programming..."/>
+                <Form.Control as="textarea" rows="3" placeholder="WFH, Gaming, Programming..."/>
             </Form.Group>
             
             <Form.Group controlId="favorite">
                 <Form.Label>Which is your favorite product?</Form.Label>
-                <Form.Control as="textarea" rows="3" defaultValue="My test product!"/>
+                <Form.Control as="textarea" rows="3" placeholder="My MacBook!"/>
             </Form.Group>
 
             <Button loading={isLoading.toString()} variant="primary" type="submit" disabled={isLoading || !props.image}> 
-            {isLoading ? 'Uploading...' : 'Submit'}
+            {isLoading ? 'Uploading...' : 'Share!'}
             </Button>
         </Form>
     )

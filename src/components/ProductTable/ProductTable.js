@@ -16,7 +16,7 @@ export default function ProductTable(props) {
         </thead>
         <tbody>
             {
-                products.slice(0, 20).map((product, i) => (
+                products.slice(0, 10).map((product, i) => (
                     <tr key={i}>
                         <td>{i + 1}</td>
                         <td>{product.title}</td>

@@ -21,7 +21,9 @@ export default function About() {
                     <a href="https://kit.co/"> Kit.co</a>.</p>
                 <p>That being said, I'm still not quite sure what the differentiating factor for this site will be haha.</p>
                 <br/>
-                <p>Please let me know what you think about this site at caimjonathan(at)gmail.com</p>
+                <p>Any concerns/questions can be directed to me at caimjonathan(at)gmail.com :)</p>
+                <p>Code is at <a href="https://github.com/jonathancai11/yourdesk-graphql">https://github.com/jonathancai11/yourdesk-graphql</a> 
+                    &nbsp; and <a href="https://github.com/jonathancai11/yourdesk-react">https://github.com/jonathancai11/yourdesk-react</a> </p>
             </div>
         </div>
     );
