@@ -72,7 +72,7 @@ export default function ProductCard(props) {
                 }
                 )}
                 <hr />
-                {"Total cost: $" + total.toString()}
+                {"Total cost: $" + total.toFixed(2).toString()}
             </Accordion>
         </div>
     )

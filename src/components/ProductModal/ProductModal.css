@@ -5,8 +5,8 @@
 }
 
 .CustomDialogue {
-    left: 15%;
-    top: 15%;
+    left: 20%;
+    top: 10%;
   }
   
 
@@ -20,6 +20,9 @@
 }
 
 .ProductDropDownItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-right: 30px;
     padding-top: .5rem;
     padding-bottom: .5rem;
