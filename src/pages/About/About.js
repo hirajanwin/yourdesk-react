@@ -11,7 +11,7 @@ export default function About() {
                 <p>99% of professional/amateur gamers have a home setup,</p>
                 <p>95% of students are attending school remote,</p>
                 <p>and 5% of companies allow for fully remote work.</p>
-                <p>100% of the above statements are complete guesses, but I'd imagine its somewhere close to reality :). Please don't quote me.</p>
+                <p>100% of the above statements are complete guesses, but I'd imagine its somewhere close to reality. Don't quote me.</p>
                 <p>The point is, we are spending a lot of time at our desks these days.</p>
                 <p>There are many reasons to optimize our desk setup - health/ergonomics, productivity, performance, to name a few.</p>
                 <p>There are thousands of sites that give product recommendations, but they're not as genuine as hearing 
@@ -24,6 +24,7 @@ export default function About() {
                 <p>Any concerns/questions can be directed to me at caimjonathan(at)gmail.com :)</p>
                 <p>Code is at <a href="https://github.com/jonathancai11/yourdesk-graphql">https://github.com/jonathancai11/yourdesk-graphql</a> 
                     &nbsp; and <a href="https://github.com/jonathancai11/yourdesk-react">https://github.com/jonathancai11/yourdesk-react</a>.</p>
+
             </div>
         </div>
     );
