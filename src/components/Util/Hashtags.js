@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Badge } from 'react-bootstrap';
 
+import './Util.css';
+
 
 function getColor(hashtag) {
     switch (hashtag) {
@@ -44,13 +46,15 @@ export default function Hashtags({ hashtags, overflowHidden, block }) {
         <h5>
             <div style={style}>
                 {hashtags.map(
-                    (hashtag, i) => <Badge key={i} style={{
-                        fontWeight: 5,
-                        color: "white",
-                        backgroundColor: getColor(hashtag),
-                        marginLeft: 2,
-                        marginRight: 2
-                    }}>#{hashtag}</Badge>
+                    (hashtag, i) => <Badge key={i}
+                        className="Hashtag"
+                        style={{
+                            fontWeight: "light",
+                            color: "white",
+                            backgroundColor: getColor(hashtag),
+                            marginLeft: 2,
+                            marginRight: 2
+                        }}>#{hashtag}</Badge>
                 )}
             </div>
         </h5>
