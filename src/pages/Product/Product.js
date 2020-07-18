@@ -50,7 +50,7 @@ export default function Desk(props) {
                             starSpacing="1px"
                         />}
                         <p>ID: {product._id}</p>
-                        <p>Price: ${product.prices[0] ? product.prices[0].value : 0}</p>
+                        {product.prices[0] && <p>Price: ${product.prices[0].value}</p>}
                         <div>
                             <Button href={product.link} target="_blank" variant="success">Buy</Button>
                         </div>
