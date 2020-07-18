@@ -4,12 +4,14 @@ import ProductTable from '../../components/ProductTable/ProductTable';
 import { GET_DESKS, GET_PRODUCTS } from '../../util/api';
 import { useQuery } from '@apollo/react-hooks';
 
-function getRandom(length) { return Math.floor(Math.random()*(length)); }
+import './Charts.css';
+
+function getRandom(length) { return Math.floor(Math.random() * (length)); }
 
 function getRandomSample(array, size) {
     var length = array.length;
 
-    for(var i = size; i--;) {
+    for (var i = size; i--;) {
         var index = getRandom(length);
         var temp = array[index];
         array[index] = array[i];
@@ -27,12 +29,14 @@ export default function Charts() {
 
     return (
         <div className="Body">
-            <br/>
-            <p>None of the data is actually being ranked (random selection), but I imagine this could be a cool feature later :)</p>
-            <p>Top Desks</p>
-            <DeskTable desks={topDesks}/>
-            <p>Top Products</p>
-            <ProductTable products={topProducts}/>
+            <div className="ChartsBody">
+                <br />
+                <p>None of the data is actually being ranked (random selection), but I imagine this could be a cool feature later :)</p>
+                <p>Top Desks</p>
+                <DeskTable desks={topDesks} />
+                <p>Top Products</p>
+                <ProductTable products={topProducts} />
+            </div>
         </div>
     );
 }
