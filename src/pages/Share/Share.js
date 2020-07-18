@@ -10,11 +10,11 @@ import { Alert } from 'react-bootstrap';
 
 export default function Share() {
     const [image, setImage] = useState(null);
-    const [showAlert, setShowAlert] = useState(false);
+    const [showAlert, setShowAlert] = useState("");
 
     const handleDrop = (e) => {
         if (e.length === 0) {
-            setShowAlert(true);
+            setShowAlert("Sorry, only image files please!");
         } else {
             let file = e[0];
             let blob = URL.createObjectURL(file);
@@ -46,7 +46,7 @@ export default function Share() {
 
     return (
         <div className="ShareBody">
-            {<Fade in={showAlert} component={<Alert onClick={() => setShowAlert(false)} variant={'danger'} dismissible>Sorry, only image files please!</Alert>} />}
+            {<Fade in={showAlert ? true : false} component={<Alert onClick={() => setShowAlert("")} variant={'danger'} dismissible>{showAlert}</Alert>} />}
             <ProductModal/>
             { (!show) && <Fade in={!show} component={DrozoneComponent} />} 
             <div className="NewBody">
@@ -56,7 +56,7 @@ export default function Share() {
             <br/>
             <br/>
             <br/>
-            {<Fade in={show} component={<ShareForm onSuccessfulUpload={onSuccessfulUpload} show={show} image={image} share/>} />}
+            {<Fade in={show} component={<ShareForm alert={setShowAlert} onSuccessfulUpload={onSuccessfulUpload} show={show} image={image} share/>} />}
         </div>
     );
 }

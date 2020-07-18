@@ -5,6 +5,12 @@
 }
 
 .ShareBody {
+  padding-top: 10px;
+  padding-bottom: 40px;
+  min-height: 84vh;
+}
+
+.DeskBody {
   padding-top: 50px;
   padding-bottom: 40px;
   min-height: 84vh;

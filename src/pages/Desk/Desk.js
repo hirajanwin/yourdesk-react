@@ -19,7 +19,7 @@ export default function Desk(props) {
     let desk = data ? data.deskOne: null;
 
     return (
-        <div className="ShareBody">
+        <div className="DeskBody">
             <DeskComponent desk={desk}/>
         </div>
     )

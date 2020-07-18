@@ -48,4 +48,14 @@ p.DropzonePrompt {
         padding: unset;
         width: unset;
     }
+    .Dropzone {
+        width: unset;
+    }
+    .MainForm {
+        width: unset;
+    }
+    .ShareBody {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

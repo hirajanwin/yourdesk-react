@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, InputGroup, FormControl, Badge } from 'react-bootstrap';
 import { useSelector, useDispatch } from "react-redux";
 import { clearAllDeskProducts } from '../../redux/actions';
 import { uploadImage, CREATE_DESK_PRODUCTS, CREATE_DESK } from '../../util/api';
@@ -12,6 +12,8 @@ export default function ShareForm(props) {
     const dispatch = useDispatch();
     const { onSuccessfulUpload } = props;
     const [isLoading, setLoading] = useState(false);
+    const [hashtags, setHashtags] = useState(["lmao", "hehe"]);
+    const [currentHashtag, setCurrentHashtag] = useState("");
 
     const [createDeskProducts] = useMutation(CREATE_DESK_PRODUCTS);
     const [createDesk] = useMutation(CREATE_DESK);
@@ -137,8 +139,23 @@ export default function ShareForm(props) {
         });
     }
 
+    function onHashtagClick() {
+        props.alert("Hello");
+        if (currentHashtag === "") {
+
+        } else if (currentHashtag !== "featured") {
+        } else {
+            setHashtags(oldHashtags => [...oldHashtags, currentHashtag]);
+        }
+    }
+
+    function onHashtagChange(e) {
+        setCurrentHashtag(e.target.value);
+    }
+
     return (
         <Form className={props.show ? "MainForm" : "hidden"} onSubmit={handleSubmit}>
+
             <Form.Group controlId="name">
                 <Form.Label>Give this desk a name!</Form.Label>
                 <Form.Control type="text" placeholder="The name of my cool desk!" />
@@ -153,6 +170,25 @@ export default function ShareForm(props) {
                 <Form.Label>Which is your favorite product?</Form.Label>
                 <Form.Control as="textarea" rows="3" placeholder="My MacBook!" />
             </Form.Group>
+
+            <h5>
+                {hashtags.map(
+                    (hashtag, i) => <><Badge key={i} variant="info">#{hashtag} </Badge>&nbsp;</>
+                )}
+            </h5>
+
+            <InputGroup className="mb-3" onChange={onHashtagChange}>
+                <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                    placeholder="Hashtag"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                />
+                &nbsp;
+                <Button onClick={onHashtagClick} variant="secondary">Add</Button>
+            </InputGroup>
 
             <Button loading={isLoading.toString()} variant="primary" type="submit" disabled={isLoading || !props.image}>
                 {isLoading ? 'Uploading...' : 'Share!'}
