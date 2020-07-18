@@ -41,9 +41,10 @@ export default function ProductCard(props) {
                             <Accordion.Toggle as={Card.Header} onMouseOver={() => handleMouse(selected, deskProduct)} onMouseOut={() => handleMouse(selected, deskProduct)}
                                 eventKey={i} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
 
-                                {deskProduct.product.title.slice(0, 40)}
-                                {deskProduct.product.title.length > 40 ? "..." : null} 
-                                {"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)}
+                                {}
+                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 40) + "..." : deskProduct.product.title} 
+
+                                <i>{"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)}</i>
 
                                 <div>
                                     {props.share && <Button variant="outline-danger" size="sm" onClick={() => handleDelete(deskProduct)}>Delete</Button>}
@@ -72,7 +73,7 @@ export default function ProductCard(props) {
                 }
                 )}
                 <hr />
-                {"Total cost: $" + total.toFixed(2).toString()}
+                <i>{"Total cost: $" + total.toFixed(2).toString()}</i>
             </Accordion>
         </div>
     )
