@@ -17,7 +17,9 @@ export default function Explore() {
                     <Col xs={6}>
                         <Form.Group controlId="search">
                             <Form.Control type="email" placeholder="Search for desks, @users, products, #tags, brands" />
-                            <Form.Text className="text-muted">Search is not working yet "Command F" for now 😂.</Form.Text>
+                            <Form.Text className="text-muted">Search is not working yet "Command F" for now 
+                            <span role="img" aria-label="laughing-emoji">😂</span>.
+                            </Form.Text>
                         </Form.Group>
                     </Col>
                     <Button style={{height: 40}}disabled={true} variant="primary" type="submit">

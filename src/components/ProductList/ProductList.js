@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, Accordion, Button, Image } from 'react-bootstrap';
 import { useSelector, useDispatch } from "react-redux";
-import { selectDeskProduct, deselectDeskProduct, deleteDeskProduct, setCurrentDeskProduct, showProductModal } from '../../redux/actions';
+import { selectDeskProduct, deselectDeskProduct, deleteDeskProduct } from '../../redux/actions';
+import { useHistory } from 'react-router-dom';
 
 export default function ProductCard(props) {
 
@@ -30,6 +31,13 @@ export default function ProductCard(props) {
         dispatch(deleteDeskProduct(deskProduct));
     }
 
+    const history = useHistory();
+
+    const handleClick = (id) => {
+        history.push("/product/" + id);
+    }
+
+
     return (
         <div className={props.show ? "ProductList" : "hidden"}>
             <Accordion>
@@ -38,11 +46,17 @@ export default function ProductCard(props) {
                     return (
                         saved &&
                         <Card key={i}>
-                            <Accordion.Toggle as={Card.Header} onMouseOver={() => handleMouse(selected, deskProduct)} onMouseOut={() => handleMouse(selected, deskProduct)}
-                                eventKey={i} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-
-                                {}
-                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 40) + "..." : deskProduct.product.title} 
+                            <Accordion.Toggle as={Card.Header}
+                                onClick={() => handleClick(deskProduct.product._id)}
+                                onMouseOver={() => handleMouse(selected, deskProduct)}
+                                onMouseOut={() => handleMouse(selected, deskProduct)}
+                                eventKey={i} style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    justifyContent: "space-between",
+                                    cursor: "pointer",
+                                }}>
+                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 40) + "..." : deskProduct.product.title}
 
                                 <i>{"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)}</i>
 

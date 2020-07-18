@@ -23,6 +23,30 @@ export const GET_DESKS = gql`
 }
 `
 
+export const GET_DESKS_WITH_PRODUCTS = gql`
+query {
+  deskMany {
+    user {
+        name
+    }
+    desk_products {
+      product {
+        _id
+      }
+      pros
+      cons
+    }
+    _id
+    favorite
+    hashtags
+    use
+    img
+    date_created
+    name
+  }
+}
+`
+
 export const GET_DESK = gql`
 query GetDesk($filter: FilterFindOneDeskInput!) {
   deskOne(filter: $filter) {
@@ -42,7 +66,8 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
       coordX
       coordY
 			product {
-				title
+        title
+        _id
         image
         prices {
           raw

@@ -24,6 +24,10 @@
   flex-direction: row;
 }
 
+p {
+  margin-top: unset;
+}
+
 @media only screen and (max-device-width: 600px) {
   .NewBody {
     flex-direction: column;
