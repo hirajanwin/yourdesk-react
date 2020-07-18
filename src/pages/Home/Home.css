@@ -39,7 +39,7 @@
     padding-top: 0px;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 600px) {
     .HomeSubtitle {
         font-size: 150%;
         padding-bottom: 0px;
