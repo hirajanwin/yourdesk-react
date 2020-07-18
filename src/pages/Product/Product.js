@@ -41,14 +41,14 @@ export default function Desk(props) {
                         <h5>{product.title}</h5>
                         <p>ASIN: {product.asin}</p>
                         Amazon Rating:
-                        <StarRatings
+                        {product.rating && <StarRatings
                             rating={product.rating}
                             starRatedColor="orange"
                             numberOfStars={5}
                             name='rating'
                             starDimension="20px"
                             starSpacing="1px"
-                        />
+                        />}
                         <p>ID: {product._id}</p>
                         <p>Price: ${product.prices[0] ? product.prices[0].value : 0}</p>
                         <div>
