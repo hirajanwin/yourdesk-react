@@ -6,7 +6,9 @@ export default function ProductCard(props) {
     let { product } = props;
     return (
         <div className="ProductCard">
-            <Image height="150px" src={product.image} />
+            <Image
+                style={{ objectFit: "contain", maxWidth: "100%", maxHeight: "100%" }}
+                src={product.image} />
         </div>
     )
 }
