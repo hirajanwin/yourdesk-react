@@ -25,7 +25,7 @@ export default function Desk(props) {
             {
                 product &&
                 <div className="NewBody">
-                    <Card style={{ padding: 20, margin: 20, height: "100%" }}>
+                    <Card style={{ padding: 20, margin: 20, height: "100%", maxWidth: 400}}>
                         <h5>{product.title}</h5>
                         <p>ASIN: {product.asin}</p>
                         <p>Amazon Rating: &nbsp;
