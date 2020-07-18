@@ -20,7 +20,7 @@ p.DropzonePrompt {
 }
 
 .Canvas {
-    width: 70vh;
+    width: 70vw;
     z-index: 1050;
     flex: 0;
     transition: flex 250ms linear;
@@ -57,5 +57,9 @@ p.DropzonePrompt {
     .ShareBody {
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .Canvas {
+        width: unset;
     }
 }
