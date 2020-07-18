@@ -70,6 +70,26 @@ export const GET_PRODUCTS = gql`
   }
 `
 
+export const GET_PRODUCT = gql`
+query GetDesk($filter: FilterFindOneProductInput!) {
+    productOne(filter:$filter) {
+      title
+      asin
+      _id
+      categories {
+        name
+      }
+      image
+      rating
+      ratings_total
+      prices {
+        symbol
+        value
+      }
+    }
+}
+`
+
 export const CREATE_PRODUCT_OLD = gql`
 mutation CreateProduct($newDeskProducts: CreateOneProductInput!) {
     productCreateOne(record: $newDeskProducts) {

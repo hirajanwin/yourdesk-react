@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Share from './pages/Share/Share';
 import Explore from './pages/Explore/Explore';
 import Desk from './pages/Desk/Desk';
+import Product from './pages/Product/Product';
 import FourOhFour from './pages/FourOhFour/FourOhFour';
 import Charts from './pages/Charts/Charts';
 import Profile from "./components/Profile/Profile";
@@ -27,6 +28,7 @@ function App() {
               <Route exact path="/about" component={About}/>
               <Route exact path="/share" component={Share}/>
               <Route exact path="/charts" component={Charts}/>
+              <Route exact path="/product/:id" component={Product}/>
               <Route exact path="/desk/:username/:id" component={Desk}/>
               <PrivateRoute path="/profile" component={Profile} />
               <Route exact path="/" component={Home}/>
