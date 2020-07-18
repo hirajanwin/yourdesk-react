@@ -1,0 +1,12 @@
+.ChartsBody {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+
+@media only screen and (max-device-width: 600px) {
+    .ChartsBody {
+        padding-left: unset;
+        padding-right: unset;
+    }
+}
