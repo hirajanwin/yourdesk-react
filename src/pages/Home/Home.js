@@ -1,5 +1,6 @@
 import React from 'react';
 import homeImg from '../../assets/home.png';
+import mobileHomeImg from '../../assets/mobile-home.png';
 import DeskCard from '../../components/DeskCard/DeskCard';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { GET_DESKS, GET_PRODUCTS } from '../../util/api';
@@ -29,10 +30,12 @@ export default function Home() {
 
     featuredDesks = featuredDesks.filter(desk => desk !== undefined);
 
+    var w = window.innerWidth;
+
     return (
         <div className="home-body">
             <div className="Home">
-                <img className="DeskImage" alt="" src={homeImg}/>
+                <img className="DeskImage" alt="" src={w < 600 ? mobileHomeImg : homeImg}/>
                 <h3 className="HomeSubtitle">Check out the desks other people work, game, and study on.</h3>
                 <div className="FeaturedList">
                     {featuredDesks.map((desk, i) => <DeskCard key={i} desk={desk}/>)}

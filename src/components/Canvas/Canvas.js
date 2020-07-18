@@ -41,20 +41,32 @@ export default function Canvas(props) {
             dispatch(deselectAllDeskProducts());
         }
     }
-    
+    var w = window.innerWidth;
+    const scale = w < 800 ? .55 : 1;
+    const scaleX = scale;
+    const scaleY = scale;
+
+    const canvasWidth = w < 800 ? 400 : 600;
+    const canvasHeight = w < 800 ? 300 : 500;
+
     return (
     <div className={props.show ? "Canvas" : "hidden"} style={{zIndex: 1050}}>
-        <Stage width={600} height={500} onMouseOver={handleHover}>
+        <Stage width={canvasWidth} height={canvasHeight} onMouseOver={handleHover}>
             <Layer onClick={layerHandleClick} >
-            <Image x={0} y={0} image={image} />
+            <Image x={0} y={0} image={image} 
+                // height={w < 600 ? 300 : 600}
+                scaleX={scaleX}
+                scaleY={scaleY}
+                style={{height: "200px"}}
+            />
             
             {deskProducts.allIds.map((id, i) =>  
                 {
                     let { deskProduct, selected } = deskProducts.byIds[id];
                     return (<Circle 
                     key={i}
-                    x={deskProduct.coordX} 
-                    y={deskProduct.coordY} 
+                    x={scaleX * deskProduct.coordX} 
+                    y={scaleY * deskProduct.coordY} 
                     width={ selected ? 30 : 20} 
                     height={ selected ? 30 : 20} 
                     fill={ "white" }

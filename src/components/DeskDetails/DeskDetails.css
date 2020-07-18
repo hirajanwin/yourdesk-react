@@ -1,3 +1,17 @@
 .DeskDetails {
     width: 30vh;
 }
+
+.DeskDetailsCard {
+    margin-right: 20px;
+}
+
+@media only screen and (max-device-width: 600px) {
+    .DeskDetails {
+        width: unset;
+    }
+    .DeskDetailsCard {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+}

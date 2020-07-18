@@ -7,7 +7,7 @@ export default function DeskDetails(props) {
     let date = new Date(desk.date_created).toLocaleDateString("en-US");
     return (
         <div className="DeskDetails">
-            <Card body style={{marginRight: 20}}>
+            <Card body className="DeskDetailsCard" >
                 {
                     desk &&
                     <div>

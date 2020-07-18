@@ -42,3 +42,10 @@ p.DropzonePrompt {
 .konvajs-content {
     z-index: 1050;
 }
+
+@media only screen and (max-device-width: 600px) {
+    .ProductList {
+        padding: unset;
+        width: unset;
+    }
+}
