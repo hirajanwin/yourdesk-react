@@ -7,12 +7,12 @@ import { GET_DESKS, GET_PRODUCTS } from '../../util/api';
 import { useQuery } from '@apollo/react-hooks';
 import './Home.css'
 
-function getRandom(length) { return Math.floor(Math.random()*(length)); }
+function getRandom(length) { return Math.floor(Math.random() * (length)); }
 
 function getRandomSample(array, size) {
     var length = array.length;
 
-    for(var i = size; i--;) {
+    for (var i = size; i--;) {
         var index = getRandom(length);
         var temp = array[index];
         array[index] = array[i];
@@ -27,27 +27,23 @@ export default function Home() {
     const { data } = useQuery(GET_PRODUCTS);
     let featuredDesks = dataDesks ? dataDesks.deskMany.filter(desk => desk.hashtags.includes("featured")) : [];
     let featuredProducts = data ? getRandomSample(data.productMany, 5) : [];
-
-    console.log(featuredDesks);
-
     featuredDesks = featuredDesks.filter(desk => desk !== undefined);
-
     var w = window.innerWidth;
 
     return (
         <div className="home-body">
             <div className="Home">
-                <img className="DeskImage" alt="" src={w < 600 ? mobileHomeImg : homeImg}/>
+                <img className="DeskImage" alt="" src={w < 600 ? mobileHomeImg : homeImg} />
                 <h3 className="HomeSubtitle">Check out the desks other people work, game, and study on.</h3>
                 <div className="FeaturedList">
-                    {featuredDesks.map((desk, i) => <DeskCard key={i} desk={desk}/>)}
+                    {featuredDesks.map((desk, i) => <DeskCard key={i} desk={desk} />)}
                 </div>
                 <h3 className="HomeSubtitle">Get their honest opinion on the products that they love.</h3>
                 <div className="FeaturedList">
-                    {featuredProducts.map((product, i) => <ProductCard key={i} product={product}/>)}
+                    {featuredProducts.map((product, i) => <ProductCard key={i} product={product} />)}
                 </div>
                 <h3 className="HomeSubtitle">Share your desk!</h3>
-                <br/>
+                <br />
             </div>
         </div>
     );
