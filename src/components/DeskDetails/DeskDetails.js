@@ -1,6 +1,7 @@
 import React from 'react';
 import './DeskDetails.css';
 import { Card } from 'react-bootstrap';
+import Hashtags from '../Util/Hashtags';
 
 export default function DeskDetails(props) {
     let { desk } = props;
@@ -22,6 +23,7 @@ export default function DeskDetails(props) {
                         <p>{desk.use}</p>
                         <b>Which is your favorite product?</b>
                         <p>{desk.favorite}</p>
+                        <Hashtags hashtags={desk.hashtags} block/>
                     </div>
                 }
             </Card>

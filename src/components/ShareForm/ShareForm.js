@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Form, Button, InputGroup, FormControl, Badge } from 'react-bootstrap';
+import { Form, Button, InputGroup, FormControl } from 'react-bootstrap';
 import { useSelector, useDispatch } from "react-redux";
 import { clearAllDeskProducts } from '../../redux/actions';
 import { uploadImage, CREATE_DESK_PRODUCTS, CREATE_DESK } from '../../util/api';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import { useMutation } from '@apollo/react-hooks';
+import Hashtags from '../Util/Hashtags';
 
 export default function ShareForm(props) {
     const { isAuthenticated, loginWithPopup, user } = useAuth0();
@@ -12,7 +13,7 @@ export default function ShareForm(props) {
     const dispatch = useDispatch();
     const { onSuccessfulUpload } = props;
     const [isLoading, setLoading] = useState(false);
-    const [hashtags, setHashtags] = useState(["lmao", "hehe"]);
+    const [hashtags, setHashtags] = useState([]);
     const [currentHashtag, setCurrentHashtag] = useState("");
 
     const [createDeskProducts] = useMutation(CREATE_DESK_PRODUCTS);
@@ -41,8 +42,6 @@ export default function ShareForm(props) {
                 properties[form.elements[i].id] = form.elements[i].value;
             }
         }
-
-        console.log(properties);
 
         // Construct clean DeskProduct objects for GraphQL mutation
         let cleanDeskProducts = Object.values(deskProducts.byIds).map(
@@ -79,6 +78,7 @@ export default function ShareForm(props) {
                                 user: user.sub,
                                 img: url,
                                 date_created: new Date(),
+                                hashtags: hashtags,
                             }
                             console.log(desk);
                             // Finally create the desk object
@@ -110,6 +110,7 @@ export default function ShareForm(props) {
                     user: user.sub,
                     img: url,
                     date_created: new Date(),
+                    hashtags: hashtags,
                 }
                 console.log(desk);
                 // Finally create the desk object
@@ -140,12 +141,13 @@ export default function ShareForm(props) {
     }
 
     function onHashtagClick() {
-        props.alert("Hello");
         if (currentHashtag === "") {
-
-        } else if (currentHashtag !== "featured") {
+            
+        } else if (currentHashtag === "featured") {
+            props.alert("Being featured is a privilege!");
         } else {
             setHashtags(oldHashtags => [...oldHashtags, currentHashtag]);
+            setCurrentHashtag("");
         }
     }
 
@@ -168,21 +170,19 @@ export default function ShareForm(props) {
 
             <Form.Group controlId="favorite">
                 <Form.Label>Which is your favorite product?</Form.Label>
-                <Form.Control as="textarea" rows="3" placeholder="My MacBook!" />
+                <Form.Control as="textarea" rows="3" placeholder="My overpriced MacBook." />
             </Form.Group>
 
-            <h5>
-                {hashtags.map(
-                    (hashtag, i) => <><Badge key={i} variant="info">#{hashtag} </Badge>&nbsp;</>
-                )}
-            </h5>
+            <Hashtags hashtags={hashtags}/>
 
-            <InputGroup className="mb-3" onChange={onHashtagChange}>
+            <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                     <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl
-                    placeholder="Hashtag"
+                    value={currentHashtag}
+                    onChange={onHashtagChange}
+                    placeholder="Tag your desk!"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                 />

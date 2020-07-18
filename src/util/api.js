@@ -14,6 +14,7 @@ export const GET_DESKS = gql`
       }
       _id
       favorite
+      hashtags
       use
       img
       date_created
@@ -30,6 +31,7 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
     img
     name
     favorite
+    hashtags
     use
     user {
 			name
