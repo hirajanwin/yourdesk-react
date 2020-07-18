@@ -4,30 +4,23 @@ import { Badge } from 'react-bootstrap';
 
 import './Util.css';
 
+const colors = {
+    featured: "#45ca66",
+    cool: "#4baddd",
+    wfh: "#fbb901",
+    fb: "#3b5998",
+    fbinterns: "#3b5998",
+    fbinterns2020: "#3b5998",
+    facebook: "#3b5998",
+    minimal: "#DDDDDD",
+    bad: "#905424",
+    gaming: "#ce494a",
+    lol: "#ffe700",
+    hipster: "#feb6ff",
+}
 
 function getColor(hashtag) {
-    switch (hashtag) {
-        case "featured":
-            return "#17A2B8"
-        case "cool":
-            return "red"
-        case "minimal":
-            return "#DDDDDD"
-        case "bad":
-            return "#CD6155"
-        case "gaming":
-            return "#E74C3C"
-        case "hipster":
-            return "#D5F5E3"
-        case "hipster":
-            return "#D5F5E3"
-        case "hipster":
-            return "#D5F5E3"
-        case "hipster":
-            return "#D5F5E3"
-        default:
-            return "gray"
-    }
+    return colors[hashtag]  || "gray"
 }
 
 

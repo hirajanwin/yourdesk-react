@@ -13,23 +13,21 @@ export default function Explore() {
     return (
         <div className="Body">
             <Form>
-            <Row>
-                <Col xs={6}>
-                    <Form.Group controlId="search">
-                        <Form.Control type="email" placeholder="Search for desks, @users, products, #tags, brands"/>
-                        <Form.Text className="text-muted">Search is not working yet.</Form.Text>
-                    </Form.Group>
-                </Col>
-                <Col>
-                    <Button disabled={true} variant="primary" type="submit">
+                <Row>
+                    <Col xs={6}>
+                        <Form.Group controlId="search">
+                            <Form.Control type="email" placeholder="Search for desks, @users, products, #tags, brands" />
+                            <Form.Text className="text-muted">Search is not working yet "Command F" for now 😂.</Form.Text>
+                        </Form.Group>
+                    </Col>
+                    <Button style={{height: 40}}disabled={true} variant="primary" type="submit">
                         Search
                     </Button>
-                </Col>
-            </Row>
+                </Row>
             </Form>
 
             <div className="DeskGrid">
-                {desks.map((desk, i) => <DeskCard key={i} desk={desk}/>)}
+                {desks.map((desk, i) => <DeskCard key={i} desk={desk} />)}
             </div>
         </div>
     );
