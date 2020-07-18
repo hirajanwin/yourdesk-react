@@ -43,6 +43,7 @@ export default function ProductCard(props) {
             <Accordion>
                 {deskProducts.allIds.map((id, i) => {
                     let { deskProduct, saved, selected } = deskProducts.byIds[id];
+                    let { pros, cons } = deskProduct;
                     return (
                         saved &&
                         <Card key={i}>
@@ -75,10 +76,8 @@ export default function ProductCard(props) {
                                             <Image src={deskProduct.product.image} rounded fluid className="ProductImage" />
                                         </div>}
 
-                                    <b>Pros:</b>
-                                    <p>{deskProduct.pros}</p>
-                                    <b>Cons:</b>
-                                    <p>{deskProduct.cons}</p>
+                                    {pros && <p><b>Pros:</b> {pros}</p>}
+                                    {cons && <p><b>Cons:</b> {cons}</p>}
                                 </Card.Body>
 
                             </Accordion.Collapse>
@@ -86,9 +85,9 @@ export default function ProductCard(props) {
                     );
                 }
                 )}
-                <hr />
-                <i>{"Total cost: $" + total.toFixed(2).toString()}</i>
+            <hr />
+            <i>{"Total cost: $" + total.toFixed(2).toString()}</i>
             </Accordion>
-        </div>
+        </div >
     )
 }

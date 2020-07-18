@@ -27,7 +27,9 @@ export const GET_DESKS_WITH_PRODUCTS = gql`
 query {
   deskMany {
     user {
-        name
+      name
+      user_id
+      picture
     }
     desk_products {
       product {

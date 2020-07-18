@@ -65,16 +65,18 @@ export default function Desk(props) {
                                 let index = productIds.indexOf(productId);
                                 let deskProduct = desk.desk_products[index];
                                 let { pros, cons } = deskProduct;
-                                return (<div>
+                                return (
+                                <div>
                                     {(pros || cons) && <p><i>{user.name} said:</i></p>}
                                     {pros && <p><b>Pros:</b> {pros}</p>}
                                     {cons && <p><b>Cons:</b> {cons}</p>}
-                                </div>)
+                                </div>
+                                )
                             }
                         )}
                     </Card>
                     <div>
-                        <Image style={{ width: 350, padding: 20 }} src={product.image} />
+                        <Image style={{ width: 400, padding: 20 }} src={product.image} />
                     </div>
                     <Card style={{ padding: 20, margin: 20, height: "100%" }}>
                         <b>{count > 0 ?
