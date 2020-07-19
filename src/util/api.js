@@ -102,6 +102,7 @@ query GetDesk($filter: FilterFindOneProductInput!) {
     productOne(filter:$filter) {
       title
       asin
+      link
       _id
       categories {
         name
