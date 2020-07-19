@@ -5,7 +5,7 @@ import { Badge } from 'react-bootstrap';
 import './Util.css';
 
 const colors = {
-    featured: "#45ca66",
+    featured: "#559977",
     cool: "#4baddd",
     wfh: "#fbb901",
     fb: "#3b5998",
@@ -15,8 +15,10 @@ const colors = {
     minimal: "#DDDDDD",
     bad: "#905424",
     gaming: "#ce494a",
-    lol: "#ffe700",
+    lol: "#F9C72B",
     hipster: "#feb6ff",
+    pokimane: "#eeaaaa",
+    design: "#7F64B8",
 }
 
 function getColor(hashtag) {

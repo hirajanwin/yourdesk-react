@@ -20,7 +20,7 @@ p.DropzonePrompt {
 }
 
 .Canvas {
-    width: 70vw;
+    width: 50vw;
     z-index: 1050;
     flex: 0;
     transition: flex 250ms linear;
