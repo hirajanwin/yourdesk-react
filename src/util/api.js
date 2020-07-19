@@ -7,18 +7,34 @@ export const URI = process.env.NODE_ENV === 'development' ? 'http://localhost:30
 export const GET_DESKS = gql`
 {
     deskMany {
-      user {
-          name
-          user_id
-          picture
-      }
       _id
+      date_created
+      img
+      name
       favorite
       hashtags
       use
-      img
-      date_created
-      name
+      user {
+        user_id
+        picture
+        name
+      }
+      desk_products {
+        pros
+        cons
+        coordX
+        coordY
+        product {
+          title
+          _id
+          image
+          prices {
+            raw
+            currency
+            value
+          }
+        }
+      }
     }
 }
 `

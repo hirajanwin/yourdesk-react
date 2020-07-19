@@ -10,7 +10,6 @@ export default function(state = initialState, action) {
 
     case ADD_DESK_PRODUCT: {
       const { id, deskProduct, saved, selected } = action.payload;
-      console.log(selected);
       let newState = {
         ...state,
         allIds: [...state.allIds, id],
