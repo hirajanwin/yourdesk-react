@@ -32,7 +32,7 @@ export default function ProductTable(props) {
                                 <td><Image width="60px" src={product.image} /></td>
                                 <td>{product.prices.length > 0 ? "$" + product.prices[0].value : ""}</td>
                                 <td>
-                                    <Button onClick={() => handleClick(product._id)} target="_blank">Check it out!</Button> &nbsp;
+                                    <Button onClick={() => handleClick(product._id)} target="_blank">Details</Button> &nbsp;
                                     <Button href={product.link} target="_blank" variant="success">Buy</Button>
                                 </td>
                             </tr>

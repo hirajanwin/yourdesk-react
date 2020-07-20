@@ -30,7 +30,7 @@ export default function DeskTable(props) {
                                     <td><Image width="80px" src={desk.img} /></td>
                                     <td><Button
                                         href={"/desk/" + desk.user.user_id + "/" + desk._id}
-                                        variant="primary">Check it out</Button>{' '}
+                                        variant="primary">Details</Button>{' '}
                                     </td>
                                 </tr>
                             )
