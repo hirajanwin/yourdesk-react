@@ -23,7 +23,7 @@ export default function DeskComponent(props) {
                 <div className="NewBody">
                     <DeskDetails desk={desk}/>
                     <Canvas show={true} image={desk.img}/>
-                    <ProductList show={true} />
+                    <ProductList show={true} clickable/>
                 </div>
             }
         </div>

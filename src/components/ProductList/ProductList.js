@@ -48,7 +48,7 @@ export default function ProductCard(props) {
                         saved &&
                         <Card key={i}>
                             <Accordion.Toggle as={Card.Header}
-                                onClick={() => handleClick(deskProduct.product._id)}
+                                onClick={props.clickable ? () => handleClick(deskProduct.product._id) : null}
                                 onMouseOver={() => handleMouse(selected, deskProduct)}
                                 onMouseOut={() => handleMouse(selected, deskProduct)}
                                 eventKey={i} style={{
