@@ -75,6 +75,10 @@
         padding-top: 40px;
     }
 
+    .HeroTitle div {
+        width: 350px;
+    }
+
     .HeroTitle {
         top: 100px;
         left: unset;
@@ -82,7 +86,7 @@
     }
 
     .HeroTitle h1 {
-        font-size: 320%;
+        font-size: 300%;
         padding-bottom: 10px;
     }
 
