@@ -1,0 +1,14 @@
+.ProfileBody {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ProfileBody h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ProfileBody img {
+    text-align: center;
+    margin: 0 auto;
+}
