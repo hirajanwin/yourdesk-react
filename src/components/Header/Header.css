@@ -1,7 +1,6 @@
 .Header {
     border-bottom: 1px solid #ededed;
-    /* padding-left:100px; */
-    /* padding-right:100px; */
+    z-index: 1050 !important;
 }
 
 .HeaderNav {
@@ -18,4 +17,21 @@
 .HeaderLogo {
     font-family: 'Permanent Marker', cursive;
 }
-  
+
+.SignedIn {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+@media only screen and (max-device-width: 600px) {
+    .SignedIn {
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .SignedIn img {
+        display: none;
+    }
+}

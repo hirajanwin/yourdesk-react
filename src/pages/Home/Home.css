@@ -29,12 +29,7 @@
 }
 
 .Splash {
-    display: flex;
-    flex-direction: row;
-}
-
-.SplashText {
-    padding-top: 0px;
+    position: relative;
 }
 
 .HeroTitle {

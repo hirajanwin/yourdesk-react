@@ -40,17 +40,18 @@ export default function Home() {
     return (
         <div className="home-body">
             <div className="Home">
-                <div className="HeroTitle">
-                    <h1>My Desk Tour</h1>
-                    <div>
-                        <h2>A place to share and get inspired by each other's desks!</h2>
-                        <h5><i>(WFH is hard. Don't make it harder with a bad desk setup!)</i></h5>
-                        <Button onClick={handleClick}>Explore</Button>
+                <div className="Splash">
+                    <div className="HeroTitle">
+                        <h1>My Desk Tour</h1>
+                        <div>
+                            <h2>A place to share and get inspired by each other's desks!</h2>
+                            <h5><i>(WFH is hard. Don't make it harder with a bad desk setup!)</i></h5>
+                            <Button onClick={handleClick}>Explore</Button>
+                        </div>
                     </div>
+                    <img className="DeskImage" alt="" src={w > 600 ? newHomeImg : newHomeMobileImg} />
                 </div>
-                <img className="DeskImage" alt="" src={w > 600 ? newHomeImg : newHomeMobileImg} />
 
-                
                 <h4 className="HomeSubtitle">Check out the desks other people work, game, and study on.</h4>
                 <div className="FeaturedList">
                     {featuredDesks.map((desk, i) => <DeskCard key={i} desk={desk} />)}

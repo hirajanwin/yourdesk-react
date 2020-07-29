@@ -18,7 +18,7 @@ function Header() {
     let user_img = (user && user.picture) ? user.picture : "";
 
     const SignedIn = (isAuthenticated && 
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
+        <div className="SignedIn" >
             <Nav.Link href="/profile">Profile</Nav.Link>
             <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
             &nbsp;
