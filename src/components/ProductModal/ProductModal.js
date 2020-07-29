@@ -111,9 +111,6 @@ export default function ProductModal() {
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleFormSubmit}>
-
-          <Form.Label><i>Please query Amazon sparingly, I haven't many API calls left :(</i></Form.Label>
-
           {/* Product selection/search */}
           <Form.Group controlId="product">
             <InputGroup className="mb-3">
