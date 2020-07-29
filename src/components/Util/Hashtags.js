@@ -4,7 +4,7 @@ import { Badge } from 'react-bootstrap';
 
 import './Util.css';
 
-const colors = {
+const customColors = {
     featured: "#559977",
     cool: "#4baddd",
     wfh: "#fbb901",
@@ -21,10 +21,23 @@ const colors = {
     design: "#7F64B8",
 }
 
-function getColor(hashtag) {
-    return colors[hashtag]  || "gray"
+// https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript
+var stringToColour = function (str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    var colour = '#';
+    for (var i = 0; i < 3; i++) {
+        var value = (hash >> (i * 8)) & 0xFF;
+        colour += ('00' + value.toString(16)).substr(-2);
+    }
+    return colour;
 }
 
+function getColor(hashtag) {
+    return customColors[hashtag] || stringToColour(hashtag);
+}
 
 export default function Hashtags({ hashtags, overflowHidden, block }) {
 
@@ -48,7 +61,8 @@ export default function Hashtags({ hashtags, overflowHidden, block }) {
                             color: "white",
                             backgroundColor: getColor(hashtag),
                             marginLeft: 2,
-                            marginRight: 2
+                            marginRight: 2,
+                            fontSize: "small"
                         }}>#{hashtag}</Badge>
                 )}
             </div>
