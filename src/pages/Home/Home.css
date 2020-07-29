@@ -39,15 +39,16 @@
 
 .HeroTitle {
     left: 50px;
-    top: 150px;
+    top: 120px;
     padding: 20px;
     text-align: left;
     position: absolute;
-    width: 700px;
+    width: 800px;
 }
 
 .HeroTitle h1 {
-    font-size: 500%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 650%;
     color: #343a40;
 }
 
@@ -62,6 +63,10 @@
 
 .HeroTitle .btn {
     margin-left: 10px;
+}
+
+.HeroTitle div {
+    width: 600px;
 }
 
 @media only screen and (max-device-width: 600px) {
