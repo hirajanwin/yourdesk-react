@@ -1,8 +1,12 @@
 .ChartsBody {
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 300px;
+    padding-right: 300px;
 }
 
+.ChartsBody h5 {
+    padding: 10px;
+    text-align: center;
+}
 
 @media only screen and (max-device-width: 600px) {
     .ChartsBody {

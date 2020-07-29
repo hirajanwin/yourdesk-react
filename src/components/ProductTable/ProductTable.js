@@ -28,9 +28,9 @@ export default function ProductTable(props) {
                         products.slice(0, 10).map((product, i) => (
                             <tr key={i}>
                                 <td>{i + 1}</td>
-                                <td style={{ maxWidth: 200 }}>{product.title.length > 40 ? product.title.slice(0, 40) + "..." : product.title}</td>
+                                <td style={{ maxWidth: 300 }}>{product.title.length > 40 ? product.title.slice(0, 40) + "..." : product.title}</td>
                                 <td><Image width="60px" src={product.image} /></td>
-                                <td>{product.prices.length > 0 ? "$" + product.prices[0].value : ""}</td>
+                                <td>{product.prices.length > 0 ? "$" + product.prices[0].value : "--"}</td>
                                 <td>
                                     <Button onClick={() => handleClick(product._id)} target="_blank">Details</Button> &nbsp;
                                     <Button href={product.link} target="_blank" variant="success">Buy</Button>

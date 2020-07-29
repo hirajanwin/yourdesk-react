@@ -17,12 +17,11 @@ export default function Explore() {
                     <Col xs={6}>
                         <Form.Group controlId="search">
                             <Form.Control type="email" placeholder="Search for desks, @users, products, #tags, brands" />
-                            <Form.Text className="text-muted">Search is not working yet "Command F" for now 
-                            <span role="img" aria-label="laughing-emoji">😂</span>.
+                            <Form.Text className="text-muted">&nbsp;Search is not working yet "Command F" for now <span role="img" aria-label="laughing-emoji">😂</span>.
                             </Form.Text>
                         </Form.Group>
                     </Col>
-                    <Button style={{height: 40}}disabled={true} variant="primary" type="submit">
+                    <Button style={{marginLeft: -8, height: 38}}disabled={true} variant="primary" type="submit">
                         Search
                     </Button>
                 </Row>

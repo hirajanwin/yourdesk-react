@@ -30,11 +30,9 @@ export default function Charts() {
     return (
         <div className="Body">
             <div className="ChartsBody">
-                <br />
-                <p>None of the data is actually being ranked (random selection), but I imagine this could be a cool feature later :)</p>
-                <p>Top Desks</p>
+                <h5>Top Desks</h5>
                 <DeskTable desks={topDesks} />
-                <p>Top Products</p>
+                <h5>Top Products</h5>
                 <ProductTable products={topProducts} />
             </div>
         </div>
