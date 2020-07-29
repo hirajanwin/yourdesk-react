@@ -20,7 +20,7 @@ export default function ProductTable(props) {
                         <th>Name</th>
                         <th>Image</th>
                         <th>Price</th>
-                        <th></th>
+                        <th>Links</th>
                     </tr>
                 </thead>
                 <tbody>

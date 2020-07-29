@@ -80,8 +80,8 @@ export default function Desk(props) {
                     </div>
                     <Card style={{ padding: 20, margin: 20, height: "100%" }}>
                         <b>{count > 0 ?
-                            count === 1 ? `As seen in ${count} desk:` : `As seen in ${count} desks:` :
-                            "Not found in any desks!"
+                            count === 1 ? `As seen on ${count} desk:` : `As seen on ${count} desks:` :
+                            "Not found on any desks!"
                         } </b>
                         {featuredDesks.map(desk => <DeskCard desk={desk} />)}
                     </Card>

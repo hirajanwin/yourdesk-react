@@ -19,8 +19,6 @@
     padding-top: 90px;
     padding-bottom: 10px;
     /* font-family: 'Recoleta Black'; */
-    font-weight: 900;
-    font-size: 200%;
 }
 
 .FeaturedList {
@@ -39,10 +37,61 @@
     padding-top: 0px;
 }
 
+.HeroTitle {
+    left: 50px;
+    top: 150px;
+    padding: 20px;
+    text-align: left;
+    position: absolute;
+    width: 700px;
+}
+
+.HeroTitle h1 {
+    font-size: 500%;
+    color: #343a40;
+}
+
+.HeroTitle h2 {
+    color: #343a40;
+}
+
+.HeroTitle h5 {
+    color: #343a40;
+    padding-bottom: 10px;
+}
+
+.HeroTitle .btn {
+    margin-left: 10px;
+}
+
 @media only screen and (max-device-width: 600px) {
     .HomeSubtitle {
-        font-size: 150%;
         padding-bottom: 0px;
         padding-top: 40px;
+    }
+
+    .HeroTitle {
+        top: 100px;
+        left: unset;
+        width: 370px;
+    }
+
+    .HeroTitle h1 {
+        font-size: 320%;
+        padding-bottom: 10px;
+    }
+
+    .HeroTitle h2 {
+        font-size: 150%;
+        padding-bottom: 10px;
+    }
+
+    .HeroTitle h5 {
+        font-size: 100%;
+        padding-bottom: 10px;
+    }
+
+    .HeroTitle .btn {
+        margin-left: 5px;
     }
 }

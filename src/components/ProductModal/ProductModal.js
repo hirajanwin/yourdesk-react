@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Modal, Button, Image, InputGroup, ListGroup } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteDeskProduct, addDeskProductProperties, hideProductModal, deselectAllDeskProducts } from '../../redux/actions';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_PRODUCTS, productSearch, CREATE_PRODUCT } from '../../util/api';

@@ -30,7 +30,7 @@ function Header() {
     
     return (
         <Navbar collapseOnSelect expand="lg" bg={light ? "white" : "dark"} variant={light ? "light" : "dark"} className="Header">
-            <Navbar.Brand href="/" style={{fontSize: "170%"}}><b>Desk Tour</b> <Badge variant="danger">Beta</Badge> </Navbar.Brand>
+            <Navbar.Brand href="/" style={{fontSize: "170%"}}><b>My Desk Tour</b> <Badge variant="danger">Beta</Badge> </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">

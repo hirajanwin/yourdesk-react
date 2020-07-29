@@ -25,6 +25,8 @@ export default function About() {
                 <p>Code is here: <a href="https://github.com/jonathancai11/yourdesk-graphql">backend</a> 
                     &nbsp; and <a href="https://github.com/jonathancai11/yourdesk-react">frontend</a>.</p>
 
+                <p>Home page graphic from <a href="https://www.vecteezy.com/free-vector/man-computer">Man Computer Vectors by Vecteezy</a>.</p>
+
             </div>
         </div>
     );
