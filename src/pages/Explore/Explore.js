@@ -10,6 +10,16 @@ export default function Explore() {
     const { data } = useQuery(GET_DESKS);
     let desks = data ? data.deskMany : [];
 
+    // Group into list of lists of desks to fit formatting of grid below
+    // let groupedDesks = [];
+    // let groupSize = 2;
+    // for (let i = 0; i < desks.length; i++) {
+    //     if (i % groupSize === 0) {
+    //         groupedDesks.push([])
+    //     }
+    //     groupedDesks[groupedDesks.length - 1].push(desks[i]);
+    // }
+
     return (
         <div className="Body">
             <Form>

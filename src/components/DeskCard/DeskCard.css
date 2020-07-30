@@ -14,12 +14,18 @@
 .DeskCardHeader {
     margin-left: 5px;
 }
+
 .DeskCardHeader h6 {
     margin-bottom: 0px;
 }
+
 .DeskCardHeader p {
     text-align: left;
     margin-bottom: 0px;
     font-size: x-small;
     color: gray;
+}
+
+.btn.btn-light.card :hover{
+    background-color: unset !important;
 }

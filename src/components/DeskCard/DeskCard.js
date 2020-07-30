@@ -19,9 +19,8 @@ export default function DeskCard({desk}) {
 
     return (
         <div>
-            {<Button
+            {<Card
                 variant="light"
-                href={(desk && desk.user && desk.user.user_id) && "/desk/" + desk.user.user_id + "/" + desk._id} as={Card}
                 style={{ width: '18rem', margin: '10px', cursor: 'pointer', padding: '10px', paddingBottom: '0px' }}
                 onClick={handleClick}>
                 <Card.Header>
@@ -41,7 +40,7 @@ export default function DeskCard({desk}) {
                     </Card.Title>
                     <Hashtags hashtags={desk.hashtags} overflowHidden />
                 </Card.Body>
-            </Button>}
+            </Card>}
         </div>
     );
 }
