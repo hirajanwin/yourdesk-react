@@ -21,10 +21,10 @@ export default function DeskCard({desk}) {
         <div>
             {<Card
                 variant="light"
-                style={{ width: '18rem', margin: '10px', cursor: 'pointer', padding: '10px', paddingBottom: '0px' }}
+                className="DeskCard"
                 onClick={handleClick}>
                 <Card.Header>
-                    <Row>
+                    <Row style={{margin: 0}}>
                         {profilePicture} &nbsp;
                         
                         <div className="DeskCardHeader">

@@ -30,6 +30,14 @@
     background-color: unset !important;
 }
 
+.DeskCard {
+    width: 18rem;
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px;
+    padding-bottom: 0px
+}
+
 @media only screen and (max-device-width: 600px) {
     .card-header {
         padding-left: unset !important;
