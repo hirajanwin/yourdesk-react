@@ -57,7 +57,7 @@ export default function ProductCard(props) {
                                     justifyContent: "space-between",
                                     cursor: "pointer",
                                 }}>
-                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 40) + "..." : deskProduct.product.title}
+                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 35) + "..." : deskProduct.product.title}
 
                                 <i>{"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)}</i>
 

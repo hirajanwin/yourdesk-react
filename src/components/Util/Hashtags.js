@@ -62,7 +62,7 @@ export default function Hashtags({ hashtags, overflowHidden, block }) {
                             backgroundColor: getColor(hashtag),
                             marginLeft: 2,
                             marginRight: 2,
-                            fontSize: "small"
+                            fontSize: "x-small"
                         }}>#{hashtag}</Badge>
                 )}
             </div>
