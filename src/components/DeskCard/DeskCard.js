@@ -5,7 +5,7 @@ import Hashtags from '../Util/Hashtags';
 
 import "./DeskCard.css"
 
-export default function DeskCard({desk}) {
+export default function DeskCard({ desk }) {
     const history = useHistory();
 
     const handleClick = () => {
@@ -18,15 +18,15 @@ export default function DeskCard({desk}) {
     let date = new Date(desk.date_created).toLocaleDateString("en-US");
 
     return (
-        <div>
-            {<Card
+        <div className="DeskCardWrapper">
+            <Card
                 variant="light"
                 className="DeskCard"
                 onClick={handleClick}>
                 <Card.Header>
-                    <Row style={{margin: 0}}>
+                    <Row style={{ margin: 0 }}>
                         {profilePicture} &nbsp;
-                        
+
                         <div className="DeskCardHeader">
                             <h6>{(desk && desk.user && desk.user.picture) && desk.user.name}</h6>
                             <p>{date}</p>
@@ -40,7 +40,7 @@ export default function DeskCard({desk}) {
                     </Card.Title>
                     <Hashtags hashtags={desk.hashtags} overflowHidden />
                 </Card.Body>
-            </Card>}
+            </Card>
         </div>
     );
 }
