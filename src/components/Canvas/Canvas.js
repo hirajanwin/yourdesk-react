@@ -54,7 +54,6 @@ export default function Canvas(props) {
         <Stage width={canvasWidth} height={canvasHeight} onMouseOver={handleHover}>
             <Layer onClick={layerHandleClick} >
             <Image x={0} y={0} image={image} 
-                // height={w < 600 ? 300 : 600}
                 scaleX={scaleX}
                 scaleY={scaleY}
                 style={{height: "200px"}}
@@ -67,8 +66,8 @@ export default function Canvas(props) {
                     key={i}
                     x={scaleX * deskProduct.coordX} 
                     y={scaleY * deskProduct.coordY} 
-                    width={ selected ? 30 : 20} 
-                    height={ selected ? 30 : 20} 
+                    width={ selected ? 20 : 15} 
+                    height={ selected ? 20 : 15} 
                     fill={ "white" }
                     shadowBlur={2}
                     opacity={ 1 }
