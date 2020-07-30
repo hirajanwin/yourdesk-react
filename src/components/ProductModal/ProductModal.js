@@ -71,7 +71,7 @@ export default function ProductModal() {
   function handleSearchButton(e) {
     setShowSearchResults(false);
     setSearchDisabled(true);
-    console.log("Start polling")
+    console.log("Start polling");
     productSearch(query).then(response => {
       let newProduct;
       let numProducts = response.data.search_results.length;
@@ -92,9 +92,9 @@ export default function ProductModal() {
         );
       }
       setSearchDisabled(false);
-      setShowSearchResults(true);
-      console.log("Stop polling")
       refetch();
+      setShowSearchResults(true);
+      console.log("Stop polling");
     }).catch(error => {
       console.log(error);
     });
@@ -115,7 +115,6 @@ export default function ProductModal() {
           <Form.Group controlId="product">
             <InputGroup className="mb-3">
               <Form.Control disabled={searchDisabled} placeholder="Search for the product" onChange={handleSearchType} value={query} />
-              {/* <Button disabled={true} variant="primary" onClick={handleSearchButton}>Search</Button> */}
             </InputGroup>
 
             {/* Product search results */}

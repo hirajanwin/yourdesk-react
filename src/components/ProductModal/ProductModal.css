@@ -20,7 +20,7 @@
 }
 
 .ProductDropDownItem {
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     justify-content: space-between;
     margin-right: 30px;
