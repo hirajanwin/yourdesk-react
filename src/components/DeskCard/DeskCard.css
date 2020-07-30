@@ -38,12 +38,12 @@
     padding-bottom: 0px
 }
 
-.DeskCardWrapper {
-    margin: 0 auto;
-}
-
 @media only screen and (max-device-width: 600px) {
     .card-header {
         padding-left: unset !important;
+    }
+    
+    .DeskCardWrapper {
+        margin: 0 auto;
     }
 }
