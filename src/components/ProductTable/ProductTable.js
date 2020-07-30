@@ -1,15 +1,8 @@
 import React from 'react';
 import { Table, Button, Image, Card } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
 
 export default function ProductTable(props) {
     let { products } = props;
-
-    const history = useHistory();
-
-    const handleClick = (id) => {
-        history.push("/product/" + id);
-    }
 
     return (
         <Card>
@@ -20,7 +13,7 @@ export default function ProductTable(props) {
                         <th>Name</th>
                         <th>Image</th>
                         <th>Price</th>
-                        <th>Links</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,11 +21,14 @@ export default function ProductTable(props) {
                         products.slice(0, 10).map((product, i) => (
                             <tr key={i}>
                                 <td>{i + 1}</td>
-                                <td style={{ maxWidth: 300 }}>{product.title.length > 40 ? product.title.slice(0, 40) + "..." : product.title}</td>
+                                <td style={{ maxWidth: 300 }}>
+                                    <a href={"/product/" + product._id}>
+                                    {product.title.length > 40 ? product.title.slice(0, 40) + "..." : product.title}
+                                    </a>
+                                </td>
                                 <td><Image width="60px" src={product.image} /></td>
                                 <td>{product.prices.length > 0 ? "$" + product.prices[0].value : "--"}</td>
                                 <td>
-                                    <Button onClick={() => handleClick(product._id)} target="_blank">Details</Button> &nbsp;
                                     <Button href={product.link} target="_blank" variant="success">Buy</Button>
                                 </td>
                             </tr>

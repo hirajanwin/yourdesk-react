@@ -29,3 +29,9 @@
 .btn.btn-light.card :hover{
     background-color: unset !important;
 }
+
+@media only screen and (max-device-width: 600px) {
+    .card-header {
+        padding-left: unset !important;
+    }
+}

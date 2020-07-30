@@ -41,7 +41,7 @@ function getColor(hashtag) {
 
 export default function Hashtags({ hashtags, overflowHidden, block }) {
 
-    let style = { display: "flex", flexDirection: "row" }
+    let style = { display: "flex", flexDirection: "row", minHeight: 15 }
     if (overflowHidden) {
         style.overflow = "hidden"
     }
