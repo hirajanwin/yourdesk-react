@@ -66,11 +66,11 @@ export default function Desk(props) {
                                 let deskProduct = desk.desk_products[index];
                                 let { pros, cons } = deskProduct;
                                 return (
-                                <div>
-                                    {(pros || cons) && <p><i>{user.name} said:</i></p>}
-                                    {pros && <p><b>Pros:</b> {pros}</p>}
-                                    {cons && <p><b>Cons:</b> {cons}</p>}
-                                </div>
+                                    <div>
+                                        {(pros || cons) && <p><i>{user.name} said:</i></p>}
+                                        {pros && <p><b>Pros:</b> {pros}</p>}
+                                        {cons && <p><b>Cons:</b> {cons}</p>}
+                                    </div>
                                 )
                             }
                         )}
@@ -78,13 +78,15 @@ export default function Desk(props) {
                     <div>
                         <Image style={{ width: 400, padding: 20 }} src={product.image} />
                     </div>
-                    <Card style={{ padding: 20, margin: 20, height: "100%" }}>
+                    <div style={{ padding: 5, margin: 20, height: "100%" }}>
+                        &nbsp;
+                        &nbsp;
                         <b>{count > 0 ?
                             count === 1 ? `As seen on ${count} desk:` : `As seen on ${count} desks:` :
-                            "Not found on any desks!"
-                        } </b>
+                            "Not found on any desks!"}
+                        </b>
                         {featuredDesks.map(desk => <DeskCard desk={desk} />)}
-                    </Card>
+                    </div>
                 </div>
             }
         </div>
