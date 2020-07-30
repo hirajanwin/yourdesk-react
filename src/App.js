@@ -13,6 +13,7 @@ import Charts from './pages/Charts/Charts';
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
+import ScrollToTop from './components/Util/ScrollToTop';
 
 import './style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop/>
           <Header/>
             <Switch>
               <Route exact path="/explore" component={Explore}/>
