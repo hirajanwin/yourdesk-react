@@ -39,6 +39,20 @@ function getColor(hashtag) {
     return customColors[hashtag] || stringToColour(hashtag);
 }
 
+const rainbow = "linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)";
+
+const customImages = {
+    facebookintern: rainbow,
+    facebookinterns: rainbow,
+    fbintern: rainbow,
+    fbinterns: rainbow,
+    fbinterns2020: rainbow,
+}
+
+function getImage(hashtag) {
+    return customImages[hashtag];
+}
+
 export default function Hashtags({ hashtags, overflowHidden, block }) {
 
     let style = { display: "flex", flexDirection: "row", minHeight: 15 }
@@ -59,6 +73,7 @@ export default function Hashtags({ hashtags, overflowHidden, block }) {
                         style={{
                             fontWeight: "light",
                             color: "white",
+                            backgroundImage: getImage(hashtag),
                             backgroundColor: getColor(hashtag),
                             marginLeft: 2,
                             marginRight: 2,
