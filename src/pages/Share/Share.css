@@ -43,17 +43,28 @@ p.DropzonePrompt {
     z-index: 1050;
 }
 
+.MainForm p {
+    display: none;
+}
+
 @media only screen and (max-device-width: 600px) {
     .ProductList {
         padding: unset;
         width: unset;
     }
+
     .Dropzone {
         width: unset;
     }
+
     .MainForm {
         width: unset;
     }
+
+    .MainForm p {
+        display: block;
+    }
+
     .ShareBody {
         padding-left: 10px;
         padding-right: 10px;

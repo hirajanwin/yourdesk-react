@@ -142,7 +142,7 @@ export default function ShareForm(props) {
 
     function onHashtagClick() {
         if (currentHashtag === "") {
-            
+
         } else if (currentHashtag === "featured") {
             props.alert("Being featured is a privilege!");
         } else {
@@ -157,6 +157,8 @@ export default function ShareForm(props) {
 
     return (
         <Form className={props.show ? "MainForm" : "hidden"} onSubmit={handleSubmit}>
+
+            <p><b>Product tagging does not work on mobile yet.</b> <br/><br/></p>
 
             <Form.Group controlId="name">
                 <Form.Label>Give this desk a name!</Form.Label>
@@ -173,7 +175,7 @@ export default function ShareForm(props) {
                 <Form.Control as="textarea" rows="3" placeholder="My overpriced MacBook." />
             </Form.Group>
 
-            <Hashtags hashtags={hashtags}/>
+            <Hashtags hashtags={hashtags} />
 
             <InputGroup className="mb-3">
                 <InputGroup.Prepend>
