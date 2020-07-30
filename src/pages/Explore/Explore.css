@@ -8,3 +8,23 @@
     display: flex;
     flex-direction: row;
 }
+
+.ExploreSearchBar {
+    width: 60vw;
+}
+
+@media only screen and (max-device-width: 600px) {
+    .DeskGrid div {
+        margin: 0 auto;
+    }
+    
+    .DeskGrid div div{
+        margin: unset;
+    }
+
+    .ExploreSearchBar {
+        display: none;
+        margin: unset;
+    }
+}
+

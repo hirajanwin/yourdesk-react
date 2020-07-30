@@ -22,16 +22,16 @@ export default function Explore() {
 
     return (
         <div className="Body">
-            <Form>
+            <Form className="ExploreSearchBar">
                 <Row>
-                    <Col xs={6}>
+                    <Col>
                         <Form.Group controlId="search">
                             <Form.Control type="email" placeholder="Search for desks, @users, products, #tags, brands" />
-                            <Form.Text className="text-muted">&nbsp;Search is not working yet "Command F" for now <span role="img" aria-label="laughing-emoji">😂</span>.
+                            <Form.Text className="text-muted">&nbsp;Search not implemented yet. Use ⌘F.
                             </Form.Text>
                         </Form.Group>
                     </Col>
-                    <Button style={{marginLeft: -8, height: 38}}disabled={true} variant="primary" type="submit">
+                    <Button style={{marginLeft: -10, height: 38}}disabled={true} variant="primary" type="submit">
                         Search
                     </Button>
                 </Row>
