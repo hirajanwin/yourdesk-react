@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Badge, Image } from 'react-bootstrap';
+import { Navbar, Nav, Image } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import './Header.css';

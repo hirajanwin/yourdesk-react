@@ -88,8 +88,7 @@ export default function ProductModal() {
           variables: {
             newProduct: newProduct
           }
-        }
-        );
+        });
       }
       setSearchDisabled(false);
       refetch();

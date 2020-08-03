@@ -24,7 +24,7 @@ function getRandomSample(array, size) {
 export default function Charts() {
     const { data: dataDesks } = useQuery(GET_DESKS);
     const { data } = useQuery(GET_PRODUCTS);
-    let topDesks = dataDesks ? dataDesks.deskMany.slice(0, 10) : [];
+    let topDesks = dataDesks ? dataDesks.deskMany.sort((a, b) => a.likes.length - b.likes.length).slice(0, 10) : [];
     let topProducts = data ? getRandomSample(data.productMany, 10) : [];
 
     return (

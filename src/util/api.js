@@ -13,6 +13,7 @@ export const GET_DESKS = gql`
       name
       favorite
       hashtags
+      likes
       use
       user {
         user_id
@@ -54,6 +55,7 @@ query {
       pros
       cons
     }
+    likes
     _id
     favorite
     hashtags
@@ -74,6 +76,7 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
     name
     favorite
     hashtags
+    likes
     use
     user {
 			name
@@ -97,6 +100,15 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
   }
 }
 `
+
+export const TOGGLE_LIKE_DESK = gql`
+mutation deskToggleLike($id: String!, $user: String!) {
+	deskToggleLike(id: $id, user: $user) {
+    name
+  }
+}
+`
+
 
 export const GET_PRODUCTS = gql`
 {

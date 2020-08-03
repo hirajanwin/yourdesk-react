@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button, Image, Card } from 'react-bootstrap';
+import { Table, Image, Card } from 'react-bootstrap';
 
 export default function DeskTable(props) {
     let { desks } = props;
