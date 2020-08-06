@@ -5,7 +5,7 @@ import Hashtags from '../Util/Hashtags';
 
 export default function DeskDetails(props) {
     let { desk } = props;
-    let date = new Date(desk.date_created).toLocaleDateString("en-US");
+    let date = new Date(desk.date_created).toDateString();
     return (
         <div className="DeskDetails">
             <Card body className="DeskDetailsCard" >

@@ -1,0 +1,29 @@
+.CommentSection {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px;
+}
+
+.Comment {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.CommentDetails {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.CommentDetails > p {
+    margin-bottom: 0px;
+}
+
+.CommentComment > p {
+    font-size: 95%;
+    margin-bottom: 0px;
+}
+
+.Comment > div > .Date {
+    font-size: 30%;
+}

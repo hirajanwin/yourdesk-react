@@ -4,6 +4,8 @@ import gql from 'graphql-tag';
 
 export const URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/graphql' : 'https://api-dot-yourdesk.wl.r.appspot.com/graphql';
 
+// ======================================== DESK ========================================
+
 export const GET_DESKS = gql`
 {
     deskMany {
@@ -75,6 +77,16 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
     img
     name
     favorite
+    comments {
+      date
+      comment
+      user {
+        user_id
+        name
+        picture
+      }
+    }
+
     hashtags
     likes
     use
@@ -108,6 +120,17 @@ mutation deskToggleLike($id: String!, $user: String!) {
   }
 }
 `
+
+export const CREATE_DESK = gql`
+mutation CreateDesk($newDesk: CreateOneDeskInput!) {
+    deskCreateOne(record: $newDesk) {
+      recordId
+    }
+  }
+`
+
+
+// ======================================== PRODUCT ========================================
 
 
 export const GET_PRODUCTS = gql`
@@ -145,18 +168,7 @@ query GetDesk($filter: FilterFindOneProductInput!) {
     }
 }
 `
-
-export const CREATE_PRODUCT_OLD = gql`
-mutation CreateProduct($newDeskProducts: CreateOneProductInput!) {
-    productCreateOne(record: $newDeskProducts) {
-      record {
-              brand
-        model
-      }
-      recordId
-    }
-  }  
-`
+// ======================================== DESK PRODUCT ========================================
 
 export const CREATE_DESK_PRODUCTS = gql`
 mutation CreateDeskProducts($newDeskProducts: [CreateManyDeskProductInput!]!) {
@@ -166,15 +178,24 @@ mutation CreateDeskProducts($newDeskProducts: [CreateManyDeskProductInput!]!) {
   }
 `
 
-export const CREATE_DESK = gql`
-mutation CreateDesk($newDesk: CreateOneDeskInput!) {
-    deskCreateOne(record: $newDesk) {
-      recordId
+
+// ======================================== COMMENT ========================================
+
+
+export const CREATE_COMMENT = gql`
+mutation createComment($userId: String!, $deskId: String!, $comment: String!, $date: Date!) {
+  commentCreateOne(record: {
+    userId: $userId, deskId: $deskId, comment: $comment, date: $date
+  }) {
+    record {
+      comment
     }
   }
+}
 `
 
-// --------------- IMAGE ---------------
+
+// ======================================== IMAGE ========================================
 
 export function uploadImage(file) {
   var bodyFormData = new FormData();
@@ -189,7 +210,7 @@ export function uploadImage(file) {
   });
 }
 
-// --------------- PRODUCT ---------------
+// ======================================== PRODUCT ========================================
 
 
 export function productSearch(search_term) {

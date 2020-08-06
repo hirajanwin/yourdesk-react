@@ -19,7 +19,7 @@ function Header() {
 
     const SignedIn = (isAuthenticated && 
         <div className="SignedIn" >
-            <Nav.Link href="/profile">Profile</Nav.Link>
+            <Nav.Link href="/profile">Settings</Nav.Link>
             <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
             &nbsp;
             { <Image style={{width: "40px", height: "40px"}} src={user_img} alt="" roundedCircle/>}

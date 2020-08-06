@@ -20,7 +20,7 @@ export default function Desk(props) {
 
     return (
         <div className="DeskBody">
-            <DeskComponent desk={desk}/>
+            <DeskComponent desk={desk} commentSection={true}/>
         </div>
     )
 }

@@ -80,6 +80,7 @@ export default function ShareForm(props) {
                                 date_created: new Date(),
                                 hashtags: hashtags,
                                 likes: [],
+                                comments: [],
                             }
                             console.log(desk);
                             // Finally create the desk object
@@ -132,7 +133,10 @@ export default function ShareForm(props) {
                             dispatch(clearAllDeskProducts());
                         }
                     }
-                )
+                ).catch(e =>{
+                    console.log(e);
+                    alert(e);
+                })
             }
 
         }).catch(function (error) {
@@ -163,21 +167,22 @@ export default function ShareForm(props) {
 
             <Form.Group controlId="name">
                 <Form.Label>Give this desk a name!</Form.Label>
-                <Form.Control type="text" placeholder="The name of my cool desk!" />
+                <Form.Control type="text"/>
             </Form.Group>
 
             <Form.Group controlId="use">
                 <Form.Label>What do you use this desk for?</Form.Label>
-                <Form.Control as="textarea" rows="3" placeholder="WFH, Gaming, Programming..." />
+                <Form.Control as="textarea" rows="2" />
             </Form.Group>
 
             <Form.Group controlId="favorite">
                 <Form.Label>Which is your favorite product?</Form.Label>
-                <Form.Control as="textarea" rows="3" placeholder="My overpriced MacBook." />
+                <Form.Control as="textarea" rows="2" />
             </Form.Group>
 
             <Hashtags hashtags={hashtags} />
 
+            <Form.Label>Tag your desk!</Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                     <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
