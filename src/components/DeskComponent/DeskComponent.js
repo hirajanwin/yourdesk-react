@@ -77,7 +77,7 @@ export default function DeskComponent({ desk, commentSection }) {
                                         <Image src={user.picture} style={{ width: "30px", height: "30px" }} alt="" roundedCircle />
                                     return (
                                         <Card key={i} style={{marginTop: 5, marginBottom: 5}}>
-                                            <div className="Comment">
+                                            {user && <div className="Comment">
                                                 {profilePicture}
                                                 <div className="CommentDetails">
                                                     <p>{user.name}</p>
@@ -86,7 +86,7 @@ export default function DeskComponent({ desk, commentSection }) {
                                                 <div className="CommentComment">
                                                 <p>{comment}</p>
                                                 </div>
-                                            </div>
+                                            </div>}
                                         </Card>
                                     );
                                 }

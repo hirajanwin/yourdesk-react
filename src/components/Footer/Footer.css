@@ -1,4 +1,15 @@
 .Footer {
-    height: 90px;
+    height: 70px;
     background-color:#343a40;
+    text-align: center;
+}
+
+.Footer > div {
+    padding-top: 20px;
+    vertical-align: middle;
+}
+
+.Footer > div > a {
+    color:white;
+    padding: 20px;
 }

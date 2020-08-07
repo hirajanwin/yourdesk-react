@@ -7,7 +7,7 @@ export default function FourOhFour() {
     return (
         <div className="Body">
             <div className="FourBody">
-                <img src={image} alt="" width={700}/>
+                <img src={image} alt="" width={800}/>
                 <h1 className="FourText">404!</h1>
             </div>
         </div>

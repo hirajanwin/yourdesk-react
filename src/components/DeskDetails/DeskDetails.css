@@ -1,5 +1,5 @@
 .DeskDetails {
-    width: 40vh;
+    width: 25vw;
 }
 
 @media only screen and (max-device-width: 600px) {

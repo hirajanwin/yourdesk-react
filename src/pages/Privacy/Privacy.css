@@ -1,0 +1,15 @@
+.Privacy {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.Privacy > .card > h4 {
+    padding-bottom: 10px;
+}
+
+@media only screen and (max-device-width: 600px) {
+    .Privacy {
+        width: unset;
+    }
+}

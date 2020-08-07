@@ -17,9 +17,9 @@ function Header() {
 
     let user_img = (user && user.picture) ? user.picture : "";
 
-    const SignedIn = (isAuthenticated && 
+    const SignedIn = (isAuthenticated && user &&
         <div className="SignedIn" >
-            <Nav.Link href="/profile">Settings</Nav.Link>
+            <Nav.Link href={`/profile/${user.sub}`}>Profile</Nav.Link>
             <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
             &nbsp;
             { <Image style={{width: "40px", height: "40px"}} src={user_img} alt="" roundedCircle/>}

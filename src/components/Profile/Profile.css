@@ -1,5 +1,6 @@
 .ProfileBody {
-    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
     text-align: center;
 }
 
@@ -11,4 +12,9 @@
 .ProfileBody img {
     text-align: center;
     margin: 0 auto;
+}
+
+.ProfileDesks {
+    display: flex;
+    flex-direction: row;
 }

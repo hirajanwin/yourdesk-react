@@ -1,27 +1,46 @@
 import React from "react";
-import { useAuth0 } from "../../util/react-auth0-spa";
 import { Image, Card } from 'react-bootstrap';
+import { GET_DESKS_BY_USER } from '../../util/api';
+import DeskCard from '../../components/DeskCard/DeskCard';
+
+import { useAuth0 } from "../../util/react-auth0-spa";
+import { useQuery } from '@apollo/react-hooks';
 
 import "./Profile.css"
 
-const Profile = () => {
+
+function Profile(props) {
+  let path = props.location.pathname.split("/");
+  let userId = path[2];
+
   const { loading, user } = useAuth0();
+  const { data } = useQuery(GET_DESKS_BY_USER, {
+    variables: {
+      userId: userId
+    },
+  });
 
   if (loading || !user) {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div className="Body">
       <div className="ProfileBody">
-        <Card style={{padding: 10, maxWidth: 500, margin: "0 auto", textAlign: "left"}}> 
-          <Image src={user.picture} style={{width: "200px", height: "200px"}} alt="Profile"/>
+        <Card style={{ margin: 10, padding: 10, minWidth: 300, textAlign: "left" }}>
+          <Image src={user.picture} style={{ width: "100px", height: "100px" }} alt="Profile" />
           <h2>{user.name}</h2>
-          <hr/>
-          {Object.keys(user).map((k, i) => <p key={i}><b>{k}</b>{": " + user[k]}</p>)}
-          <hr/>
-          <i>This is all the information safely stored in <a href="https://auth0.com/">Auth0</a>.</i>
+          <p>Published desks: {data && data.deskMany.length.toString()} </p>
         </Card>
+        {
+          data &&
+          <div className="ProfileDesks">
+            {data.deskMany.map((desk, i) => {
+              return <DeskCard key={i} notLikeable={user.sub === desk.user.user_id} desk={desk} />
+            })}
+          </div>
+        }
       </div>
     </div>
   );

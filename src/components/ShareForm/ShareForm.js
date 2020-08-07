@@ -80,7 +80,6 @@ export default function ShareForm(props) {
                                 date_created: new Date(),
                                 hashtags: hashtags,
                                 likes: [],
-                                comments: [],
                             }
                             console.log(desk);
                             // Finally create the desk object

@@ -5,13 +5,16 @@ import Hashtags from '../Util/Hashtags';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import { useMutation } from '@apollo/react-hooks';
 
-import "./DeskCard.css"
-import { TOGGLE_LIKE_DESK } from '../../util/api';
+import { TOGGLE_LIKE_DESK, DELETE_DESK } from '../../util/api';
 
-export default function DeskCard({ desk }) {
+import "./DeskCard.css"
+
+
+export default function DeskCard({ desk, notLikeable }) {
     const history = useHistory();
     const { user } = useAuth0();
     const [toggleLikeDesk] = useMutation(TOGGLE_LIKE_DESK);
+    const [deleteDesk] = useMutation(DELETE_DESK);
 
     const handleClick = () => {
         history.push("/desk/" + desk.user.user_id + "/" + desk._id);
@@ -36,6 +39,24 @@ export default function DeskCard({ desk }) {
         window.location.reload(false);
     }
 
+    function deleteButton(e) {
+        // Prevent inner onclick to trigger outer onclick
+        if (!e) e = window.event;
+        e.cancelBubble = true;
+        if (e.stopPropagation) e.stopPropagation();
+
+        if (user.sub !== desk.user.user_id) {
+            console.log("Trying to delete desk that is not yours!");
+            return;
+        }
+        deleteDesk({
+            variables: {
+                deskId: desk._id,
+                deskProductIds: desk.desk_products.map(dp=>dp._id),
+            }
+        })
+        window.location.reload(false);
+    }
 
     return (
         <div className="DeskCardWrapper">
@@ -52,9 +73,15 @@ export default function DeskCard({ desk }) {
                                 <p>{date}</p>
                             </div>
                         </div>
-                        <div>
-                            {desk.likes.length} <button onClick={toggleLike}>{user ? (desk.likes.includes(user.sub) ? "Unlike" : "Like") : "Like"}</button>
-                        </div>
+                        {
+                            notLikeable ?
+                                <div>
+                                    <button onClick={deleteButton}>Delete</button>
+                                </div> :
+                                <div>
+                                    {desk.likes.length} <button onClick={toggleLike}>{user ? (desk.likes.includes(user.sub) ? "Unlike" : "Like") : "Like"}</button>
+                                </div>
+                        }
                     </Row>
                 </Card.Header>
                 <Card.Img variant="top" src={desk.img} thumbnail="true" height="200px" />

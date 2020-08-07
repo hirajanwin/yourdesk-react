@@ -42,6 +42,27 @@ export const GET_DESKS = gql`
 }
 `
 
+export const GET_DESKS_BY_USER = gql`
+query DesksByUser($userId: String!) {
+  deskMany(filter: {user: $userId}) {
+    _id
+    date_created
+    img
+    name
+    hashtags
+    likes
+    user {
+      user_id
+      picture
+      name
+    }
+    desk_products {
+      _id
+    }
+  }
+}
+`
+
 export const GET_DESKS_WITH_PRODUCTS = gql`
 query {
   deskMany {
@@ -129,6 +150,17 @@ mutation CreateDesk($newDesk: CreateOneDeskInput!) {
   }
 `
 
+export const DELETE_DESK = gql`
+mutation DeleteDesk($deskId: MongoID!, $deskProductIds: [MongoID]!) {
+    deskRemoveOne(filter:{_id:$deskId}) {
+      recordId
+    }
+
+    deskProductRemoveMany(filter:{_ids: $deskProductIds}) {
+      numAffected
+    }
+  }
+`
 
 // ======================================== PRODUCT ========================================
 
