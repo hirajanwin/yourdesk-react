@@ -1,6 +1,6 @@
 .CommentSection {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 600px;
     padding: 10px;
 }
 
@@ -15,15 +15,25 @@
     padding-right: 8px;
 }
 
-.CommentDetails > p {
+.CommentDetails>p {
     margin-bottom: 0px;
 }
 
-.CommentComment > p {
+.CommentComment>p {
     font-size: 95%;
     margin-bottom: 0px;
 }
 
-.Comment > div > .Date {
+.Comment>div>.Date {
     font-size: 30%;
+}
+
+@media only screen and (max-device-width: 600px) {
+    .CommentSection {
+        padding-top: 50px;
+    }
+
+    .Comment>div>.Date {
+        font-size: 50%;
+    }
 }

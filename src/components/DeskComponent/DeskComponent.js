@@ -59,7 +59,7 @@ export default function DeskComponent({ desk, commentSection }) {
                             {user ? (
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Row>
-                                        <Col xs={7}>
+                                        <Col xs={9}>
                                             <Form.Control size="sm" placeholder="Leave a comment." className="my-1" />
                                         </Col>
                                         <Col>

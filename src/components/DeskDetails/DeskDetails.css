@@ -1,9 +1,5 @@
 .DeskDetails {
-    width: 30vh;
-}
-
-.DeskDetailsCard {
-    margin-right: 20px;
+    width: 40vh;
 }
 
 @media only screen and (max-device-width: 600px) {
