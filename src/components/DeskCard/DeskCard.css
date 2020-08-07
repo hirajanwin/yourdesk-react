@@ -53,7 +53,11 @@
     padding-right: 15px;
 }
 
-.LikeRow > p{
+.LikeRow > svg {
+    cursor: pointer;
+}
+
+.LikeRow > p {
     padding-right:5px;
     margin-top: -2px;
 }
