@@ -21,13 +21,11 @@ function Profile(props) {
   });
 
   if (loading || !user || !data) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
-  console.log(data);
-
   return (
-    <div className="Body">
+    <div className="ContentBody">
       <div className="ProfileBody">
         {data.getUserById &&
           <Card style={{ margin: 10, padding: 10, minWidth: 300, textAlign: "left" }}>

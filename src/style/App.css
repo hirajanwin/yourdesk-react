@@ -1,19 +1,10 @@
 .Body {
+  padding-bottom: 20px;
+  min-height: 85vh;
+}
+
+.ContentBody {
   padding: 20px;
-  padding-top: 10px;
-  min-height: 85vh;
-}
-
-.ShareBody {
-  padding-top: 10px;
-  padding-bottom: 40px;
-  min-height: 85vh;
-}
-
-.DeskBody {
-  padding-top: 50px;
-  padding-bottom: 40px;
-  min-height: 84vh;
 }
 
 .NewBody {

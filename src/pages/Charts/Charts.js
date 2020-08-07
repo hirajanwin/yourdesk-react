@@ -28,7 +28,7 @@ export default function Charts() {
     let topProducts = data ? getRandomSample(data.productMany, 10) : [];
 
     return (
-        <div className="Body">
+        <div className="ContentBody">
             <div className="ChartsBody">
                 <h5>Top Desks</h5>
                 <DeskTable desks={topDesks} />

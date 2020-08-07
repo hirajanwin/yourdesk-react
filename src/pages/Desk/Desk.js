@@ -16,11 +16,13 @@ export default function Desk(props) {
             }
         }
     });
-    let desk = data ? data.deskOne: null;
+    let desk = data ? data.deskOne : null;
 
     return (
-        <div className="DeskBody">
-            <DeskComponent desk={desk} commentSection={true}/>
+        <div className="ContentBody">
+            <div className="DeskBody">
+                <DeskComponent desk={desk} commentSection={true} />
+            </div>
         </div>
     )
 }

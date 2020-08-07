@@ -26,21 +26,23 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <ScrollToTop/>
-          <Header/>
-            <Switch>
-              <Route exact path="/explore" component={Explore}/>
-              <Route exact path="/about" component={About}/>
-              <Route exact path="/privacy" component={Privacy}/>
-              <Route exact path="/share" component={Share}/>
-              <Route exact path="/charts" component={Charts}/>
-              <Route exact path="/product/:id" component={Product}/>
-              <Route exact path="/desk/:username/:id" component={Desk}/>
-              <PrivateRoute path="/profile/:id" component={Profile} />
-              <Route exact path="/" component={Home}/>
-              <Route component={FourOhFour}/>
-            </Switch>
-          <Footer/>
+        <ScrollToTop />
+        <Header />
+        <div className="Body">
+          <Switch>
+            <Route exact path="/explore" component={Explore} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/privacy" component={Privacy} />
+            <Route exact path="/share" component={Share} />
+            <Route exact path="/charts" component={Charts} />
+            <Route exact path="/product/:id" component={Product} />
+            <Route exact path="/desk/:username/:id" component={Desk} />
+            <PrivateRoute path="/profile/:id" component={Profile} />
+            <Route exact path="/" component={Home} />
+            <Route component={FourOhFour} />
+          </Switch>
+          </div>
+        <Footer />
     </Router>
     </div>
   );

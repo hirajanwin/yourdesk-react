@@ -44,7 +44,7 @@ export default function DeskComponent({ desk, commentSection }) {
     }
 
     return (
-        <div className="Body">
+        <div>
             {
                 desk &&
                 <>

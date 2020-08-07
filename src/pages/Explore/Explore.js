@@ -21,7 +21,7 @@ export default function Explore() {
     // }
 
     return (
-        <div className="Body">
+        <div className="ContentBody">
             <Form className="ExploreSearchBar">
                 <Row>
                     <Col>

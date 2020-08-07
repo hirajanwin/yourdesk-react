@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 export default function About() {
     return (
-        <div className="Body">
+        <div className="ContentBody">
             <div className="About">
                 <Card style={{padding: 30}}>
                     <p>As of August 2020, </p>

@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 export default function Privacy() {
     return (
-        <div className="Body">
+        <div>
             <div className="Privacy">
                 <Card style={{ padding: 30 }}>
                     <h2>Privacy Policy</h2>
