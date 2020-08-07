@@ -4,8 +4,9 @@ import { useHistory } from 'react-router-dom';
 import Hashtags from '../Util/Hashtags';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import { useMutation } from '@apollo/react-hooks';
+import Likes from '../Util/Likes';
 
-import { TOGGLE_LIKE_DESK, DELETE_DESK } from '../../util/api';
+import { DELETE_DESK } from '../../util/api';
 
 import "./DeskCard.css"
 
@@ -13,7 +14,6 @@ import "./DeskCard.css"
 export default function DeskCard({ desk, notLikeable }) {
     const history = useHistory();
     const { user } = useAuth0();
-    const [toggleLikeDesk] = useMutation(TOGGLE_LIKE_DESK);
     const [deleteDesk] = useMutation(DELETE_DESK);
 
     const handleClick = () => {
@@ -24,20 +24,6 @@ export default function DeskCard({ desk, notLikeable }) {
         <Image src={desk.user.picture} style={{ width: "30px", height: "30px" }} alt="" roundedCircle />
 
     let date = new Date(desk.date_created).toLocaleDateString("en-US");
-
-    function toggleLike(e) {
-        // Prevent inner onclick to trigger outer onclick
-        if (!e) e = window.event;
-        e.cancelBubble = true;
-        if (e.stopPropagation) e.stopPropagation();
-        toggleLikeDesk({
-            variables: {
-                user: user.sub,
-                id: desk._id
-            }
-        });
-        window.location.reload(false);
-    }
 
     function deleteButton(e) {
         // Prevent inner onclick to trigger outer onclick
@@ -52,7 +38,7 @@ export default function DeskCard({ desk, notLikeable }) {
         deleteDesk({
             variables: {
                 deskId: desk._id,
-                deskProductIds: desk.desk_products.map(dp=>dp._id),
+                deskProductIds: desk.desk_products.map(dp => dp._id),
             }
         })
         window.location.reload(false);
@@ -78,14 +64,12 @@ export default function DeskCard({ desk, notLikeable }) {
                                 <div>
                                     <button onClick={deleteButton}>Delete</button>
                                 </div> :
-                                <div>
-                                    {desk.likes.length} <button onClick={toggleLike}>{user ? (desk.likes.includes(user.sub) ? "Unlike" : "Like") : "Like"}</button>
-                                </div>
+                                <Likes desk={desk} />
                         }
                     </Row>
                 </Card.Header>
                 <div className="DeskCardImageWrapper">
-                    <Card.Img variant="top" src={desk.img} className="DeskCardImage"/>
+                    <Card.Img variant="top" src={desk.img} className="DeskCardImage" />
                 </div>
                 <Card.Body style={{ paddingTop: "10px", padding: "5px" }}>
                     <Card.Title style={{ fontSize: "100%" }}>

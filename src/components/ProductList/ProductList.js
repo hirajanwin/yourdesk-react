@@ -57,10 +57,10 @@ export default function ProductCard(props) {
                                     justifyContent: "space-between",
                                     cursor: "pointer",
                                 }}>
-                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 35) + "..." : deskProduct.product.title}
-
+                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 30) + "..." : deskProduct.product.title}
+                                &nbsp;
                                 <i>{"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)}</i>
-
+                                &nbsp;
                                 <div>
                                     {props.share && <Button variant="outline-danger" size="sm" onClick={() => handleDelete(deskProduct)}>Delete</Button>}
                                 </div>
@@ -85,8 +85,8 @@ export default function ProductCard(props) {
                     );
                 }
                 )}
-            <hr />
-            <i>{"Total cost: $" + total.toFixed(2).toString()}</i>
+                <hr />
+                <i>{"Total cost: $" + total.toFixed(2).toString()}</i>
             </Accordion>
         </div >
     )

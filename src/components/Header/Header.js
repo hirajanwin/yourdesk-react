@@ -3,6 +3,7 @@ import { Navbar, Nav, Image } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import './Header.css';
+import { FaSearch, FaChartLine, FaShare, FaRegQuestionCircle } from 'react-icons/fa';
 
 function Header() {
     const { isAuthenticated, loginWithPopup, logout, user } = useAuth0();
@@ -34,10 +35,10 @@ function Header() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/explore" className="HeaderNav">Explore</Nav.Link>
-                    <Nav.Link href="/charts" className="HeaderNav">Charts</Nav.Link>
-                    <Nav.Link href="/share" className="HeaderNav">Share</Nav.Link>
-                    <Nav.Link href="/about" className="HeaderNav">About</Nav.Link>
+                    <Nav.Link href="/explore" className="HeaderNav"><FaSearch/> Explore</Nav.Link>
+                    <Nav.Link href="/charts" className="HeaderNav"><FaChartLine/> Charts</Nav.Link>
+                    <Nav.Link href="/share" className="HeaderNav"><FaShare/> Share</Nav.Link>
+                    <Nav.Link href="/about" className="HeaderNav"><FaRegQuestionCircle/> About</Nav.Link>
                 </Nav>
                 <Nav>
                     { isAuthenticated ? SignedIn : SignedOut }

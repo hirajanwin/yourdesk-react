@@ -44,7 +44,7 @@ export default function Home() {
                     <div className="HeroTitle">
                         <h1>My Desk Tour</h1>
                         <div>
-                            <h2>A place to share and get inspired by each other's desks.</h2>
+                            <h2>A place to find your perfect desk.</h2>
                             <h5><i>WFH is hard. Don't make it harder with a bad desk setup!</i></h5>
                             <Button size="lg" onClick={handleClick}>Explore</Button>
                         </div>

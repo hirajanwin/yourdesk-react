@@ -60,6 +60,13 @@ query DesksByUser($userId: String!) {
       _id
     }
   }
+
+  getUserById(_id: $userId) {
+    name
+    picture
+    screen_name
+    nickname
+  }
 }
 `
 
@@ -107,11 +114,11 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
         picture
       }
     }
-
     hashtags
     likes
     use
     user {
+      user_id
 			name
     }
     desk_products {

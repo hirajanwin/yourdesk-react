@@ -38,9 +38,9 @@ export default function DeskComponent({ desk, commentSection }) {
                     date: new Date(),
                 }
             });
+            form.reset();
+            window.location.reload(false);
         }
-        form.reset();
-        window.location.reload(false);
     }
 
     return (
@@ -76,15 +76,15 @@ export default function DeskComponent({ desk, commentSection }) {
                                     const profilePicture = (user && user.picture) &&
                                         <Image src={user.picture} style={{ width: "30px", height: "30px" }} alt="" roundedCircle />
                                     return (
-                                        <Card key={i} style={{marginTop: 5, marginBottom: 5}}>
+                                        <Card key={i} style={{ marginTop: 5, marginBottom: 5 }}>
                                             {user && <div className="Comment">
                                                 {profilePicture}
                                                 <div className="CommentDetails">
-                                                    <p>{user.name}</p>
+                                                    <p><a href={`/profile/${user.user_id}`}>{user.name}</a></p>
                                                     <p className="Date">{new Date(date).toDateString()}</p>
                                                 </div>
                                                 <div className="CommentComment">
-                                                <p>{comment}</p>
+                                                    <p>{comment}</p>
                                                 </div>
                                             </div>}
                                         </Card>

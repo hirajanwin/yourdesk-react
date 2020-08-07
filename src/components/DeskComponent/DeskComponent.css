@@ -15,13 +15,17 @@
     padding-right: 8px;
 }
 
-.CommentDetails>p {
+.CommentDetails > p {
     margin-bottom: 0px;
 }
 
-.CommentComment>p {
+.CommentComment > p {
     font-size: 95%;
     margin-bottom: 0px;
+}
+
+.CommentDetails > p > a {
+    color: black !important;
 }
 
 .Comment>div>.Date {

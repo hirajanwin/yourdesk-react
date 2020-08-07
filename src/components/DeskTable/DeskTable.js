@@ -26,7 +26,7 @@ export default function DeskTable(props) {
                                 <tr key={i}>
                                     <td>{i + 1}</td>
                                     <td><a href={"/desk/" + desk.user.user_id + "/" + desk._id}>{desk.name}</a></td>
-                                    <td>{desk.user.name}</td>
+                                    <td><a href={`/profile/${desk.user.user_id}`}>{desk.user.name}</a></td>
                                     <td><Image width="80px" src={desk.img} /></td>
                                 </tr>
                             )
