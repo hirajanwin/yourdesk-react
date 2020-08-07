@@ -84,7 +84,9 @@ export default function DeskCard({ desk, notLikeable }) {
                         }
                     </Row>
                 </Card.Header>
-                <Card.Img variant="top" src={desk.img} thumbnail="true" height="200px" />
+                <div className="DeskCardImageWrapper">
+                    <Card.Img variant="top" src={desk.img} className="DeskCardImage"/>
+                </div>
                 <Card.Body style={{ paddingTop: "10px", padding: "5px" }}>
                     <Card.Title style={{ fontSize: "100%" }}>
                         {desk.name}

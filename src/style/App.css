@@ -19,7 +19,7 @@
 .NewBody {
   padding-left: 20px;
   padding-right: 20px;
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   flex-direction: row;
 }

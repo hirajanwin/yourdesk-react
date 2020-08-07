@@ -38,6 +38,17 @@
     padding-bottom: 0px
 }
 
+.DeskCardImage {
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.DeskCardImageWrapper {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
 @media only screen and (max-device-width: 600px) {
     .card-header {
         padding-left: unset !important;

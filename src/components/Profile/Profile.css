@@ -18,3 +18,13 @@
     display: flex;
     flex-direction: row;
 }
+
+@media only screen and (max-device-width: 600px) {
+    .ProfileBody {
+        flex-direction: column;
+    }
+
+    .ProfileDesks {
+        flex-direction: column;
+    }
+}

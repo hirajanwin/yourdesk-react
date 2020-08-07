@@ -3,9 +3,10 @@ import { Table, Image, Card } from 'react-bootstrap';
 
 export default function DeskTable(props) {
     let { desks } = props;
+
+    console.log(desks);
     return (
         <Card>
-
             <Table responsive>
                 <thead>
                     <tr>
@@ -17,7 +18,10 @@ export default function DeskTable(props) {
                 </thead>
                 <tbody>
                     {
-                        desks.filter(desk => (desk && desk.user)).map((desk, i) => {
+                        desks
+                        .filter(desk => (desk && desk.user))
+                        .sort((a, b) => b.likes.length - a.likes.length)
+                        .map((desk, i) => {
                             return (
                                 <tr key={i}>
                                     <td>{i + 1}</td>
