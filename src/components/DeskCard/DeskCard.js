@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Row } from 'react-bootstrap';
+import { Card, Image, Row, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Hashtags from '../Util/Hashtags';
 import { useAuth0 } from "../../util/react-auth0-spa";
@@ -62,7 +62,7 @@ export default function DeskCard({ desk, notLikeable }) {
                         {
                             notLikeable ?
                                 <div>
-                                    <button onClick={deleteButton}>Delete</button>
+                                    <Button variant="outline-danger" size="sm" onClick={deleteButton}>Delete</Button>
                                 </div> :
                                 <Likes desk={desk} />
                         }
