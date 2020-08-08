@@ -39,7 +39,8 @@ export default function ProductCard(props) {
     const handleClick = (id) => {
         history.push("/product/" + id);
     }
-    var maxTextLength = 30
+    var w = window.innerWidth;
+    var maxTextLength =  w < 600 ? 30 : 37;
 
     return (
         <div className={props.show ? "ProductList" : "hidden"}>
@@ -75,10 +76,8 @@ export default function ProductCard(props) {
                                 </div>
                             </Accordion.Toggle>
 
-                            <Accordion.Collapse eventKey={i} in={selected}>
-
-                                <Card.Body className="ProductListItemBody">
-
+                            <Accordion.Collapse eventKey={i} in={selected} className="ProductListItemBody">
+                                <Card.Body>
                                     {/* Image of the selected product */}
                                     {deskProduct.product.image &&
                                         <div className="ProductImageContainer">

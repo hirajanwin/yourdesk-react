@@ -1,14 +1,8 @@
-.ProductImageContainer {
-    max-width:50%;
-    height:auto;
-    margin: 0 auto;
-}
-
 .CustomDialogue {
     left: 20%;
     top: 10%;
-  }
-  
+}
+
 
 .ProductImage {
     width: 100px;

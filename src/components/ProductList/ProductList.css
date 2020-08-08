@@ -1,5 +1,18 @@
+div.ProductList {
+    width: 25vw;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProductImageContainer {
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
 .ProductListItemBody {
-    max-width: 25vw;
+    display: inline-block;
 }
 
 .ProductListItem.card-header {
@@ -7,7 +20,8 @@
 }
 
 @media only screen and (max-device-width: 600px) {
-    .ProductList {
+    div.ProductList {
+        width: unset;
         padding-top: 20px;
     }
 
