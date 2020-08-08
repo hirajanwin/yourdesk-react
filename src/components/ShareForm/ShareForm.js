@@ -6,11 +6,13 @@ import { uploadImage, CREATE_DESK_PRODUCTS, CREATE_DESK } from '../../util/api';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import { useMutation } from '@apollo/react-hooks';
 import Hashtags from '../Util/Hashtags';
+import { useHistory } from 'react-router-dom';
 
 export default function ShareForm(props) {
     const { isAuthenticated, loginWithPopup, user } = useAuth0();
     const deskProducts = useSelector(store => store.deskProducts);
     const dispatch = useDispatch();
+    const history = useHistory();
     const { onSuccessfulUpload } = props;
     const [isLoading, setLoading] = useState(false);
     const [hashtags, setHashtags] = useState([]);
@@ -23,7 +25,7 @@ export default function ShareForm(props) {
         event.preventDefault();
 
         // Can't create desk unless authenticated
-        if (!isAuthenticated) {
+        if (!isAuthenticated || !user) {
             loginWithPopup();
             return;
         }
@@ -88,7 +90,9 @@ export default function ShareForm(props) {
                                     newDesk: desk
                                 }
                             }).then(
-                                ({ error }) => {
+                                (payload) => {
+                                    let { error, data } = payload;
+                                    console.log(payload);
                                     if (error) {
                                         console.log("Error creating desk!");
                                         console.log(error);
@@ -98,6 +102,7 @@ export default function ShareForm(props) {
                                         // Cleanup after yourself
                                         onSuccessfulUpload();
                                         dispatch(clearAllDeskProducts());
+                                        history.push("/desk/" + user.sub + "/" + data.deskCreateOne.recordId);
                                     }
                                 }
                             )
@@ -132,7 +137,7 @@ export default function ShareForm(props) {
                             dispatch(clearAllDeskProducts());
                         }
                     }
-                ).catch(e =>{
+                ).catch(e => {
                     console.log(e);
                     alert(e);
                 })
@@ -162,11 +167,11 @@ export default function ShareForm(props) {
     return (
         <Form className={props.show ? "MainForm" : "hidden"} onSubmit={handleSubmit}>
 
-            <p><b>Product tagging does not work on mobile yet.</b> <br/><br/></p>
+            <p><b>Product tagging does not work on mobile yet.</b> <br /><br /></p>
 
             <Form.Group controlId="name">
                 <Form.Label>Give this desk a name!</Form.Label>
-                <Form.Control type="text"/>
+                <Form.Control type="text" />
             </Form.Group>
 
             <Form.Group controlId="use">

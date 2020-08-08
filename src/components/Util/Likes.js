@@ -31,7 +31,7 @@ export default function Likes({ desk }) {
                 id: desk._id
             }
         });
-        window.location.reload(false);
+        setTimeout(() => window.location.reload(false), 500);
     }
 
     return (

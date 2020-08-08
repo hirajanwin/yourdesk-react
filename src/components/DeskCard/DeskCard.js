@@ -41,7 +41,7 @@ export default function DeskCard({ desk, notLikeable }) {
                 deskProductIds: desk.desk_products.map(dp => dp._id),
             }
         })
-        window.location.reload(false);
+        setTimeout(() => window.location.reload(false), 500);
     }
 
     return (

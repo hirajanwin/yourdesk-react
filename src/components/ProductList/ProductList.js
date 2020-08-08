@@ -57,18 +57,21 @@ export default function ProductCard(props) {
                                     justifyContent: "space-between",
                                     cursor: "pointer",
                                 }}>
-                                {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 30) + "..." : deskProduct.product.title}
-                                &nbsp;
-                                <i>{"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)}</i>
+                                <p style={{ marginBottom: 0, marginTop: ".2rem" }}>
+                                    {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 30) + "..." : deskProduct.product.title}
+                                </p>
                                 &nbsp;
                                 <div>
+                                    <p style={{ marginBottom: 0, marginTop: ".05rem" }}>
+                                        {"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)} &nbsp;
                                     {props.share && <Button variant="outline-danger" size="sm" onClick={() => handleDelete(deskProduct)}>Delete</Button>}
+                                    </p>
                                 </div>
                             </Accordion.Toggle>
 
                             <Accordion.Collapse eventKey={i} in={selected}>
 
-                                <Card.Body>
+                                <Card.Body style={{maxWidth: "25vw"}}>
 
                                     {/* Image of the selected product */}
                                     {deskProduct.product.image &&
@@ -86,7 +89,7 @@ export default function ProductCard(props) {
                 }
                 )}
                 <hr />
-                <i>{"Total cost: $" + total.toFixed(2).toString()}</i>
+                {"Total cost: $" + total.toFixed(2).toString()}
             </Accordion>
         </div >
     )

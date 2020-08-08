@@ -145,7 +145,7 @@ export default function ProductModal() {
           {/* Pros */}
           <Form.Group controlId="pros">
             <Form.Label>Pros</Form.Label>
-            <Form.Control placeholder="What do you like about it?" onChange={(e) => { console.log(e) }} as="textarea" rows="1" value={currentDeskProduct.pros} />
+            <Form.Control placeholder="What do you like about it?" as="textarea" rows="1" value={currentDeskProduct.pros} />
           </Form.Group>
 
           {/* Cons */}

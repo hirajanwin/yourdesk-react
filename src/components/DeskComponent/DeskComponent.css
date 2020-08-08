@@ -1,5 +1,4 @@
 .CommentSection {
-    margin: 0 auto;
     max-width: 600px;
     padding: 10px;
 }
@@ -8,6 +7,10 @@
     padding: 10px;
     display: flex;
     flex-direction: row;
+}
+
+.DeskMain {
+    max-width: 42vw;
 }
 
 .CommentDetails {
@@ -34,10 +37,14 @@
 
 @media only screen and (max-device-width: 600px) {
     .CommentSection {
-        padding-top: 50px;
+        padding-top: 20px;
     }
 
     .Comment>div>.Date {
         font-size: 50%;
+    }
+
+    .DeskMain {
+        max-width: unset;
     }
 }
