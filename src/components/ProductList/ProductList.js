@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectDeskProduct, deselectDeskProduct, deleteDeskProduct } from '../../redux/actions';
 import { useHistory } from 'react-router-dom';
 
+import './ProductList.css'
+
+
 export default function ProductCard(props) {
 
     const dispatch = useDispatch();
@@ -36,7 +39,7 @@ export default function ProductCard(props) {
     const handleClick = (id) => {
         history.push("/product/" + id);
     }
-
+    var maxTextLength = 30
 
     return (
         <div className={props.show ? "ProductList" : "hidden"}>
@@ -48,6 +51,7 @@ export default function ProductCard(props) {
                         saved &&
                         <Card key={i}>
                             <Accordion.Toggle as={Card.Header}
+                                className="ProductListItem"
                                 onClick={props.clickable ? () => handleClick(deskProduct.product._id) : null}
                                 onMouseOver={() => handleMouse(selected, deskProduct)}
                                 onMouseOut={() => handleMouse(selected, deskProduct)}
@@ -58,7 +62,9 @@ export default function ProductCard(props) {
                                     cursor: "pointer",
                                 }}>
                                 <p style={{ marginBottom: 0, marginTop: ".2rem" }}>
-                                    {deskProduct.product.title.length > 40 ? deskProduct.product.title.slice(0, 30) + "..." : deskProduct.product.title}
+                                    {deskProduct.product.title.length > maxTextLength ?
+                                        deskProduct.product.title.slice(0, maxTextLength - 3) + "..." :
+                                        deskProduct.product.title}
                                 </p>
                                 &nbsp;
                                 <div>
@@ -71,7 +77,7 @@ export default function ProductCard(props) {
 
                             <Accordion.Collapse eventKey={i} in={selected}>
 
-                                <Card.Body style={{maxWidth: "25vw"}}>
+                                <Card.Body style={{ maxWidth: "25vw" }}>
 
                                     {/* Image of the selected product */}
                                     {deskProduct.product.image &&

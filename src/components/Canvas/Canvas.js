@@ -42,12 +42,12 @@ export default function Canvas(props) {
         }
     }
     var w = window.innerWidth;
-    const scale = w < 800 ? .55 : 1;
+    const scale = w < 600 ? .55 : 1;
     const scaleX = scale;
     const scaleY = scale;
 
-    const canvasWidth = w < 800 ? 340 : 600;
-    const canvasHeight = w < 800 ? 300 : 400;
+    const canvasWidth = w < 600 ? 340 : 600;
+    const canvasHeight = w < 600 ? 240 : 400;
 
     return (
     <div className={props.show ? "Canvas" : "hidden"} style={{zIndex: 1050}}>
