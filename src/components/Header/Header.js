@@ -1,14 +1,32 @@
-import React from 'react';
-import { Navbar, Nav, Image } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { Navbar, Nav, Image, Badge } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import './Header.css';
 import { FaSearch, FaChartLine, FaShare, FaRegQuestionCircle, FaUserAlt } from 'react-icons/fa';
+import { useMutation } from '@apollo/react-hooks';
 import { GoSignIn, GoSignOut } from "react-icons/go";
+import { TRY_CREATE_USER } from '../../util/api';
 
 function Header() {
     const { isAuthenticated, loginWithPopup, logout, user, loading } = useAuth0();
+    let [tryCreateUser] = useMutation(TRY_CREATE_USER);
     let light = true;
+
+    useEffect(() => {
+        if (user) {
+            let { sub, name, picture, nickname } = user;
+            tryCreateUser({
+                variables: {
+                    user_id: sub,
+                    name: name,
+                    picture: picture,
+                    nickname: nickname,
+                }
+            })
+        }
+    }, [user])
+
 
     const handleSignIn = () => {
         loginWithPopup();
@@ -32,7 +50,10 @@ function Header() {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg={light ? "white" : "dark"} variant={light ? "light" : "dark"} className="Header">
-            <Navbar.Brand href="/" className="HeaderLogo" style={{ fontSize: "170%" }}>My Desk Tour</Navbar.Brand>
+            <Navbar.Brand href="/" className="HeaderLogo" style={{ fontSize: "170%" }}>
+                My Desk Tour
+                <Badge style={{ marginLeft: 5, fontFamily: "arial", display: "inline", fontSize: "50%" }} variant="danger" size="sm">Beta</Badge>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">

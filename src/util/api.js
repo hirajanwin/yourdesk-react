@@ -234,6 +234,16 @@ mutation createComment($userId: String!, $deskId: String!, $comment: String!, $d
 }
 `
 
+// ======================================== USER ========================================
+
+export const TRY_CREATE_USER = gql`
+mutation tryCreateuser($user_id: String!, $name: String!, $picture: String!, $nickname: String!) {
+  userTryCreate(user_id: $user_id, name: $name, picture: $picture, nickname: $nickname) {
+    _id
+  }
+}
+`
+
 
 // ======================================== IMAGE ========================================
 
