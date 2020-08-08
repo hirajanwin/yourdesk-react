@@ -5,6 +5,8 @@ import { useMutation } from '@apollo/react-hooks';
 import { TOGGLE_LIKE_DESK } from '../../util/api';
 import { useAuth0 } from "../../util/react-auth0-spa";
 
+import './Util.css'
+
 
 export default function Likes({ desk }) {
 
@@ -36,7 +38,7 @@ export default function Likes({ desk }) {
 
     return (
         <Row className="LikeRow">
-            <p>{desk.likes.length}</p>
+            <p>{desk.likes.length}</p>&nbsp;
             {user ?
                 (desk.likes.includes(user.sub) ? liked : notLiked) :
                 notLiked}

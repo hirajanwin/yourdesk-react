@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/react-hooks';
 import { CREATE_COMMENT } from '../../util/api';
 import { useAuth0 } from "../../util/react-auth0-spa";
 
+import './Util.css'
+
 
 export default function CommentSection({desk, show}) {
     const { user } = useAuth0();

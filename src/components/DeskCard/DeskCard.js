@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Row, Button } from 'react-bootstrap';
+import { Card, Image, Row, Button, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Hashtags from '../Util/Hashtags';
 import { useAuth0 } from "../../util/react-auth0-spa";
@@ -7,6 +7,7 @@ import { useMutation } from '@apollo/react-hooks';
 import Likes from '../Util/Likes';
 
 import { DELETE_DESK } from '../../util/api';
+import { FaRegCommentDots } from 'react-icons/fa';
 
 import "./DeskCard.css"
 
@@ -59,13 +60,18 @@ export default function DeskCard({ desk, notLikeable }) {
                                 <p>{date}</p>
                             </div>
                         </div>
-                        {
-                            notLikeable ?
-                                <div>
-                                    <Button variant="outline-danger" size="sm" onClick={deleteButton}>Delete</Button>
-                                </div> :
-                                <Likes desk={desk} />
-                        }
+                        <div>
+                            {
+                                notLikeable ?
+                                    <div>
+                                        <Button variant="outline-danger" size="sm" onClick={deleteButton}>Delete</Button>
+                                    </div> :
+                                    <div className="LikesAndComments">
+                                        {(desk.comments.length > 0 && <Row style={{ float: "left", paddingRight: 37 }}>{desk.comments.length} &nbsp; <FaRegCommentDots size="1.3em" /></Row>)}
+                                        <Likes desk={desk} />
+                                    </div>
+                            }
+                        </div>
                     </Row>
                 </Card.Header>
                 <div className="DeskCardImageWrapper">

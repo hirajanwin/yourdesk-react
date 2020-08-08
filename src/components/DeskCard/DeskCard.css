@@ -49,17 +49,9 @@
     overflow: hidden;
 }
 
-.LikeRow {
+.LikesAndComments {
+    display: unset;
     padding-right: 15px;
-}
-
-.LikeRow > svg {
-    cursor: pointer;
-}
-
-.LikeRow > p {
-    padding-right:5px;
-    margin-top: -2px;
 }
 
 @media only screen and (max-device-width: 600px) {

@@ -16,6 +16,9 @@ export const GET_DESKS = gql`
       favorite
       hashtags
       likes
+      comments {
+        userId
+      }
       use
       user {
         user_id
