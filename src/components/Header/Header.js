@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Image, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Navbar, Nav, Image } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { useAuth0 } from "../../util/react-auth0-spa";
 import './Header.css';
@@ -28,13 +28,7 @@ function Header() {
         </div>
 
     );
-    const SignedOut = (!isAuthenticated &&
-        <OverlayTrigger
-            placement="bottom"
-            overlay={<Tooltip>We won't send you any emails!</Tooltip>}
-        >
-            <Nav.Link onClick={handleSignIn}> <GoSignIn /> Sign In</Nav.Link>
-        </OverlayTrigger>);
+    const SignedOut = (!isAuthenticated && <Nav.Link onClick={handleSignIn}> <GoSignIn /> Sign In</Nav.Link>);
 
     return (
         <Navbar collapseOnSelect expand="lg" bg={light ? "white" : "dark"} variant={light ? "light" : "dark"} className="Header">
