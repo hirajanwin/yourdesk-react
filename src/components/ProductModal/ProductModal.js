@@ -96,8 +96,8 @@ export default function ProductModal() {
       // Refetch after half a second
       setTimeout(() => {
         refetch();
-        setSearchDisabled(false);
         setShowSearchResults(true);
+        setSearchDisabled(false);
         console.log("Stop polling");
       }, 500);
     }).catch(error => {
