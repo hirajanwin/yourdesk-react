@@ -77,7 +77,7 @@ export default function ProductCard(props) {
 
                             <Accordion.Collapse eventKey={i} in={selected}>
 
-                                <Card.Body style={{ maxWidth: "25vw" }}>
+                                <Card.Body className="ProductListItemBody">
 
                                     {/* Image of the selected product */}
                                     {deskProduct.product.image &&

@@ -1,3 +1,6 @@
+.ProductListItemBody {
+    max-width: 25vw;
+}
 
 .ProductListItem.card-header {
     padding: 10px !important;
@@ -6,5 +9,9 @@
 @media only screen and (max-device-width: 600px) {
     .ProductList {
         padding-top: 20px;
+    }
+
+    .ProductListItemBody {
+        max-width: unset;
     }
 }
