@@ -186,7 +186,7 @@ export default function ShareForm(props) {
 
             <Hashtags hashtags={hashtags} />
 
-            <Form.Label>Tag your desk!</Form.Label>
+            <Form.Label>Give your desk a few tags!</Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                     <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
@@ -194,8 +194,7 @@ export default function ShareForm(props) {
                 <FormControl
                     value={currentHashtag}
                     onChange={onHashtagChange}
-                    placeholder="Tag your desk!"
-                    aria-label="Username"
+                    aria-label="hashtag"
                     aria-describedby="basic-addon1"
                 />
                 &nbsp;

@@ -62,7 +62,7 @@ export default function Home() {
                 </div>
                 {/* Render in sample desk only if on desktop */}
                 {(w > 600) && <h4 className="HomeSubtitle">Show off your desk!</h4>}
-                {(w > 600) && <DeskComponent desk={featuredDesks[1]} commentSection={false}/>}
+                {(w > 600) && <DeskComponent desk={featuredDesks[0]} commentSection={false}/>}
             </div>
         </div>
     );
