@@ -83,17 +83,23 @@ export default function ProductModal() {
           newProduct.prices = newProduct.price;
         }
         delete newProduct.price;
+        delete newProduct.delivery;
 
         createProduct({
           variables: {
             newProduct: newProduct
           }
+        }).catch(e => {
+          console.log("Failure creating product:", e);
         });
       }
-      setSearchDisabled(false);
-      refetch();
-      setShowSearchResults(true);
-      console.log("Stop polling");
+      // Refetch after half a second
+      setTimeout(() => {
+        refetch();
+        setSearchDisabled(false);
+        setShowSearchResults(true);
+        console.log("Stop polling");
+      }, 500);
     }).catch(error => {
       console.log(error);
     });
@@ -124,8 +130,8 @@ export default function ProductModal() {
                   setSelectedProduct(product);
                   setQuery(product.title);
                 }} className="ProductDropDownItem">
-                  {product.title.length > 40 ? product.title.slice(0, 40) + "..." : product.title} 
-                  <Image src={product.image} style={{width: 30, maxHeight: 40}}rounded fluid className="ProductImage" />
+                  {product.title.length > 40 ? product.title.slice(0, 40) + "..." : product.title}
+                  <Image src={product.image} style={{ width: 30, maxHeight: 40 }} rounded fluid className="ProductImage" />
                 </ListGroup.Item>)}
 
               {(showSearchResults && query !== "") && <ListGroup.Item onClick={handleSearchButton} className="ProductDropDownItem">

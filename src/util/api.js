@@ -12,14 +12,13 @@ export const GET_DESKS = gql`
       _id
       date_created
       img
+      about
       name
-      favorite
       hashtags
       likes
       comments {
         userId
       }
-      use
       user {
         user_id
         picture
@@ -53,6 +52,7 @@ query DesksByUser($userId: String!) {
     img
     name
     hashtags
+    about
     likes
     user {
       user_id
@@ -76,6 +76,7 @@ query DesksByUser($userId: String!) {
 export const GET_DESKS_WITH_PRODUCTS = gql`
 query {
   deskMany {
+    about
     user {
       name
       user_id
@@ -90,9 +91,7 @@ query {
     }
     likes
     _id
-    favorite
     hashtags
-    use
     img
     date_created
     name
@@ -104,10 +103,10 @@ export const GET_DESK = gql`
 query GetDesk($filter: FilterFindOneDeskInput!) {
   deskOne(filter: $filter) {
     _id
+    about
     date_created
     img
     name
-    favorite
     comments {
       date
       comment
@@ -119,7 +118,6 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
     }
     hashtags
     likes
-    use
     user {
       user_id
 			name

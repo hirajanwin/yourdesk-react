@@ -20,10 +20,7 @@ export default function DeskDetails(props) {
                             <a style={{ color: "black" }} href={`/profile/${desk.user.user_id}`}>{desk.user.name}</a>
                         </p>
                         <p>{date}</p>
-                        <b>What do you use this desk for?</b>
-                        <p>{desk.use}</p>
-                        <b>Which is your favorite product?</b>
-                        <p>{desk.favorite}</p>
+                        <p>{desk.about}</p>
                         <Hashtags hashtags={desk.hashtags} block />
                         <div style={{paddingLeft: 15}}>
                             <Likes desk={desk} />

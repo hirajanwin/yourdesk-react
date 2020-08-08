@@ -35,9 +35,8 @@ export default function ShareForm(props) {
         // Extract share form properties
         const form = event.currentTarget;
         let properties = {
-            favorite: "None",
             name: user ? user.name + "'s Desk" : "New User's Desk",
-            use: "None",
+            about: "None",
         };
         for (let i = 0; i < form.elements.length; i++) {
             if (form.elements[i].id && form.elements[i].value) {
@@ -94,7 +93,7 @@ export default function ShareForm(props) {
                                     let { error, data } = payload;
                                     console.log(payload);
                                     if (error) {
-                                        console.log("Error creating desk!");
+                                        alert("Error creating desk!");
                                         console.log(error);
                                     } else {
                                         console.log("Creating desk was a success!");
@@ -125,16 +124,19 @@ export default function ShareForm(props) {
                         newDesk: desk
                     }
                 }).then(
-                    ({ error }) => {
+                    ({ error, data }) => {
                         if (error) {
                             console.log("Error creating desk!");
                             console.log(error);
                         } else {
                             console.log("Creating desk was a success!");
-
+                            let newDeskId = data.deskCreateOne.recordId;
+                            console.log(newDeskId);
                             // Cleanup after yourself
                             onSuccessfulUpload();
                             dispatch(clearAllDeskProducts());
+
+                            history.push("/desk/" + desk.user.user_id + "/" + desk._id);
                         }
                     }
                 ).catch(e => {
@@ -144,7 +146,7 @@ export default function ShareForm(props) {
             }
 
         }).catch(function (error) {
-            console.log("Error uploading image...");
+            alert("Error uploading image...");
             console.log(error);
         });
     }
@@ -170,23 +172,19 @@ export default function ShareForm(props) {
             <p><b>Product tagging does not work on mobile yet.</b> <br /><br /></p>
 
             <Form.Group controlId="name">
-                <Form.Label>Give this desk a name!</Form.Label>
+                <Form.Label>Give your desk a name.</Form.Label>
                 <Form.Control type="text" />
             </Form.Group>
 
-            <Form.Group controlId="use">
-                <Form.Label>What do you use this desk for?</Form.Label>
-                <Form.Control as="textarea" rows="2" />
-            </Form.Group>
-
-            <Form.Group controlId="favorite">
-                <Form.Label>Which is your favorite product?</Form.Label>
+            <Form.Group controlId="about">
+                <Form.Label style={{ marginBottom: 0 }}>Tell us about your desk.</Form.Label>
+                <Form.Label style={{ fontSize: "80%" }}>What do you do on it? Which products could you not live without?</Form.Label>
                 <Form.Control as="textarea" rows="2" />
             </Form.Group>
 
             <Hashtags hashtags={hashtags} />
 
-            <Form.Label>Give your desk a few tags!</Form.Label>
+            <Form.Label>Give your desk a few tags.</Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                     <InputGroup.Text id="basic-addon1">#</InputGroup.Text>

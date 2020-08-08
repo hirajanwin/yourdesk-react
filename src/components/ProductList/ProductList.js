@@ -43,7 +43,7 @@ export default function ProductCard(props) {
     var maxTextLength =  w < 600 ? 30 : 37;
 
     return (
-        <div className={props.show ? "ProductList" : "hidden"}>
+        <div className={props.show ? "ProductList" : "hidden"} style={props.share && {width: "35vw"}}>
             <Accordion>
                 {deskProducts.allIds.map((id, i) => {
                     let { deskProduct, saved, selected } = deskProducts.byIds[id];
@@ -68,12 +68,10 @@ export default function ProductCard(props) {
                                         deskProduct.product.title}
                                 </p>
                                 &nbsp;
-                                <div>
                                     <p style={{ marginBottom: 0, marginTop: ".05rem" }}>
                                         {"$" + (deskProduct.product.prices[0] ? deskProduct.product.prices[0].value : 0)} &nbsp;
                                     {props.share && <Button variant="outline-danger" size="sm" onClick={() => handleDelete(deskProduct)}>Delete</Button>}
                                     </p>
-                                </div>
                             </Accordion.Toggle>
 
                             <Accordion.Collapse eventKey={i} in={selected} className="ProductListItemBody">

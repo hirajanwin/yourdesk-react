@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Row, Button, Col } from 'react-bootstrap';
+import { Card, Image, Row, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Hashtags from '../Util/Hashtags';
 import { useAuth0 } from "../../util/react-auth0-spa";
@@ -67,7 +67,10 @@ export default function DeskCard({ desk, notLikeable }) {
                                         <Button variant="outline-danger" size="sm" onClick={deleteButton}>Delete</Button>
                                     </div> :
                                     <div className="LikesAndComments">
-                                        {(desk.comments.length > 0 && <Row style={{ float: "left", paddingRight: 37 }}>{desk.comments.length} &nbsp; <FaRegCommentDots size="1.3em" /></Row>)}
+                                        {(desk.comments && desk.comments.length > 0 &&
+                                            <Row style={{ float: "left", paddingRight: 37 }}>
+                                                {desk.comments.length} &nbsp; <FaRegCommentDots size="1.3em" />
+                                            </Row>)}
                                         <Likes desk={desk} />
                                     </div>
                             }
