@@ -42,10 +42,7 @@ function getColor(hashtag) {
 const rainbow = "linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)";
 
 const customImages = {
-    facebookintern: rainbow,
-    facebookinterns: rainbow,
     fbintern: rainbow,
-    fbinterns: rainbow,
     fbinterns2020: rainbow,
 }
 

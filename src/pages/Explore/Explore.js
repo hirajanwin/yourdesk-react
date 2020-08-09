@@ -7,7 +7,9 @@ import "./Explore.css";
 
 
 export default function Explore() {
-    const { data } = useQuery(GET_DESKS);
+    const { data } = useQuery(GET_DESKS, {
+        pollInterval: 300
+    });
     let desks = data ? data.deskMany : [];
 
     // Group into list of lists of desks to fit formatting of grid below

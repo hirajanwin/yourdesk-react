@@ -27,7 +27,7 @@ export default function CommentSection({desk, show}) {
                 }
             });
             form.reset();
-            setTimeout(() => window.location.reload(false), 500);
+            // setTimeout(() => window.location.reload(false), 500);
         }
     }
 
