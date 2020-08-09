@@ -50,7 +50,8 @@ export default function DeskCard({ desk, notLikeable }) {
             <Card
                 variant="light"
                 className="DeskCard"
-                onClick={handleClick}>
+                onClick={handleClick}
+            >
                 <Card.Header style={{ padding: 0 }}>
                     <Row style={{ margin: 0, justifyContent: "space-between" }}>
                         <div style={{ display: "flex", flexDirection: "row" }}>
@@ -68,8 +69,9 @@ export default function DeskCard({ desk, notLikeable }) {
                                     </div> :
                                     <div className="LikesAndComments">
                                         {(desk.comments && desk.comments.length > 0 &&
-                                            <Row style={{ float: "left", paddingRight: 37 }}>
-                                                {desk.comments.length} &nbsp; <FaRegCommentDots size="1.3em" />
+                                            <Row style={{ float: "left", marginRight: 25 }}>
+                                                <p>{desk.comments.length} &nbsp;</p>
+                                                <FaRegCommentDots size="1.3em" />
                                             </Row>)}
                                         <Likes desk={desk} />
                                     </div>

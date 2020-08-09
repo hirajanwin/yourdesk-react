@@ -42,7 +42,7 @@ function Header() {
             <Nav.Link href={`/profile/${user.sub}`}><FaUserAlt /> Profile</Nav.Link>
             <Nav.Link onClick={handleSignOut}> <GoSignOut /> Sign Out</Nav.Link>
             &nbsp;
-            {<Image style={{ width: "40px", height: "40px" }} src={user_img} alt="" roundedCircle />}
+            {<a href={`/profile/${user.sub}`}><Image style={{ width: "40px", height: "40px" }} src={user_img} alt="" roundedCircle /></a>}
         </div>
 
     );

@@ -39,8 +39,8 @@ export default function Explore() {
 
             <div className="DeskGrid">
                 {groupedDesks.map((desks, i) => {
-                    return (<Row>
-                        {desks.map(desk => <DeskCard key={i} desk={desk} />)}
+                    return (<Row key={i}>
+                        {desks.map(desk => <DeskCard desk={desk} />)}
                     </Row>);
                 })}
             </div>

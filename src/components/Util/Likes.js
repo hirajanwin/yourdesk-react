@@ -13,8 +13,8 @@ export default function Likes({ desk }) {
     const { user, loginWithPopup } = useAuth0();
     const [toggleLikeDesk] = useMutation(TOGGLE_LIKE_DESK);
 
-    const notLiked = <FaRegHeart size="1.3em" onClick={toggleLike} />;
-    const liked = <FaHeart color="#ED4955" size="1.3em" onClick={toggleLike} />;
+    const notLiked = <FaRegHeart size="1.3em" />;
+    const liked = <FaHeart color="#ED4955" size="1.3em" />;
 
     function toggleLike(e) {
         // Prevent inner onclick to trigger outer onclick
@@ -37,10 +37,11 @@ export default function Likes({ desk }) {
 
     return (
         <Row className="LikeRow" onClick={toggleLike}>
-            <p>{desk.likes.length}</p>&nbsp;
+            <p  >{desk.likes.length}&nbsp;
             {user ?
-                (desk.likes.includes(user.sub) ? liked : notLiked) :
-                notLiked}
+                    (desk.likes.includes(user.sub) ? liked : notLiked) :
+                    notLiked}
+            </p>
         </Row>
     )
 }
