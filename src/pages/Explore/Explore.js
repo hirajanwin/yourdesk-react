@@ -11,18 +11,18 @@ export default function Explore() {
     let desks = data ? data.deskMany : [];
 
     // Group into list of lists of desks to fit formatting of grid below
-    // let groupedDesks = [];
-    // let groupSize = 2;
-    // for (let i = 0; i < desks.length; i++) {
-    //     if (i % groupSize === 0) {
-    //         groupedDesks.push([])
-    //     }
-    //     groupedDesks[groupedDesks.length - 1].push(desks[i]);
-    // }
+    let groupedDesks = [];
+    let groupSize = 2;
+    for (let i = 0; i < desks.length; i++) {
+        if (i % groupSize === 0) {
+            groupedDesks.push([])
+        }
+        groupedDesks[groupedDesks.length - 1].push(desks[i]);
+    }
 
     return (
         <div className="ContentBody">
-            <Form className="ExploreSearchBar">
+            {/* <Form className="ExploreSearchBar">
                 <Row>
                     <Col>
                         <Form.Group controlId="search">
@@ -35,10 +35,14 @@ export default function Explore() {
                         Search
                     </Button>
                 </Row>
-            </Form>
+            </Form> */}
 
             <div className="DeskGrid">
-                {desks.map((desk, i) => <DeskCard key={i} desk={desk} />)}
+                {groupedDesks.map((desks, i) => {
+                    return (<Row>
+                        {desks.map(desk => <DeskCard key={i} desk={desk} />)}
+                    </Row>);
+                })}
             </div>
         </div>
     );

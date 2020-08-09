@@ -21,7 +21,6 @@ export default function Likes({ desk }) {
         if (!e) e = window.event;
         e.cancelBubble = true;
         if (e.stopPropagation) e.stopPropagation();
-
         if (!user) {
             loginWithPopup();
             return;
@@ -37,7 +36,7 @@ export default function Likes({ desk }) {
     }
 
     return (
-        <Row className="LikeRow">
+        <Row className="LikeRow" onClick={toggleLike}>
             <p>{desk.likes.length}</p>&nbsp;
             {user ?
                 (desk.likes.includes(user.sub) ? liked : notLiked) :

@@ -1,6 +1,8 @@
 .DeskGrid {
+    margin: 0 auto;
+    max-width: 600px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 

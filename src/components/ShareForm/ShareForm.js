@@ -91,7 +91,7 @@ export default function ShareForm(props) {
                             }).then(
                                 (payload) => {
                                     let { error, data } = payload;
-                                    console.log(payload);
+                                    let newDeskId = data.deskCreateOne.recordId;
                                     if (error) {
                                         alert("Error creating desk!");
                                         console.log(error);
@@ -101,7 +101,7 @@ export default function ShareForm(props) {
                                         // Cleanup after yourself
                                         onSuccessfulUpload();
                                         dispatch(clearAllDeskProducts());
-                                        history.push("/desk/" + user.sub + "/" + data.deskCreateOne.recordId);
+                                        history.push("/desk/" + user.sub + "/" + newDeskId);
                                     }
                                 }
                             )
@@ -131,12 +131,11 @@ export default function ShareForm(props) {
                         } else {
                             console.log("Creating desk was a success!");
                             let newDeskId = data.deskCreateOne.recordId;
-                            console.log(newDeskId);
                             // Cleanup after yourself
                             onSuccessfulUpload();
                             dispatch(clearAllDeskProducts());
 
-                            history.push("/desk/" + desk.user.user_id + "/" + desk._id);
+                            history.push("/desk/" + user.sub + "/" + newDeskId);
                         }
                     }
                 ).catch(e => {

@@ -52,7 +52,9 @@ function Header() {
         <Navbar collapseOnSelect expand="lg" bg={light ? "white" : "dark"} variant={light ? "light" : "dark"} className="Header">
             <Navbar.Brand href="/" className="HeaderLogo" style={{ fontSize: "170%" }}>
                 My Desk Tour
-                <Badge style={{ marginLeft: 5, fontFamily: "arial", display: "inline", fontSize: "50%" }} variant="danger" size="sm">Beta</Badge>
+                <Badge
+                    style={{ marginLeft: 8, fontFamily: "arial", display: "inline", fontSize: "50%" }}
+                    variant="danger" size="sm">Beta</Badge>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
