@@ -176,7 +176,7 @@ export default function ShareForm(props) {
             </Form.Group>
 
             <Form.Group controlId="about">
-                <Form.Label style={{ marginBottom: 0 }}>Tell us about your desk.</Form.Label>
+                <Form.Label style={{ marginBottom: 0 }}>Tell us about your desk.</Form.Label><br/>
                 <Form.Label style={{ fontSize: "80%" }}>What do you do on it? Which products could you not live without?</Form.Label>
                 <Form.Control as="textarea" rows="2" />
             </Form.Group>

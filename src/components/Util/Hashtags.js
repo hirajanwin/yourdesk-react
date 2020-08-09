@@ -40,10 +40,15 @@ function getColor(hashtag) {
 }
 
 const rainbow = "linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)";
+const redBlue = "linear-gradient(45deg, red, blue)"
+const niceIg = "linear-gradient(45deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)"
+const megatron = "linear-gradient(135deg, #000046, #1cb5e0)"
 
 const customImages = {
-    fbintern: rainbow,
-    fbinterns2020: rainbow,
+    fbintern: niceIg,
+    fbinterns2020: niceIg,
+    facebook: redBlue,
+    thicczucc: megatron,
 }
 
 function getImage(hashtag) {
