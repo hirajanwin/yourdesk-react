@@ -24,7 +24,7 @@ export default function DeskCard({ desk, notLikeable }) {
     const profilePicture = (desk && desk.user && desk.user.picture) &&
         <Image src={desk.user.picture} style={{ width: "30px", height: "30px" }} alt="" roundedCircle />
 
-    let date = new Date(desk.date_created).toLocaleDateString("en-US");
+    let date = new Date(desk.date_created).toDateString("en-US");
 
     function deleteButton(e) {
         // Prevent inner onclick to trigger outer onclick

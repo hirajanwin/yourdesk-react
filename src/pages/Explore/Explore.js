@@ -12,6 +12,10 @@ export default function Explore() {
     });
     let desks = data ? data.deskMany : [];
 
+    desks = desks.sort((a, b) => {
+        return new Date(b.date_created) - new Date(a.date_created);
+    });
+
     // Group into list of lists of desks to fit formatting of grid below
     let groupedDesks = [];
     let groupSize = 2;
@@ -42,7 +46,7 @@ export default function Explore() {
             <div className="DeskGrid">
                 {groupedDesks.map((desks, i) => {
                     return (<Row key={i}>
-                        {desks.map(desk => <DeskCard desk={desk} />)}
+                        {desks.map((desk, ii) => <DeskCard key={ii} desk={desk} />)}
                     </Row>);
                 })}
             </div>
