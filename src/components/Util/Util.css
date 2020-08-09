@@ -38,7 +38,7 @@
     float: left;
 }
 
-.LikeRow > svg {
+.LikeRow > p > svg {
     cursor: pointer;
 }
 
