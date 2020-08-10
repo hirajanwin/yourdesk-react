@@ -77,6 +77,7 @@ export default function Canvas(props) {
             )}
             </Layer>
         </Stage>
+        {props.share && <p>Click on the image to tag a product!</p>}
       </div>
   )
 }
