@@ -1,6 +1,6 @@
 import React from 'react';
 import DeskCard from '../../components/DeskCard/DeskCard';
-import { Form, Button, Col, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { GET_DESKS } from '../../util/api';
 import { useQuery } from '@apollo/react-hooks';
 import "./Explore.css";
@@ -8,6 +8,11 @@ import "./Explore.css";
 
 export default function Explore() {
     const { data } = useQuery(GET_DESKS, {
+        variables: {
+            filter: {
+                approved: true,
+            }
+        },
         pollInterval: 300
     });
     let desks = data ? data.deskMany : [];

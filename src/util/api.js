@@ -7,40 +7,41 @@ export const URI = process.env.NODE_ENV === 'development' ? 'http://localhost:30
 // ======================================== DESK ========================================
 
 export const GET_DESKS = gql`
-{
-    deskMany {
-      _id
-      date_created
-      img
-      about
+query DesksByUser($filter: FilterFindManyDeskInput!) {
+  deskMany(filter: $filter) {
+    _id
+    date_created
+    img
+    about
+    name
+    hashtags
+    approved
+    likes
+    comments {
+      userId
+    }
+    user {
+      user_id
+      picture
       name
-      hashtags
-      likes
-      comments {
-        userId
-      }
-      user {
-        user_id
-        picture
-        name
-      }
-      desk_products {
-        pros
-        cons
-        coordX
-        coordY
-        product {
-          title
-          _id
-          image
-          prices {
-            raw
-            currency
-            value
-          }
+    }
+    desk_products {
+      pros
+      cons
+      coordX
+      coordY
+      product {
+        title
+        _id
+        image
+        prices {
+          raw
+          currency
+          value
         }
       }
     }
+  }
 }
 `
 
@@ -52,6 +53,7 @@ query DesksByUser($userId: String!) {
     img
     name
     hashtags
+    approved
     about
     likes
     user {
@@ -77,6 +79,7 @@ export const GET_DESKS_WITH_PRODUCTS = gql`
 query {
   deskMany {
     about
+    approved
     user {
       name
       user_id
@@ -106,6 +109,7 @@ query GetDesk($filter: FilterFindOneDeskInput!) {
     about
     date_created
     img
+    approved
     name
     comments {
       date

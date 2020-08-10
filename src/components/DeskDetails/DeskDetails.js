@@ -21,6 +21,9 @@ export default function DeskDetails(props) {
                         </p>
                         <p>{date}</p>
                         <p>{desk.about}</p>
+
+                        {!desk.approved && <b style={{color: "red"}}>This desk has not been approved yet. Only you can view it.</b>}
+
                         <Hashtags hashtags={desk.hashtags} block />
                         <div style={{paddingLeft: 15}}>
                             <Likes desk={desk} />

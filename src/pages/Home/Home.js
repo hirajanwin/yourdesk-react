@@ -25,10 +25,14 @@ function getRandomSample(array, size) {
 
 export default function Home() {
     const { data: dataDesks } = useQuery(GET_DESKS, {
-        pollInterval: 1000,
+        variables: {
+            filter: {
+                featured: true,
+            }
+        },
     });
     const { data } = useQuery(GET_PRODUCTS);
-    let featuredDesks = dataDesks ? dataDesks.deskMany.filter(desk => desk.hashtags.includes("featured")) : [];
+    let featuredDesks = dataDesks ? dataDesks.deskMany : [];
     let featuredProducts = data ? getRandomSample(data.productMany, 5) : [];
     featuredDesks = featuredDesks.filter(desk => desk !== undefined);
     var w = window.innerWidth;

@@ -116,6 +116,7 @@ export default function ShareForm(props) {
                     img: url,
                     date_created: new Date(),
                     hashtags: hashtags,
+                    approved: false,
                 }
                 console.log(desk);
                 // Finally create the desk object
