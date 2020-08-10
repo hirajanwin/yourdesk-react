@@ -6,7 +6,7 @@ import { useAuth0 } from "../../util/react-auth0-spa";
 import { useMutation } from '@apollo/react-hooks';
 import Likes from '../Util/Likes';
 
-import { DELETE_DESK } from '../../util/api';
+import { DELETE_DESK, APPROVE_DESK } from '../../util/api';
 import { FaRegCommentDots } from 'react-icons/fa';
 
 import "./DeskCard.css"
@@ -16,6 +16,7 @@ export default function DeskCard({ desk, notLikeable }) {
     const history = useHistory();
     const { user } = useAuth0();
     const [deleteDesk] = useMutation(DELETE_DESK);
+    const [approveDesk] = useMutation(APPROVE_DESK);
 
     const handleClick = () => {
         history.push("/desk/" + desk.user.user_id + "/" + desk._id);
@@ -43,6 +44,27 @@ export default function DeskCard({ desk, notLikeable }) {
             }
         })
         setTimeout(() => window.location.reload(false), 500);
+    }
+
+    function approveButton(e) {
+        // Prevent inner onclick to trigger outer onclick
+        if (!e) e = window.event;
+        e.cancelBubble = true;
+        if (e.stopPropagation) e.stopPropagation();
+
+        approveDesk({
+            variables: {
+                record: {
+                    approved: true
+                },
+                filter: {
+                    _id: desk._id
+                }
+            }
+        }).then(() => {
+            window.location.reload();
+        })
+
     }
 
     return (
@@ -75,6 +97,12 @@ export default function DeskCard({ desk, notLikeable }) {
                                             </Row>)}
                                         <Likes desk={desk} />
                                     </div>
+                            }
+
+                            {
+                                !desk.approved && user && user.sub === "google-oauth2|116860243559583177702" && (
+                                    <button onClick={approveButton}>Approve</button>
+                                )
                             }
                         </div>
                     </Row>

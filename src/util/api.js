@@ -174,6 +174,16 @@ mutation DeleteDesk($deskId: MongoID!, $deskProductIds: [MongoID]!) {
   }
 `
 
+export const APPROVE_DESK = gql`
+mutation approveDesk($record: UpdateOneDeskInput!, $filter: FilterUpdateOneDeskInput){
+	deskUpdateOne(record:$record, filter: $filter) {
+    record {
+      approved
+    }
+  }
+}
+`
+
 // ======================================== PRODUCT ========================================
 
 

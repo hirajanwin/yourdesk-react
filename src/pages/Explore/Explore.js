@@ -3,15 +3,15 @@ import DeskCard from '../../components/DeskCard/DeskCard';
 import { Row } from 'react-bootstrap';
 import { GET_DESKS } from '../../util/api';
 import { useQuery } from '@apollo/react-hooks';
+import { useAuth0 } from "../../util/react-auth0-spa";
 import "./Explore.css";
 
 
 export default function Explore() {
+    const { user } = useAuth0();
     const { data } = useQuery(GET_DESKS, {
         variables: {
-            filter: {
-                approved: true,
-            }
+            filter: {}
         },
         pollInterval: 300
     });
@@ -20,6 +20,9 @@ export default function Explore() {
     desks = desks.sort((a, b) => {
         return new Date(b.date_created) - new Date(a.date_created);
     });
+
+    desks = desks.filter(desk => desk.approved || (user && user.sub === "google-oauth2|116860243559583177702"));
+
 
     // Group into list of lists of desks to fit formatting of grid below
     let groupedDesks = [];
