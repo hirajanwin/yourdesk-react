@@ -80,7 +80,7 @@ export default function DeskCard({ desk, notLikeable }) {
                         <div style={{ display: "flex", flexDirection: "row" }}>
                             {profilePicture} &nbsp;
                             <div className="DeskCardHeader">
-                                <h6>{(desk && desk.user && desk.user.picture) && desk.user.name}</h6>
+                                <h6>{(desk && desk.user && desk.user.picture) && desk.user.name.split("@")[0]}</h6>
                                 <p>{date}</p>
                             </div>
                         </div>

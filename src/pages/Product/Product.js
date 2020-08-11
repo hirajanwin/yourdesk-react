@@ -67,7 +67,7 @@ export default function Desk(props) {
                                 let { pros, cons } = deskProduct;
                                 return (
                                     <div>
-                                        {(pros || cons) && <p><i>{user.name} said:</i></p>}
+                                        {(pros || cons) && <p><i>{user.name.split("@")[0]} said:</i></p>}
                                         {pros && <p><b>Pros:</b> {pros}</p>}
                                         {cons && <p><b>Cons:</b> {cons}</p>}
                                     </div>

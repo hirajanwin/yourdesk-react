@@ -59,7 +59,7 @@ export default function CommentSection({desk, show}) {
                                 {user && <div className="Comment">
                                     {profilePicture}
                                     <div className="CommentDetails">
-                                        <p><a href={`/profile/${user.user_id}`}>{user.name}</a></p>
+                                        <p><a href={`/profile/${user.user_id}`}>{user.name.split("@")[0]}</a></p>
                                         <p className="Date">{new Date(date).toDateString()}</p>
                                     </div>
                                     <div className="CommentComment">

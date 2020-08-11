@@ -35,7 +35,7 @@ export default function ShareForm(props) {
         // Extract share form properties
         const form = event.currentTarget;
         let properties = {
-            name: user ? user.name + "'s Desk" : "New User's Desk",
+            name: user ? user.name.split("@")[0] + "'s Desk" : "New User's Desk",
             about: "None",
         };
         for (let i = 0; i < form.elements.length; i++) {

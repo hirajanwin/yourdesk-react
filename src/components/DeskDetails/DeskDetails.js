@@ -17,7 +17,7 @@ export default function DeskDetails(props) {
                             <b>{desk.name}</b>
                         </p>
                         <p style={{ fontSize: 20 }}>
-                            <a style={{ color: "black" }} href={`/profile/${desk.user.user_id}`}>{desk.user.name}</a>
+                            <a style={{ color: "black" }} href={`/profile/${desk.user.user_id}`}>{desk.user.name.split("@")[0]}</a>
                         </p>
                         <p>{date}</p>
                         <p>{desk.about}</p>

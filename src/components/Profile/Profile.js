@@ -30,7 +30,7 @@ function Profile(props) {
         {data.getUserById &&
           <Card style={{ margin: 10, padding: 10, minWidth: 300, textAlign: "left" }}>
             <Image src={data.getUserById.picture} style={{ width: "100px", height: "100px" }} alt="Profile" />
-            <h2>{data.getUserById.name}</h2>
+            <h2>{data.getUserById.name.split("@")[0]}</h2>
             <p>Published desks: {data.deskMany.length.toString()} </p>
           </Card>}
         {<div className="ProfileDesks">
