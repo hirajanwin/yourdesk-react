@@ -21,7 +21,7 @@ export default function Charts() {
                 limit: 10
             }
         });
-    let topDesks = dataDesks ? dataDesks.deskMany.sort((a, b) => a.likes.length - b.likes.length).slice(0, 5) : [];
+    let topDesks = dataDesks ? dataDesks.deskMany : [];
     let topProducts = data ? data.productMany : [];
 
     return (
