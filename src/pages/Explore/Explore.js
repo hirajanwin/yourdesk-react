@@ -13,7 +13,6 @@ export default function Explore() {
         variables: {
             filter: {}
         },
-        pollInterval: 300
     });
     let desks = data ? data.deskMany : [];
 

@@ -18,7 +18,6 @@ export default function Desk(props) {
                 user: username
             }
         },
-        pollInterval: 300,
     });
     let desk = data ? data.deskOne : null;
 

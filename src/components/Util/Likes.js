@@ -31,8 +31,9 @@ export default function Likes({ desk }) {
                 user: user.sub,
                 id: desk._id
             }
+        }).then(() => {
+            window.location.reload();
         });
-        // setTimeout(() => window.location.reload(false), 500);
     }
 
     return (
