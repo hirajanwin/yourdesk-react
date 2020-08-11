@@ -31,7 +31,11 @@ export default function Home() {
             }
         },
     });
-    const { data } = useQuery(GET_PRODUCTS);
+    const { data } = useQuery(GET_PRODUCTS, {
+        variables: {
+            limit: 10
+        }
+    });
     let featuredDesks = dataDesks ? dataDesks.deskMany : [];
     let featuredProducts = data ? getRandomSample(data.productMany, 5) : [];
     featuredDesks = featuredDesks.filter(desk => desk !== undefined);

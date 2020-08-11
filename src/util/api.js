@@ -188,18 +188,18 @@ mutation approveDesk($record: UpdateOneDeskInput!, $filter: FilterUpdateOneDeskI
 
 
 export const GET_PRODUCTS = gql`
-{
-    productMany {
-      _id
-      link
-      title
-      prices {
-        symbol
-        value
-      }
-      image
+query GetAllProducts($limit: Int) {
+  productMany(limit:$limit, sort:_ID_ASC, skip: 86) {
+    _id
+    link
+    title
+    prices {
+      symbol
+      value
     }
+    image
   }
+}
 `
 
 export const GET_PRODUCT = gql`

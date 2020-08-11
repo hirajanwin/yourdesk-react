@@ -14,7 +14,11 @@ export default function ProductModal() {
   const { currentDeskProduct } = useSelector(store => store.currentDeskProduct);
   const showModal = useSelector(store => store.currentDeskProduct.show);
 
-  const { data, refetch } = useQuery(GET_PRODUCTS);
+  const { data, refetch } = useQuery(GET_PRODUCTS, {
+    variables: {
+      limit: -1
+    }
+  });
   const [products, setProducts] = useState([]);
 
   const [showSearchResults, setShowSearchResults] = useState(false);

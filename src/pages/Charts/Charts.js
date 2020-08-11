@@ -8,24 +8,21 @@ import './Charts.css';
 
 function getRandom(length) { return Math.floor(Math.random() * (length)); }
 
-function getRandomSample(array, size) {
-    var length = array.length;
-
-    for (var i = size; i--;) {
-        var index = getRandom(length);
-        var temp = array[index];
-        array[index] = array[i];
-        array[i] = temp;
-    }
-
-    return array.slice(0, size);
-}
 
 export default function Charts() {
-    const { data: dataDesks } = useQuery(GET_DESKS);
-    const { data } = useQuery(GET_PRODUCTS);
-    let topDesks = dataDesks ? dataDesks.deskMany.sort((a, b) => a.likes.length - b.likes.length).slice(0, 10) : [];
-    let topProducts = data ? getRandomSample(data.productMany, 10) : [];
+    const { data: dataDesks } = useQuery(GET_DESKS, {
+        variables: {
+            filter: {}
+        },
+    });
+    const { data } = useQuery(GET_PRODUCTS,
+        {
+            variables: {
+                limit: 10
+            }
+        });
+    let topDesks = dataDesks ? dataDesks.deskMany.sort((a, b) => a.likes.length - b.likes.length).slice(0, 5) : [];
+    let topProducts = data ? data.productMany : [];
 
     return (
         <div className="ContentBody">
